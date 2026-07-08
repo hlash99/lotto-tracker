@@ -1,5 +1,9 @@
 {
+<<<<<<< Updated upstream
  "updated": "2026-07-08T21:19:58+00:00",
+=======
+ "updated": "2026-07-08T21:44:50+00:00",
+>>>>>>> Stashed changes
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,6 +176,7 @@
   "picks": [
    {
     "whites": [
+<<<<<<< Updated upstream
      26,
      27,
      38,
@@ -207,11 +212,49 @@
      54,
      57,
      67
+=======
+     29,
+     33,
+     37,
+     47,
+     64
+    ],
+    "special": 24
+   },
+   {
+    "whites": [
+     21,
+     43,
+     47,
+     50,
+     63
+    ],
+    "special": 3
+   },
+   {
+    "whites": [
+     5,
+     9,
+     17,
+     38,
+     41
+    ],
+    "special": 11
+   },
+   {
+    "whites": [
+     7,
+     37,
+     56,
+     58,
+     59
+>>>>>>> Stashed changes
     ],
     "special": 12
    },
    {
     "whites": [
+<<<<<<< Updated upstream
      23,
      34,
      39,
@@ -219,6 +262,15 @@
      60
     ],
     "special": 7
+=======
+     3,
+     23,
+     27,
+     47,
+     63
+    ],
+    "special": 22
+>>>>>>> Stashed changes
    }
   ],
   "order_test": {
@@ -251,6 +303,176 @@
     }
    ],
    "dependence_detected": false
+  },
+  "cluster": {
+   "window": 200,
+   "window_dates": [
+    "2025-03-29",
+    "2026-07-06"
+   ],
+   "pools": [
+    [
+     15,
+     18,
+     13
+    ],
+    [
+     17,
+     19,
+     20
+    ],
+    [
+     28,
+     38,
+     48
+    ],
+    [
+     50,
+     53,
+     52
+    ],
+    [
+     44,
+     48,
+     45
+    ]
+   ],
+   "tickets": [
+    {
+     "whites": [
+      18,
+      19,
+      38,
+      45,
+      53
+     ],
+     "positional": [
+      18,
+      19,
+      38,
+      53,
+      45
+     ],
+     "score": -82.3,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      17,
+      18,
+      45,
+      48,
+      53
+     ],
+     "positional": [
+      18,
+      17,
+      48,
+      53,
+      45
+     ],
+     "score": -82.3,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      18,
+      19,
+      45,
+      48,
+      53
+     ],
+     "positional": [
+      18,
+      19,
+      48,
+      53,
+      45
+     ],
+     "score": -82.3,
+     "best_past_overlap": 4
+    },
+    {
+     "whites": [
+      17,
+      18,
+      38,
+      45,
+      53
+     ],
+     "positional": [
+      18,
+      17,
+      38,
+      53,
+      45
+     ],
+     "score": -82.3,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      18,
+      19,
+      38,
+      45,
+      52
+     ],
+     "positional": [
+      18,
+      19,
+      38,
+      52,
+      45
+     ],
+     "score": -82.3,
+     "best_past_overlap": 3
+    }
+   ],
+   "special_pick": 3,
+   "special_cluster": [
+    1,
+    8
+   ],
+   "backtest": {
+    "window": 200,
+    "tested": 1177,
+    "tickets": 5885,
+    "tallies": [
+     3871,
+     1782,
+     227,
+     5,
+     0,
+     0
+    ],
+    "mean_matches": 0.3825,
+    "random_mean": 0.3623,
+    "mean_ratio": 1.0557,
+    "obs3": 5,
+    "exp3": 10.72,
+    "z3": -1.75,
+    "special_hits": 37,
+    "special_preds": 1177,
+    "special_rate": 0.0314,
+    "special_random": 0.0385
+   },
+   "tuning": {
+    "tuned": "2026-07-08",
+    "windows_swept": [
+     50,
+     75,
+     100,
+     150,
+     200,
+     300
+    ],
+    "train_mean_ratio": 1.034,
+    "holdout_mean_ratio": 1.096,
+    "holdout_hits3": 0,
+    "holdout_hits3_expected": 3.77,
+    "verdict": "metrics disagree across slices \u2014 consistent with chance"
+   }
   }
  },
  "superlotto": {
@@ -417,6 +639,7 @@
   "picks": [
    {
     "whites": [
+<<<<<<< Updated upstream
      7,
      22,
      29,
@@ -464,8 +687,61 @@
      43
     ],
     "special": 2
+=======
+     15,
+     18,
+     29,
+     34,
+     44
+    ],
+    "special": 2
+   },
+   {
+    "whites": [
+     6,
+     7,
+     9,
+     29,
+     42
+    ],
+    "special": 15
+   },
+   {
+    "whites": [
+     7,
+     20,
+     26,
+     34,
+     37
+    ],
+    "special": 12
+   },
+   {
+    "whites": [
+     6,
+     19,
+     25,
+     29,
+     33
+    ],
+    "special": 2
+   },
+   {
+    "whites": [
+     23,
+     27,
+     30,
+     32,
+     34
+    ],
+    "special": 25
+>>>>>>> Stashed changes
    }
   ],
-  "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed."
+  "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
+  "cluster": {
+   "available": false,
+   "reason": "Cluster method requires drawn order. CA conducts mechanical draws but publishes sorted numbers only \u2014 no stream archive or drawing videos exist. A CPRA records request for the official draw sequence is the remaining path."
+  }
  }
 }

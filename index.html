@@ -61,6 +61,8 @@
 
   <div class="grid" id="grid"></div>
 
+  <div class="panel" style="margin-top:18px" id="clusterPanel"></div>
+
   <div class="panel" style="margin-top:18px" id="orderPanel"></div>
 
   <div class="honesty" id="honesty"></div>
@@ -122,6 +124,38 @@ function gamePanel(key, g, color, title, drawDays){
   </div>`;
 }
 
+function clusterPanel(c, slReason){
+  const bt = c.backtest, tun = c.tuning;
+  const chance = Math.abs(bt.z3) < 2 && bt.mean_ratio < 1.15;
+  const tickets = c.tickets.map((t,i)=>
+    `<div class="ticket"><span class="idx">${i+1}</span>${ballRow(t.whites, c.special_pick, "var(--pb)", true)}
+     <span class="note" style="margin:0 0 0 8px">best past overlap ${t.best_past_overlap}/5</span></div>`).join("");
+  const pools = c.pools.map((p,i)=>`<span class="chip"><b>pos${i+1}</b> ${p.join(", ")}</span>`).join("");
+  return `<div class="accentbar" style="background:var(--pb)"></div>
+    <h2>Cluster-method picks — pairwise density (f5.jsl port)</h2>
+    <p class="sub">All 10 position-pair KDEs on the last ${c.window} draws in drawn order
+      (${c.window_dates[0]} → ${c.window_dates[1]}), points selected at normalized density ≥ 0.94,
+      tickets ranked by summed log pair-density. Window tuned ${tun.tuned} by walk-forward sweep
+      (train ratio ${tun.train_mean_ratio}, holdout ${tun.holdout_mean_ratio}).
+      PB from the most-recently-active 1D cluster (${c.special_cluster[0]}–${c.special_cluster[1]}).</p>
+    <h3>Powerball suggestions (regenerated after every draw)</h3>
+    ${tickets}
+    <h3>Candidate pools by drawn position</h3>
+    <div class="chips">${pools}</div>
+    <h3>Rolling walk-forward backtest at this window</h3>
+    <table>
+      <tr><th>metric</th><th class="r">method</th><th class="r">random</th></tr>
+      <tr><td>mean white matches / ticket (${bt.tickets.toLocaleString()} tickets, ${bt.tested.toLocaleString()} draws)</td>
+          <td class="r">${bt.mean_matches}</td><td class="r">${bt.random_mean}</td></tr>
+      <tr><td>3+ ball hits</td><td class="r">${bt.obs3}</td><td class="r">${bt.exp3}</td></tr>
+      <tr><td>PB cluster-pick hit rate</td><td class="r">${bt.special_rate ?? "—"}</td><td class="r">${bt.special_random}</td></tr>
+    </table>
+    <div class="verdict ${chance?'ok':'warn'}">${chance
+      ? `Backtest verdict: performance is consistent with chance (z = ${bt.z3 >= 0 ? "+" : ""}${bt.z3} on 3+ hits) — these picks are the method faithfully applied, not a demonstrated edge`
+      : `Backtest deviates from chance (z = ${bt.z3}) — verify data before believing it`}</div>
+    <div class="note">SuperLotto: cluster picks disabled — ${slReason}</div>`;
+}
+
 function orderPanel(t){
   const rows = t.results.map(r=>`<tr><td>${r.name}</td>
     <td class="r">${r.observed}</td><td class="r">${r.null_mean}</td><td class="r">${fmtP(r.p)}</td></tr>`).join("");
@@ -149,6 +183,8 @@ fetch("data.json").then(r=>r.json()).then(d=>{
   document.getElementById("grid").innerHTML =
     gamePanel("powerball", d.powerball, "var(--pb)", "Powerball", "Mon · Wed · Sat") +
     gamePanel("superlotto", d.superlotto, "var(--slp)", "SuperLotto Plus", "Wed · Sat");
+  document.getElementById("clusterPanel").innerHTML =
+    clusterPanel(d.powerball.cluster, d.superlotto.cluster.reason);
   document.getElementById("orderPanel").innerHTML = orderPanel(d.powerball.order_test);
   document.getElementById("honesty").innerHTML =
     "<b>The honest fine print:</b> lottery draws are independent; no analysis of past results " +

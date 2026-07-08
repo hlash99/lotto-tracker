@@ -25,6 +25,14 @@ draw nights), commits fresh data, and GitHub Pages serves the result.
   over-played human patterns (all-birthday, arithmetic sequences, past
   jackpots). Doesn't change the odds — nothing can — only reduces expected
   jackpot splitting.
+- **Cluster-method picks** (`scripts/cluster_picker.py`, a port of the owner's
+  JMP `f5.jsl`): all 10 position-pair KDEs on recent drawn-order draws,
+  points selected at normalized density ≥ 0.94, tickets ranked by summed log
+  pair-density; PB from the most-recently-active 1D density cluster. Window
+  (200) tuned by a train/holdout walk-forward sweep; a rolling backtest is
+  published next to the picks — currently consistent with chance, and the
+  page says so. Powerball only: the method requires drawn order, which CA
+  does not publish for SuperLotto (CPRA records request is the open path).
 
 ## Layout
 

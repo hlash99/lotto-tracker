@@ -24,8 +24,22 @@ DATA = ROOT / "data"
 sys.path.insert(0, str(SCRIPTS))
 import picker  # noqa: E402
 import order_dependence_test as odt  # noqa: E402
+import cluster_picker as cp  # noqa: E402
 
 ORDER_TEST_PERMS = 5000
+
+# Cluster-method window, tuned 2026-07-08 by walk-forward sweep
+# (50/75/100/150/200/300) on the first 70% of history, validated on the
+# held-out 30%. w=200 had the best mean-match ratio on BOTH slices
+# (train 1.034, holdout 1.096) but zero 3+ hits in holdout (3.8 expected) —
+# metrics disagree, so treat as no demonstrated edge. See data.json tuning.
+CLUSTER_WINDOW = 200
+CLUSTER_TUNING = {
+    "tuned": "2026-07-08", "windows_swept": [50, 75, 100, 150, 200, 300],
+    "train_mean_ratio": 1.034, "holdout_mean_ratio": 1.096,
+    "holdout_hits3": 0, "holdout_hits3_expected": 3.77,
+    "verdict": "metrics disagree across slices — consistent with chance",
+}
 
 
 def run(script, *args):
@@ -115,6 +129,37 @@ def latest_block(game_key):
             "special": int(last["mega"])}
 
 
+def cluster_block():
+    """f5.jsl-style pairwise-KDE cluster picks + rolling walk-forward backtest.
+       Powerball only: the method requires drawn order, which CA does not
+       publish for SuperLotto."""
+    game = dict(cp.GAMES["powerball"])
+    game["csv"] = str(DATA / "drawn_order.csv")
+    dates, whites, specials = cp.load(game)
+    W = CLUSTER_WINDOW
+
+    tix, pools = cp.suggest_whites(whites[-W:], 0.94, 3, 5)
+    pred, active, members = cp.suggest_special(specials[-W:], game["special_max"])
+    hist_sets = [frozenset(int(v) for v in w) for w in whites]
+    tickets = []
+    for s, combo in tix:
+        best = max(len(hs & set(combo)) for hs in hist_sets)
+        tickets.append({"whites": sorted(set(combo)), "positional": list(combo),
+                        "score": round(s, 1), "best_past_overlap": best})
+
+    bt = cp.run_backtest(whites, specials, game, W, 0.94, 3, 5)
+    return {
+        "window": W,
+        "window_dates": [dates[-W], dates[-1]],
+        "pools": pools,
+        "tickets": tickets,
+        "special_pick": pred,
+        "special_cluster": [members[0], members[-1]],
+        "backtest": bt,
+        "tuning": CLUSTER_TUNING,
+    }
+
+
 def main():
     run("fetch_official_results.py", "--out", str(DATA / "official_results.csv"))
     run("fetch_drawn_order.py", "--out", str(DATA / "drawn_order.csv"),
@@ -139,9 +184,17 @@ def main():
         }
 
     out["powerball"]["order_test"] = order_test_block()
+    out["powerball"]["cluster"] = cluster_block()
     out["superlotto"]["order_note"] = (
         "CA Lottery publishes SuperLotto numbers sorted; drawn order is not "
         "available from any official feed.")
+    out["superlotto"]["cluster"] = {
+        "available": False,
+        "reason": ("Cluster method requires drawn order. CA conducts mechanical "
+                   "draws but publishes sorted numbers only — no stream archive "
+                   "or drawing videos exist. A CPRA records request for the "
+                   "official draw sequence is the remaining path."),
+    }
 
     with open(ROOT / "data.json", "w") as f:
         json.dump(out, f, indent=1)

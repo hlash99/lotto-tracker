@@ -25,7 +25,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install deps
-        run: pip install numpy certifi
+        run: pip install numpy scipy certifi
       - name: Refresh data and analysis
         run: python scripts/update.py
       - name: Commit if changed
