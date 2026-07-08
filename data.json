@@ -1,9 +1,5 @@
 {
-<<<<<<< Updated upstream
- "updated": "2026-07-08T21:19:58+00:00",
-=======
- "updated": "2026-07-08T21:44:50+00:00",
->>>>>>> Stashed changes
+ "updated": "2026-07-08T21:46:32+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -176,101 +172,53 @@
   "picks": [
    {
     "whites": [
-<<<<<<< Updated upstream
-     26,
+     2,
+     13,
+     18,
      27,
-     38,
-     47,
-     68
+     50
     ],
-    "special": 12
+    "special": 6
    },
    {
     "whites": [
-     6,
-     33,
-     42,
-     65,
-     67
-    ],
-    "special": 16
-   },
-   {
-    "whites": [
-     21,
-     26,
-     36,
-     39,
-     68
-    ],
-    "special": 19
-   },
-   {
-    "whites": [
-     17,
-     20,
-     54,
-     57,
-     67
-=======
-     29,
-     33,
-     37,
-     47,
+     4,
+     28,
+     34,
+     35,
      64
     ],
-    "special": 24
+    "special": 7
    },
    {
     "whites": [
-     21,
-     43,
-     47,
-     50,
-     63
-    ],
-    "special": 3
-   },
-   {
-    "whites": [
-     5,
+     3,
+     7,
      9,
-     17,
-     38,
-     41
+     33,
+     65
     ],
-    "special": 11
+    "special": 1
    },
    {
     "whites": [
      7,
-     37,
-     56,
-     58,
-     59
->>>>>>> Stashed changes
+     13,
+     14,
+     15,
+     42
     ],
-    "special": 12
+    "special": 1
    },
    {
     "whites": [
-<<<<<<< Updated upstream
-     23,
      34,
-     39,
-     40,
-     60
+     38,
+     55,
+     56,
+     59
     ],
-    "special": 7
-=======
-     3,
-     23,
-     27,
-     47,
-     63
-    ],
-    "special": 22
->>>>>>> Stashed changes
+    "special": 16
    }
   ],
   "order_test": {
@@ -639,103 +587,53 @@
   "picks": [
    {
     "whites": [
-<<<<<<< Updated upstream
-     7,
-     22,
-     29,
+     11,
+     12,
+     30,
      38,
      46
+    ],
+    "special": 22
+   },
+   {
+    "whites": [
+     13,
+     15,
+     16,
+     22,
+     41
     ],
     "special": 9
    },
    {
     "whites": [
-     3,
-     13,
-     15,
-     23,
-     36
+     7,
+     17,
+     21,
+     33,
+     47
     ],
     "special": 7
    },
    {
     "whites": [
-     1,
-     11,
-     16,
-     42,
+     6,
+     13,
+     17,
+     28,
+     39
+    ],
+    "special": 1
+   },
+   {
+    "whites": [
+     6,
+     25,
+     43,
+     46,
      47
     ],
-    "special": 20
-   },
-   {
-    "whites": [
-     9,
-     22,
-     25,
-     29,
-     38
-    ],
     "special": 16
-   },
-   {
-    "whites": [
-     5,
-     14,
-     19,
-     34,
-     43
-    ],
-    "special": 2
-=======
-     15,
-     18,
-     29,
-     34,
-     44
-    ],
-    "special": 2
-   },
-   {
-    "whites": [
-     6,
-     7,
-     9,
-     29,
-     42
-    ],
-    "special": 15
-   },
-   {
-    "whites": [
-     7,
-     20,
-     26,
-     34,
-     37
-    ],
-    "special": 12
-   },
-   {
-    "whites": [
-     6,
-     19,
-     25,
-     29,
-     33
-    ],
-    "special": 2
-   },
-   {
-    "whites": [
-     23,
-     27,
-     30,
-     32,
-     34
-    ],
-    "special": 25
->>>>>>> Stashed changes
    }
   ],
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
