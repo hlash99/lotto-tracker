@@ -107,6 +107,20 @@ def main():
         rows_out.append([date] + whites + [pb, power_play])
         written += 1
 
+    # Drawn-order guard: a random permutation of 5 balls is ascending only
+    # 1/120 of the time (~0.8%). If a large share of rows arrives ascending,
+    # the feed has switched to sorted numbers and drawn order is LOST —
+    # fail loudly rather than silently archive sorted data.
+    asc = sum(1 for r in rows_out if r[1:6] == sorted(r[1:6]))
+    if rows_out and asc / len(rows_out) > 0.05:
+        raise SystemExit(
+            f"ORDER GUARD TRIPPED: {asc}/{len(rows_out)} rows ascending "
+            f"({100 * asc / len(rows_out):.1f}%) — TX feed looks SORTED, "
+            f"not drawn order. Refusing to write {args.out}.")
+    print(f"Order guard OK: {asc}/{len(rows_out)} ascending rows "
+          f"({100 * asc / max(1, len(rows_out)):.2f}%, random-order rate is ~0.8%)",
+          file=sys.stderr)
+
     rows_out.sort(key=lambda r: r[0])
     with open(args.out, "w", newline="") as f:
         w = csv.writer(f)
