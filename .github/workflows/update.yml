@@ -1,0 +1,41 @@
+name: update
+
+# Server-side refresh: pull the latest Powerball (sorted + drawn-order) and
+# SuperLotto Plus results, rerun the analysis, and publish data.json.
+# Powerball draws Mon/Wed/Sat ~11pm ET; SuperLotto Wed/Sat ~8pm PT.
+on:
+  schedule:
+    - cron: '0 5 * * *'    # 10pm PT — catches same-evening CA results
+    - cron: '0 13 * * *'   # 6am PT — catches overnight Powerball postings
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: pip install numpy certifi
+      - name: Refresh data and analysis
+        run: python scripts/update.py
+      - name: Commit if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json data/
+          if ! git diff --cached --quiet; then
+            git commit -m "refresh: lotto results $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          else
+            echo "no change"
+          fi

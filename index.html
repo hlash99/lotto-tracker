@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lotto Tracker · Powerball & SuperLotto Plus</title>
+<style>
+  /* dark-navy palette — matches hlash99.github.io */
+  :root{--bg:#0a141f;--surface:#121f30;--surface2:#16273c;--line:rgba(255,255,255,.08);
+        --ink:#eaf2fc;--muted:#8fa6bd;--accent:#3ec9c4;--pb:#E24B4A;--slp:#E8B93E;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.45}
+  .wrap{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+  header h1{margin:0;font-size:26px}
+  header p{color:var(--muted);margin:6px 0 0;font-size:14px}
+  header a{color:var(--accent);text-decoration:none}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative;overflow:hidden}
+  .accentbar{position:absolute;top:0;left:0;right:0;height:3px}
+  .panel h2{margin:2px 0 2px;font-size:18px}
+  .sub{color:var(--muted);font-size:12.5px;margin:0 0 14px}
+  h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:20px 0 8px;font-weight:600}
+  .balls{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+  .ball{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#0a141f;
+    display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:14.5px}
+  .ball.sp{color:#fff}
+  .ball.sm{width:29px;height:29px;font-size:12.5px}
+  .note{color:var(--muted);font-size:12.5px;margin-top:6px}
+  .bars .row{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:12.5px}
+  .bars .num{width:22px;text-align:right;color:var(--ink);font-weight:600}
+  .bars .track{flex:1;background:var(--surface2);border-radius:4px;height:14px;position:relative}
+  .bars .fill{height:100%;border-radius:4px 3px 3px 4px}
+  .bars .ct{width:34px;color:var(--muted)}
+  .chips{display:flex;gap:6px;flex-wrap:wrap}
+  .chip{background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:3px 8px;font-size:12.5px;color:var(--muted)}
+  .chip b{color:var(--ink);font-weight:600}
+  .verdict{display:inline-block;border-radius:8px;padding:4px 10px;font-size:12.5px;font-weight:600;margin-top:8px}
+  .verdict.ok{background:rgba(62,201,196,.12);color:var(--accent);border:1px solid rgba(62,201,196,.3)}
+  .verdict.warn{background:rgba(232,185,62,.12);color:var(--slp);border:1px solid rgba(232,185,62,.3)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px}
+  th{color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;text-align:left;font-weight:600;padding:5px 8px 5px 0}
+  td{padding:5px 8px 5px 0;border-top:1px solid var(--line)}
+  td.r,th.r{text-align:right}
+  .ticket{display:flex;gap:6px;align-items:center;margin:7px 0}
+  .ticket .idx{color:var(--muted);font-size:11.5px;width:14px}
+  .honesty{background:var(--surface2);border:1px solid var(--line);border-radius:12px;
+    padding:12px 14px;font-size:12.5px;color:var(--muted);margin-top:22px}
+  footer{color:var(--muted);font-size:12px;margin-top:26px}
+  footer a{color:var(--accent);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🎱 Lotto Tracker</h1>
+    <p id="updated">Loading…</p>
+    <p>Official results, server-side analysis twice daily · <a href="https://hlash99.github.io/">← all projects</a></p>
+  </header>
+
+  <div class="grid" id="grid"></div>
+
+  <div class="panel" style="margin-top:18px" id="orderPanel"></div>
+
+  <div class="honesty" id="honesty"></div>
+
+  <footer>
+    Sources: <a href="https://data.ny.gov/resource/d6yy-54nr.json">NY Open Data</a> (Powerball official),
+    <a href="https://www.texaslottery.com/export/sites/lottery/Games/Powerball/Winning_Numbers/powerball.csv">Texas Lottery</a> (drawn order),
+    <a href="https://www.calottery.com">CA Lottery API</a> (SuperLotto Plus).
+    Refreshed by <a href="https://github.com/hlash99/lotto-tracker">GitHub Actions</a>.
+  </footer>
+</div>
+
+<script>
+const fmtP = p => p < 0.0001 ? "<0.0001" : p.toFixed(3);
+
+function ballRow(whites, special, color, small){
+  const c = small ? "ball sm" : "ball";
+  return whites.map(w=>`<span class="${c}">${w}</span>`).join("")
+    + `<span class="${c} sp" style="background:${color}">${special}</span>`;
+}
+
+function gamePanel(key, g, color, title, drawDays){
+  const L = g.latest, S = g.stats;
+  const maxCt = S.white_hot[0][1];
+  const bars = S.white_hot.map(([n,c])=>
+    `<div class="row" title="${n} drawn ${c} times in ${S.draws} draws">
+       <span class="num">${n}</span>
+       <span class="track"><span class="fill" style="width:${100*c/maxCt}%;background:${color}"></span></span>
+       <span class="ct">${c}×</span></div>`).join("");
+  const cold = S.white_cold.map(([n,c])=>`<span class="chip"><b>${n}</b> ${c}×</span>`).join("");
+  const picks = g.picks.map((t,i)=>
+    `<div class="ticket"><span class="idx">${i+1}</span>${ballRow(t.whites, t.special, color, true)}</div>`).join("");
+  const chiOk = S.chi2_white.uniform && S.chi2_special.uniform;
+  const drawnOrder = L.drawn_order
+    ? `<h3>Drawn order (as the balls came out)</h3>
+       <div class="balls">${ballRow(L.drawn_order, L.special, color)}</div>
+       <div class="note">Sorted: ${L.whites.join(" · ")} — Power Play ${L.power_play}×</div>`
+    : `<div class="note">${g.order_note || ""}</div>`;
+  return `<div class="panel">
+    <div class="accentbar" style="background:${color}"></div>
+    <h2>${title}</h2>
+    <p class="sub">${drawDays} · 5 of ${g.white_max} + ${g.special_label} 1–${g.special_max}</p>
+    <h3>Latest draw · ${L.date}</h3>
+    <div class="balls">${ballRow(L.whites, L.special, color)}</div>
+    ${drawnOrder}
+    <h3>Most-drawn white balls · last ${S.draws} draws (${S.first_date} → ${S.last_date})</h3>
+    <div class="bars">${bars}</div>
+    <h3>Least drawn</h3>
+    <div class="chips">${cold}</div>
+    <div class="verdict ${chiOk?'ok':'warn'}">${chiOk
+      ? `χ² test: hot/cold spread is consistent with a fair uniform draw (p=${fmtP(S.chi2_white.p)})`
+      : `χ² test flags non-uniformity (p=${fmtP(S.chi2_white.p)}) — check data before excitement`}</div>
+    <h3>Today's screened quick picks</h3>
+    ${picks}
+    <div class="note">Uniform random, screened against all ${S.draws} past winners and
+      over-played patterns (all-birthday, arithmetic sequences). Jackpot odds per ticket:
+      1 in ${g.odds.toLocaleString()} — unchanged by any strategy; screening only reduces
+      the chance of splitting.</div>
+  </div>`;
+}
+
+function orderPanel(t){
+  const rows = t.results.map(r=>`<tr><td>${r.name}</td>
+    <td class="r">${r.observed}</td><td class="r">${r.null_mean}</td><td class="r">${fmtP(r.p)}</td></tr>`).join("");
+  return `<div class="accentbar" style="background:var(--pb)"></div>
+    <h2>Does ball 1 influence ball 2? — Powerball drawn-order test</h2>
+    <p class="sub">Permutation test on ${t.draws.toLocaleString()} draws (current 69-ball matrix, drawn order
+      from the Texas Lottery feed). Null: given the five balls drawn, all 120 orderings are equally
+      likely. Order is shuffled within each draw ${t.perms.toLocaleString()} times, so number frequencies and
+      without-replacement effects cancel out — anything surviving would be a real physical order effect.</p>
+    <table>
+      <tr><th>statistic</th><th class="r">observed</th><th class="r">null mean</th><th class="r">p-value</th></tr>
+      ${rows}
+    </table>
+    <div class="verdict ${t.dependence_detected?'warn':'ok'}">${t.dependence_detected
+      ? "A statistic deviates from random ordering — verify data conventions before concluding physics"
+      : "No detectable order dependence — the sequences are indistinguishable from random orderings of the same balls"}</div>
+    <div class="note">SuperLotto note: the CA Lottery publishes numbers sorted, so no drawn-order test is
+      possible for SuperLotto from official feeds. MUSL also rotates machines and ball sets randomly
+      before each Powerball draw, so any real aerodynamic effect must survive averaging across equipment.</div>`;
+}
+
+fetch("data.json").then(r=>r.json()).then(d=>{
+  document.getElementById("updated").textContent =
+    "Updated " + new Date(d.updated).toLocaleString() + " · auto-refreshes after every draw";
+  document.getElementById("grid").innerHTML =
+    gamePanel("powerball", d.powerball, "var(--pb)", "Powerball", "Mon · Wed · Sat") +
+    gamePanel("superlotto", d.superlotto, "var(--slp)", "SuperLotto Plus", "Wed · Sat");
+  document.getElementById("orderPanel").innerHTML = orderPanel(d.powerball.order_test);
+  document.getElementById("honesty").innerHTML =
+    "<b>The honest fine print:</b> lottery draws are independent; no analysis of past results " +
+    "changes any ticket's odds. This tracker exists to (1) archive drawn-order data, " +
+    "(2) test the order-dependence hypothesis rigorously as data accumulates, and " +
+    "(3) generate picks that minimize expected jackpot-splitting. Chi-square and permutation " +
+    "tests recompute on every refresh — if the draws ever stop looking uniform, this page will say so.";
+}).catch(e=>{
+  document.getElementById("updated").textContent = "Failed to load data.json — " + e;
+});
+</script>
+</body>
+</html>
