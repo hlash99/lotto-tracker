@@ -16,11 +16,23 @@
   header p{color:var(--muted);margin:6px 0 0;font-size:14px}
   header a{color:var(--accent);text-decoration:none}
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}
-  @media(max-width:860px){.grid{grid-template-columns:1fr}}
-  .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;position:relative;overflow:hidden}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}.panel.wide{grid-column:auto}}
+  .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:0;position:relative;overflow:hidden}
+  .panel.wide{grid-column:span 2}
+  @media(max-width:860px){.panel.wide{grid-column:auto}}
+  .panel.dragging{opacity:.45;border-style:dashed;border-color:var(--accent)}
+  .panel.dragover{border-color:var(--accent)}
   .accentbar{position:absolute;top:0;left:0;right:0;height:3px}
-  .panel h2{margin:2px 0 2px;font-size:18px}
-  .sub{color:var(--muted);font-size:12.5px;margin:0 0 14px}
+  .phead{display:flex;align-items:center;gap:10px;padding:16px 20px 0;cursor:grab;user-select:none}
+  .phead:active{cursor:grabbing}
+  .phead .handle{color:var(--muted);font-size:15px;letter-spacing:-1px}
+  .phead h2{margin:0;font-size:18px;flex:1}
+  .phead .coll{background:none;border:none;color:var(--muted);font-size:15px;cursor:pointer;
+    padding:4px 6px;transition:transform .15s ease}
+  .panel.collapsed .coll{transform:rotate(-90deg)}
+  .pbody{padding:0 20px 20px}
+  .panel.collapsed .pbody{display:none}
+  .sub{color:var(--muted);font-size:12.5px;margin:4px 0 14px}
   h3{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:20px 0 8px;font-weight:600}
   .balls{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
   .ball{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#0a141f;
@@ -43,12 +55,23 @@
   th{color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-size:10.5px;text-align:left;font-weight:600;padding:5px 8px 5px 0}
   td{padding:5px 8px 5px 0;border-top:1px solid var(--line)}
   td.r,th.r{text-align:right}
-  .ticket{display:flex;gap:6px;align-items:center;margin:7px 0}
+  .ticket{display:flex;gap:6px;align-items:center;margin:7px 0;flex-wrap:wrap}
   .ticket .idx{color:var(--muted);font-size:11.5px;width:14px}
   .honesty{background:var(--surface2);border:1px solid var(--line);border-radius:12px;
     padding:12px 14px;font-size:12.5px;color:var(--muted);margin-top:22px}
   footer{color:var(--muted);font-size:12px;margin-top:26px}
   footer a{color:var(--accent);text-decoration:none}
+  .controls{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-end;background:var(--surface2);
+    border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:6px 0 4px}
+  .controls label{display:flex;flex-direction:column;gap:4px;font-size:11px;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  .controls input{background:var(--bg);border:1px solid var(--line);border-radius:8px;color:var(--ink);
+    font-size:14px;padding:6px 10px;width:110px;font-weight:600}
+  .controls input:focus{outline:none;border-color:var(--accent)}
+  .controls button{background:none;border:1px solid var(--line);border-radius:8px;color:var(--accent);
+    font-size:12.5px;padding:7px 12px;cursor:pointer}
+  .controls button:hover{border-color:var(--accent)}
+  .controls .status{font-size:12px;color:var(--muted);align-self:center;flex:1;min-width:140px}
 </style>
 </head>
 <body>
@@ -56,14 +79,10 @@
   <header>
     <h1>🎱 Lotto Tracker</h1>
     <p id="updated">Loading…</p>
-    <p>Official results, server-side analysis twice daily · <a href="https://hlash99.github.io/">← all projects</a></p>
+    <p>Official results, server-side analysis twice daily · drag panels to reorder, ▾ to collapse · <a href="https://hlash99.github.io/">← all projects</a></p>
   </header>
 
   <div class="grid" id="grid"></div>
-
-  <div class="panel" style="margin-top:18px" id="clusterPanel"></div>
-
-  <div class="panel" style="margin-top:18px" id="orderPanel"></div>
 
   <div class="honesty" id="honesty"></div>
 
@@ -77,6 +96,7 @@
 
 <script>
 const fmtP = p => p < 0.0001 ? "<0.0001" : p.toFixed(3);
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
 
 function ballRow(whites, special, color, small){
   const c = small ? "ball sm" : "ball";
@@ -84,7 +104,9 @@ function ballRow(whites, special, color, small){
     + `<span class="${c} sp" style="background:${color}">${special}</span>`;
 }
 
-function gamePanel(key, g, color, title, drawDays){
+/* ---------------- panel content builders ---------------- */
+
+function gameBody(g, color){
   const L = g.latest, S = g.stats;
   const maxCt = S.white_hot[0][1];
   const bars = S.white_hot.map(([n,c])=>
@@ -101,10 +123,7 @@ function gamePanel(key, g, color, title, drawDays){
        <div class="balls">${ballRow(L.drawn_order, L.special, color)}</div>
        <div class="note">Sorted: ${L.whites.join(" · ")} — Power Play ${L.power_play}×</div>`
     : `<div class="note">${g.order_note || ""}</div>`;
-  return `<div class="panel">
-    <div class="accentbar" style="background:${color}"></div>
-    <h2>${title}</h2>
-    <p class="sub">${drawDays} · 5 of ${g.white_max} + ${g.special_label} 1–${g.special_max}</p>
+  return `
     <h3>Latest draw · ${L.date}</h3>
     <div class="balls">${ballRow(L.whites, L.special, color)}</div>
     ${drawnOrder}
@@ -118,31 +137,32 @@ function gamePanel(key, g, color, title, drawDays){
     <h3>Today's screened quick picks</h3>
     ${picks}
     <div class="note">Uniform random, screened against all ${S.draws} past winners and
-      over-played patterns (all-birthday, arithmetic sequences). Jackpot odds per ticket:
-      1 in ${g.odds.toLocaleString()} — unchanged by any strategy; screening only reduces
-      the chance of splitting.</div>
-  </div>`;
+      over-played patterns. Jackpot odds per ticket: 1 in ${g.odds.toLocaleString()} —
+      unchanged by any strategy; screening only reduces the chance of splitting.</div>`;
 }
 
-function clusterPanel(c, slReason){
+function clusterBody(c, slReason){
   const bt = c.backtest, tun = c.tuning;
   const chance = Math.abs(bt.z3) < 2 && bt.mean_ratio < 1.15;
-  const tickets = c.tickets.map((t,i)=>
-    `<div class="ticket"><span class="idx">${i+1}</span>${ballRow(t.whites, c.special_pick, "var(--pb)", true)}
-     <span class="note" style="margin:0 0 0 8px">best past overlap ${t.best_past_overlap}/5</span></div>`).join("");
-  const pools = c.pools.map((p,i)=>`<span class="chip"><b>pos${i+1}</b> ${p.join(", ")}</span>`).join("");
-  return `<div class="accentbar" style="background:var(--pb)"></div>
-    <h2>Cluster-method picks — pairwise density (f5.jsl port)</h2>
-    <p class="sub">All 10 position-pair KDEs on the last ${c.window} draws in drawn order
-      (${c.window_dates[0]} → ${c.window_dates[1]}), points selected at normalized density ≥ 0.94,
-      tickets ranked by summed log pair-density. Window tuned ${tun.tuned} by walk-forward sweep
-      (train ratio ${tun.train_mean_ratio}, holdout ${tun.holdout_mean_ratio}).
-      PB from the most-recently-active 1D cluster (${c.special_cluster[0]}–${c.special_cluster[1]}).</p>
-    <h3>Powerball suggestions (regenerated after every draw)</h3>
-    ${tickets}
+  return `
+    <p class="sub">All 10 position-pair KDEs on the last <b id="cl-w-label">${c.window}</b> draws in drawn order,
+      points selected at normalized density ≥ <b id="cl-d-label">0.94</b>, tickets ranked by summed log pair-density.
+      Server-tuned defaults: window ${c.window} (walk-forward sweep ${tun.tuned}: train ratio ${tun.train_mean_ratio},
+      holdout ${tun.holdout_mean_ratio}), density 0.94 (from the original f5.jsl).
+      PB from the most-recently-active 1D cluster.</p>
+    <div class="controls">
+      <label>Window (draws)
+        <input id="cl-window" type="number" min="30" max="1900" step="10" value="${c.window}"></label>
+      <label>Density ≥
+        <input id="cl-density" type="number" min="0.50" max="0.999" step="0.01" value="0.94"></label>
+      <button id="cl-reset">Reset to tuned</button>
+      <span class="status" id="cl-status">Server-computed picks (defaults)</span>
+    </div>
+    <h3>Powerball suggestions</h3>
+    <div id="cl-tickets"></div>
     <h3>Candidate pools by drawn position</h3>
-    <div class="chips">${pools}</div>
-    <h3>Rolling walk-forward backtest at this window</h3>
+    <div class="chips" id="cl-pools"></div>
+    <h3>Rolling walk-forward backtest — at the tuned defaults only</h3>
     <table>
       <tr><th>metric</th><th class="r">method</th><th class="r">random</th></tr>
       <tr><td>mean white matches / ticket (${bt.tickets.toLocaleString()} tickets, ${bt.tested.toLocaleString()} draws)</td>
@@ -153,14 +173,15 @@ function clusterPanel(c, slReason){
     <div class="verdict ${chance?'ok':'warn'}">${chance
       ? `Backtest verdict: performance is consistent with chance (z = ${bt.z3 >= 0 ? "+" : ""}${bt.z3} on 3+ hits) — these picks are the method faithfully applied, not a demonstrated edge`
       : `Backtest deviates from chance (z = ${bt.z3}) — verify data before believing it`}</div>
-    <div class="note">SuperLotto: cluster picks disabled — ${slReason}</div>`;
+    <div class="note">Changing window/density recomputes the picks in your browser from the full
+      drawn-order archive; the backtest scoreboard above stays at the tuned defaults.</div>
+    <div class="note">SuperLotto: cluster picks disabled — ${esc(slReason)}</div>`;
 }
 
-function orderPanel(t){
+function orderBody(t){
   const rows = t.results.map(r=>`<tr><td>${r.name}</td>
     <td class="r">${r.observed}</td><td class="r">${r.null_mean}</td><td class="r">${fmtP(r.p)}</td></tr>`).join("");
-  return `<div class="accentbar" style="background:var(--pb)"></div>
-    <h2>Does ball 1 influence ball 2? — Powerball drawn-order test</h2>
+  return `
     <p class="sub">Permutation test on ${t.draws.toLocaleString()} draws (current 69-ball matrix, drawn order
       from the Texas Lottery feed). Null: given the five balls drawn, all 120 orderings are equally
       likely. Order is shuffled within each draw ${t.perms.toLocaleString()} times, so number frequencies and
@@ -172,20 +193,259 @@ function orderPanel(t){
     <div class="verdict ${t.dependence_detected?'warn':'ok'}">${t.dependence_detected
       ? "A statistic deviates from random ordering — verify data conventions before concluding physics"
       : "No detectable order dependence — the sequences are indistinguishable from random orderings of the same balls"}</div>
-    <div class="note">SuperLotto note: the CA Lottery publishes numbers sorted, so no drawn-order test is
-      possible for SuperLotto from official feeds. MUSL also rotates machines and ball sets randomly
-      before each Powerball draw, so any real aerodynamic effect must survive averaging across equipment.</div>`;
+    <div class="note">SuperLotto note: CA publishes numbers sorted, so no drawn-order test is possible.
+      MUSL rotates machines and ball sets randomly before each Powerball draw, so any real aerodynamic
+      effect must survive averaging across equipment.</div>`;
 }
+
+/* ---------------- window manager: reorder + collapse ---------------- */
+
+const ORDER_KEY = "lotto_panel_order_v1", COLL_KEY = "lotto_panel_collapsed_v1";
+let PANELS = [];  // {key,title,color,wide,body}
+
+function savedOrder(){ try{return JSON.parse(localStorage.getItem(ORDER_KEY))||[];}catch(e){return[];} }
+function savedColl(){ try{return new Set(JSON.parse(localStorage.getItem(COLL_KEY))||[]);}catch(e){return new Set();} }
+
+function renderPanels(){
+  const order = savedOrder();
+  const coll = savedColl();
+  PANELS.sort((a,b)=>{
+    const ia=order.indexOf(a.key), ib=order.indexOf(b.key);
+    return (ia<0?PANELS.indexOf(a):ia) - (ib<0?PANELS.indexOf(b):ib);
+  });
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  for(const p of PANELS){
+    const el = document.createElement("div");
+    el.className = "panel" + (p.wide?" wide":"") + (coll.has(p.key)?" collapsed":"");
+    el.dataset.key = p.key;
+    el.innerHTML = `<div class="accentbar" style="background:${p.color}"></div>
+      <div class="phead" draggable="true"><span class="handle">⠿</span><h2>${p.title}</h2>
+        <button class="coll" title="collapse">▾</button></div>
+      <div class="pbody">${p.body}</div>`;
+    grid.appendChild(el);
+  }
+  wireDnD(); wireCollapse();
+}
+
+function wireCollapse(){
+  document.querySelectorAll(".panel .coll").forEach(btn=>{
+    btn.onclick = e=>{
+      const panel = e.target.closest(".panel");
+      panel.classList.toggle("collapsed");
+      const coll = savedColl();
+      panel.classList.contains("collapsed") ? coll.add(panel.dataset.key) : coll.delete(panel.dataset.key);
+      localStorage.setItem(COLL_KEY, JSON.stringify([...coll]));
+    };
+  });
+}
+
+function wireDnD(){
+  let dragKey = null;
+  document.querySelectorAll(".panel .phead").forEach(head=>{
+    const panel = head.closest(".panel");
+    head.addEventListener("dragstart", e=>{
+      dragKey = panel.dataset.key; panel.classList.add("dragging");
+      e.dataTransfer.effectAllowed = "move";
+    });
+    head.addEventListener("dragend", ()=>{ panel.classList.remove("dragging"); dragKey=null;
+      document.querySelectorAll(".panel").forEach(p=>p.classList.remove("dragover")); });
+  });
+  document.querySelectorAll(".panel").forEach(panel=>{
+    panel.addEventListener("dragover", e=>{ if(dragKey && dragKey!==panel.dataset.key){e.preventDefault(); panel.classList.add("dragover");} });
+    panel.addEventListener("dragleave", ()=>panel.classList.remove("dragover"));
+    panel.addEventListener("drop", e=>{
+      e.preventDefault();
+      if(!dragKey || dragKey===panel.dataset.key) return;
+      const keys = PANELS.map(p=>p.key);
+      keys.splice(keys.indexOf(dragKey),1);
+      keys.splice(keys.indexOf(panel.dataset.key),0,dragKey);
+      localStorage.setItem(ORDER_KEY, JSON.stringify(keys));
+      renderPanels(); wireCluster();
+    });
+  });
+}
+
+/* ---------------- in-browser cluster method (port of cluster_picker.py) ---------------- */
+
+let DRAWN = null;   // {whites:[[5]], specials:[], dates:[]}
+async function loadDrawn(){
+  if(DRAWN) return DRAWN;
+  const txt = await (await fetch("data/drawn_order.csv")).text();
+  const lines = txt.trim().split("\n");
+  const hdr = lines[0].split(",");
+  const di = [1,2,3,4,5].map(i=>hdr.indexOf("d"+i)), pi = hdr.indexOf("powerball"), da = hdr.indexOf("draw_date");
+  const whites=[], specials=[], dates=[];
+  for(let i=1;i<lines.length;i++){
+    const p = lines[i].split(",");
+    if(p[da] < "2015-10-07") continue;              // current 69/26 matrix only
+    whites.push(di.map(j=>+p[j])); specials.push(+p[pi]); dates.push(p[da]);
+  }
+  DRAWN = {whites, specials, dates};
+  return DRAWN;
+}
+
+// 2D Gaussian KDE matching scipy.stats.gaussian_kde (Scott's rule, N-1 covariance)
+function kde2(xs, ys){
+  const n = xs.length;
+  let mx=0,my=0; for(let i=0;i<n;i++){mx+=xs[i];my+=ys[i];} mx/=n; my/=n;
+  let sxx=0,syy=0,sxy=0;
+  for(let i=0;i<n;i++){const dx=xs[i]-mx,dy=ys[i]-my; sxx+=dx*dx; syy+=dy*dy; sxy+=dx*dy;}
+  sxx/=(n-1); syy/=(n-1); sxy/=(n-1);
+  const f2 = Math.pow(n, -1/3);                    // scott factor² for d=2
+  const a=sxx*f2, b=sxy*f2, c=syy*f2;
+  const det = a*c-b*b;
+  if(det<=0) return null;
+  const ia=c/det, ib=-b/det, ic=a/det;
+  const norm = 1/(n*2*Math.PI*Math.sqrt(det));
+  return (px,py)=>{
+    let s=0;
+    for(let i=0;i<n;i++){const dx=px-xs[i],dy=py-ys[i]; s+=Math.exp(-0.5*(ia*dx*dx+2*ib*dx*dy+ic*dy*dy));}
+    return norm*s;
+  };
+}
+
+// 1D KDE, same conventions
+function kde1(v){
+  const n=v.length;
+  let m=0; for(const x of v)m+=x; m/=n;
+  let va=0; for(const x of v)va+=(x-m)*(x-m); va/=(n-1);
+  const h = va*Math.pow(n,-2/5);
+  const norm = 1/(n*Math.sqrt(2*Math.PI*h));
+  return x=>{let s=0; for(const xi of v)s+=Math.exp(-0.5*(x-xi)*(x-xi)/h); return norm*s;};
+}
+
+const PAIRJS = [];
+for(let i=0;i<5;i++)for(let j=i+1;j<5;j++)PAIRJS.push([i,j]);
+
+function clusterSuggest(whites, specials, W, lo, poolSize, nTickets, smax){
+  const win = whites.slice(-W);
+  const n = win.length;
+  // per-pair high-density votes
+  const votes = [new Map(),new Map(),new Map(),new Map(),new Map()];
+  const kdes = [];
+  for(const [i,j] of PAIRJS){
+    const xs = win.map(r=>r[i]), ys = win.map(r=>r[j]);
+    const f = kde2(xs, ys);
+    if(!f) continue;
+    kdes.push([i,j,f]);
+    const d = new Array(n); let dmin=Infinity, dmax=-Infinity;
+    for(let k=0;k<n;k++){ d[k]=f(xs[k],ys[k]); if(d[k]<dmin)dmin=d[k]; if(d[k]>dmax)dmax=d[k]; }
+    const rng = dmax-dmin; if(rng<=0) continue;
+    for(let k=0;k<n;k++){
+      if((d[k]-dmin)/rng >= lo){
+        votes[i].set(win[k][i],(votes[i].get(win[k][i])||0)+1);
+        votes[j].set(win[k][j],(votes[j].get(win[k][j])||0)+1);
+      }
+    }
+  }
+  const pools = votes.map((m,p)=>{
+    const ranked = [...m.entries()].sort((a,b)=>b[1]-a[1]).slice(0,poolSize).map(e=>e[0]);
+    if(ranked.length) return ranked;
+    // fallback: most frequent value at this position (smallest on tie)
+    const cnt = new Map();
+    for(const r of win) cnt.set(r[p],(cnt.get(r[p])||0)+1);
+    let best=null,bc=-1;
+    for(const v of [...cnt.keys()].sort((a,b)=>a-b)) if(cnt.get(v)>bc){bc=cnt.get(v);best=v;}
+    return [best];
+  });
+  // pair score tables on pool grids
+  const tables = kdes.map(([i,j,f])=>{
+    const t=new Map();
+    for(const x of pools[i])for(const y of pools[j]) t.set(x+"_"+y, Math.log(f(x,y)+1e-12));
+    return [i,j,t];
+  });
+  // enumerate combos
+  const scored=[];
+  for(const a of pools[0])for(const b of pools[1])for(const c of pools[2])for(const d of pools[3])for(const e of pools[4]){
+    const combo=[a,b,c,d,e];
+    if(new Set(combo).size!==5) continue;
+    let s=0; for(const [i,j,t] of tables) s+=t.get(combo[i]+"_"+combo[j]);
+    scored.push([s,combo]);
+  }
+  scored.sort((x,y)=> y[0]-x[0]);
+  const out=[], seen=new Set();
+  for(const [s,combo] of scored){
+    const key=[...combo].sort((a,b)=>a-b).join("-");
+    if(seen.has(key))continue;
+    seen.add(key); out.push({score:s, combo});
+    if(out.length>=nTickets)break;
+  }
+  // special: most-recently-active 1D cluster
+  const sw = specials.slice(-W);
+  const f1 = kde1(sw);
+  const dens=[]; for(let v=1;v<=smax;v++)dens.push(f1(v));
+  const modes=[];
+  for(let k=0;k<smax;k++)
+    if((k===0||dens[k]>=dens[k-1])&&(k===smax-1||dens[k]>=dens[k+1])) modes.push(k+1);
+  if(!modes.length) modes.push(dens.indexOf(Math.max(...dens))+1);
+  const clusterOf = v=>{let best=modes[0],bd=Math.abs(modes[0]-v);
+    for(const m of modes){const d=Math.abs(m-v); if(d<bd){bd=d;best=m;}} return best;};
+  const active = clusterOf(sw[sw.length-1]);
+  const members=[]; for(let v=1;v<=smax;v++) if(clusterOf(v)===active) members.push(v);
+  let pick=members[0];
+  for(const v of members) if(dens[v-1]>dens[pick-1]) pick=v;
+  return {tickets:out, pools, pick, cluster:[members[0],members[members.length-1]]};
+}
+
+function renderClusterResult(res, whites){
+  const histSets = whites.map(w=>new Set(w));
+  document.getElementById("cl-tickets").innerHTML = res.tickets.map((t,i)=>{
+    const set=new Set(t.combo);
+    let best=0; for(const hs of histSets){let k=0; for(const v of hs) if(set.has(v))k++; if(k>best)best=k;}
+    return `<div class="ticket"><span class="idx">${i+1}</span>
+      ${ballRow([...t.combo].sort((a,b)=>a-b), res.pick, "var(--pb)", true)}
+      <span class="note" style="margin:0 0 0 8px">best past overlap ${best}/5</span></div>`;
+  }).join("");
+  document.getElementById("cl-pools").innerHTML =
+    res.pools.map((p,i)=>`<span class="chip"><b>pos${i+1}</b> ${p.join(", ")}</span>`).join("");
+}
+
+function wireCluster(){
+  const wEl=document.getElementById("cl-window"), dEl=document.getElementById("cl-density");
+  if(!wEl) return;
+  const status=document.getElementById("cl-status");
+  let timer=null;
+  async function recalc(fromUser){
+    const W=Math.max(30,Math.min(1900,+wEl.value||200));
+    const lo=Math.max(.5,Math.min(.999,+dEl.value||.94));
+    status.textContent="Computing…";
+    try{
+      const d=await loadDrawn();
+      const t0=performance.now();
+      const res=clusterSuggest(d.whites, d.specials, W, lo, 3, 5, 26);
+      renderClusterResult(res, d.whites);
+      document.getElementById("cl-w-label").textContent=W;
+      document.getElementById("cl-d-label").textContent=lo;
+      status.textContent=(fromUser?`Recomputed in your browser (${(performance.now()-t0).toFixed(0)} ms) — `:
+        `Computed in your browser — `)+`window ${W}, density ≥ ${lo}, PB ${res.pick} (cluster ${res.cluster[0]}–${res.cluster[1]})`;
+    }catch(e){ status.textContent="Failed to compute: "+e; }
+  }
+  const onchange=()=>{ clearTimeout(timer); timer=setTimeout(()=>recalc(true), 350); };
+  wEl.addEventListener("input", onchange);
+  dEl.addEventListener("input", onchange);
+  document.getElementById("cl-reset").onclick=()=>{ wEl.value=window.__tunedWindow||200; dEl.value=0.94; recalc(true); };
+  recalc(false);  // initial render from the same in-browser engine
+}
+
+/* ---------------- boot ---------------- */
 
 fetch("data.json").then(r=>r.json()).then(d=>{
   document.getElementById("updated").textContent =
     "Updated " + new Date(d.updated).toLocaleString() + " · auto-refreshes after every draw";
-  document.getElementById("grid").innerHTML =
-    gamePanel("powerball", d.powerball, "var(--pb)", "Powerball", "Mon · Wed · Sat") +
-    gamePanel("superlotto", d.superlotto, "var(--slp)", "SuperLotto Plus", "Wed · Sat");
-  document.getElementById("clusterPanel").innerHTML =
-    clusterPanel(d.powerball.cluster, d.superlotto.cluster.reason);
-  document.getElementById("orderPanel").innerHTML = orderPanel(d.powerball.order_test);
+  window.__tunedWindow = d.powerball.cluster.window;
+  PANELS = [
+    {key:"pb",      title:"Powerball",        color:"var(--pb)",  wide:false,
+     body:`<p class="sub">Mon · Wed · Sat · 5 of 69 + Powerball 1–26</p>`+gameBody(d.powerball,"var(--pb)")},
+    {key:"slp",     title:"SuperLotto Plus",  color:"var(--slp)", wide:false,
+     body:`<p class="sub">Wed · Sat · 5 of 47 + Mega 1–27</p>`+gameBody(d.superlotto,"var(--slp)")},
+    {key:"cluster", title:"Cluster-method picks — pairwise density (f5.jsl port)", color:"var(--pb)", wide:true,
+     body:clusterBody(d.powerball.cluster, d.superlotto.cluster.reason)},
+    {key:"order",   title:"Does ball 1 influence ball 2? — drawn-order test", color:"var(--pb)", wide:true,
+     body:orderBody(d.powerball.order_test)},
+  ];
+  renderPanels();
+  wireCluster();
   document.getElementById("honesty").innerHTML =
     "<b>The honest fine print:</b> lottery draws are independent; no analysis of past results " +
     "changes any ticket's odds. This tracker exists to (1) archive drawn-order data, " +
