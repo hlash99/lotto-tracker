@@ -156,6 +156,7 @@ function clusterBody(c, slReason){
       <label>Density ≥
         <input id="cl-density" type="number" min="0.50" max="0.999" step="0.01" value="0.94"></label>
       <button id="cl-reset">Reset to tuned</button>
+      <button id="cl-share" title="Copies a URL that restores your window, density, panel order and collapsed panels in any browser">Copy settings link</button>
       <span class="status" id="cl-status">Server-computed picks (defaults)</span>
     </div>
     <h3>Powerball suggestions</h3>
@@ -200,15 +201,51 @@ function orderBody(t){
 
 /* ---------------- window manager: reorder + collapse ---------------- */
 
-const ORDER_KEY = "lotto_panel_order_v1", COLL_KEY = "lotto_panel_collapsed_v1";
+const ORDER_KEY = "lotto_panel_order_v1", COLL_KEY = "lotto_panel_collapsed_v1",
+      PARAMS_KEY = "lotto_cluster_params_v1";
 let PANELS = [];  // {key,title,color,wide,body}
 
-function savedOrder(){ try{return JSON.parse(localStorage.getItem(ORDER_KEY))||[];}catch(e){return[];} }
-function savedColl(){ try{return new Set(JSON.parse(localStorage.getItem(COLL_KEY))||[]);}catch(e){return new Set();} }
+/* Settings live in three places, by precedence: URL hash (portable to any
+   browser) > localStorage (sticks per browser) > defaults. Opening a settings
+   link adopts its values into localStorage, so they persist there afterward. */
+const HASH = new URLSearchParams(location.hash.slice(1));
+
+function savedOrder(){
+  if(HASH.get("order")) return HASH.get("order").split(",");
+  try{return JSON.parse(localStorage.getItem(ORDER_KEY))||[];}catch(e){return[];}
+}
+function savedColl(){
+  if(HASH.has("coll")) return new Set(HASH.get("coll") ? HASH.get("coll").split(",") : []);
+  try{return new Set(JSON.parse(localStorage.getItem(COLL_KEY))||[]);}catch(e){return new Set();}
+}
+function savedParams(){
+  const def = {w: window.__tunedWindow||200, d: 0.94};
+  let p = def;
+  try{ p = {...def, ...(JSON.parse(localStorage.getItem(PARAMS_KEY))||{})}; }catch(e){}
+  if(HASH.get("w")) p.w = +HASH.get("w");
+  if(HASH.get("d")) p.d = +HASH.get("d");
+  return p;
+}
+function updateHash(){
+  const q = new URLSearchParams();
+  const wEl=document.getElementById("cl-window"), dEl=document.getElementById("cl-density");
+  if(wEl) q.set("w", wEl.value);
+  if(dEl) q.set("d", dEl.value);
+  q.set("order", PANELS.map(p=>p.key).join(","));
+  q.set("coll", [...savedCollLocal()].join(","));
+  history.replaceState(null, "", "#" + q.toString());
+}
+function savedCollLocal(){  // localStorage only (post-boot source of truth)
+  try{return new Set(JSON.parse(localStorage.getItem(COLL_KEY))||[]);}catch(e){return new Set();}
+}
 
 function renderPanels(){
   const order = savedOrder();
   const coll = savedColl();
+  // adopt hash-supplied settings into this browser's storage once, then let
+  // localStorage rule so later user changes aren't overridden by a stale hash
+  if(HASH.get("order")){ localStorage.setItem(ORDER_KEY, JSON.stringify(order)); HASH.delete("order"); }
+  if(HASH.has("coll")){ localStorage.setItem(COLL_KEY, JSON.stringify([...coll])); HASH.delete("coll"); }
   PANELS.sort((a,b)=>{
     const ia=order.indexOf(a.key), ib=order.indexOf(b.key);
     return (ia<0?PANELS.indexOf(a):ia) - (ib<0?PANELS.indexOf(b):ib);
@@ -233,9 +270,10 @@ function wireCollapse(){
     btn.onclick = e=>{
       const panel = e.target.closest(".panel");
       panel.classList.toggle("collapsed");
-      const coll = savedColl();
+      const coll = savedCollLocal();
       panel.classList.contains("collapsed") ? coll.add(panel.dataset.key) : coll.delete(panel.dataset.key);
       localStorage.setItem(COLL_KEY, JSON.stringify([...coll]));
+      updateHash();
     };
   });
 }
@@ -261,7 +299,8 @@ function wireDnD(){
       keys.splice(keys.indexOf(dragKey),1);
       keys.splice(keys.indexOf(panel.dataset.key),0,dragKey);
       localStorage.setItem(ORDER_KEY, JSON.stringify(keys));
-      renderPanels(); wireCluster();
+      HASH.delete("order");  // localStorage is now the source of truth
+      renderPanels(); wireCluster(); updateHash();
     });
   });
 }
@@ -404,6 +443,9 @@ function renderClusterResult(res, whites){
 function wireCluster(){
   const wEl=document.getElementById("cl-window"), dEl=document.getElementById("cl-density");
   if(!wEl) return;
+  const saved = savedParams();
+  wEl.value = saved.w; dEl.value = saved.d;
+  HASH.delete("w"); HASH.delete("d");  // adopted; localStorage rules from here
   const status=document.getElementById("cl-status");
   let timer=null;
   async function recalc(fromUser){
@@ -417,6 +459,8 @@ function wireCluster(){
       renderClusterResult(res, d.whites);
       document.getElementById("cl-w-label").textContent=W;
       document.getElementById("cl-d-label").textContent=lo;
+      localStorage.setItem(PARAMS_KEY, JSON.stringify({w: W, d: lo}));
+      updateHash();
       status.textContent=(fromUser?`Recomputed in your browser (${(performance.now()-t0).toFixed(0)} ms) — `:
         `Computed in your browser — `)+`window ${W}, density ≥ ${lo}, PB ${res.pick} (cluster ${res.cluster[0]}–${res.cluster[1]})`;
     }catch(e){ status.textContent="Failed to compute: "+e; }
@@ -425,6 +469,12 @@ function wireCluster(){
   wEl.addEventListener("input", onchange);
   dEl.addEventListener("input", onchange);
   document.getElementById("cl-reset").onclick=()=>{ wEl.value=window.__tunedWindow||200; dEl.value=0.94; recalc(true); };
+  document.getElementById("cl-share").onclick=async()=>{
+    updateHash();
+    try{ await navigator.clipboard.writeText(location.href);
+         status.textContent="Settings link copied — open it in any browser to restore this exact setup"; }
+    catch(e){ status.textContent="Copy failed — the URL in the address bar carries your settings"; }
+  };
   recalc(false);  // initial render from the same in-browser engine
 }
 
