@@ -72,6 +72,14 @@
     font-size:12.5px;padding:7px 12px;cursor:pointer}
   .controls button:hover{border-color:var(--accent)}
   .controls .status{font-size:12px;color:var(--muted);align-self:center;flex:1;min-width:140px}
+  .cl-cols{display:flex;gap:22px;align-items:flex-start}
+  .cl-left{flex:1;min-width:280px}
+  .cl-plots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:390px}
+  @media(max-width:900px){.cl-cols{flex-direction:column}
+    .cl-plots{width:100%;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+  .pp{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:7px}
+  .pp .lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 5px;font-weight:600}
+  .pp canvas{width:100%;aspect-ratio:1;border-radius:6px;display:block}
 </style>
 </head>
 <body>
@@ -159,10 +167,20 @@ function clusterBody(c, slReason){
       <button id="cl-share" title="Copies a URL that restores your window, density, panel order and collapsed panels in any browser">Copy settings link</button>
       <span class="status" id="cl-status">Server-computed picks (defaults)</span>
     </div>
-    <h3>Powerball suggestions</h3>
-    <div id="cl-tickets"></div>
-    <h3>Candidate pools by drawn position</h3>
-    <div class="chips" id="cl-pools"></div>
+    <div class="cl-cols">
+      <div class="cl-left">
+        <h3>Powerball suggestions</h3>
+        <div id="cl-tickets"></div>
+        <h3>Candidate pools by drawn position</h3>
+        <div class="chips" id="cl-pools"></div>
+      </div>
+      <div>
+        <h3>Nonparametric pair densities (Spectral)</h3>
+        <div class="cl-plots" id="cl-plots"></div>
+        <div class="note">2D KDE of each drawn-position pair over the current window;
+          dark dots = draws, white rings = points in the ≥ density band.</div>
+      </div>
+    </div>
     <h3>Rolling walk-forward backtest — at the tuned defaults only</h3>
     <table>
       <tr><th>metric</th><th class="r">method</th><th class="r">random</th></tr>
@@ -363,16 +381,20 @@ function clusterSuggest(whites, specials, W, lo, poolSize, nTickets, smax){
   // per-pair high-density votes
   const votes = [new Map(),new Map(),new Map(),new Map(),new Map()];
   const kdes = [];
+  const pairData = [];
   for(const [i,j] of PAIRJS){
     const xs = win.map(r=>r[i]), ys = win.map(r=>r[j]);
     const f = kde2(xs, ys);
     if(!f) continue;
     kdes.push([i,j,f]);
+    const pd = {i, j, f, xs, ys, sel: []};
+    pairData.push(pd);
     const d = new Array(n); let dmin=Infinity, dmax=-Infinity;
     for(let k=0;k<n;k++){ d[k]=f(xs[k],ys[k]); if(d[k]<dmin)dmin=d[k]; if(d[k]>dmax)dmax=d[k]; }
     const rng = dmax-dmin; if(rng<=0) continue;
     for(let k=0;k<n;k++){
       if((d[k]-dmin)/rng >= lo){
+        pd.sel.push(k);
         votes[i].set(win[k][i],(votes[i].get(win[k][i])||0)+1);
         votes[j].set(win[k][j],(votes[j].get(win[k][j])||0)+1);
       }
@@ -424,7 +446,67 @@ function clusterSuggest(whites, specials, W, lo, poolSize, nTickets, smax){
   const members=[]; for(let v=1;v<=smax;v++) if(clusterOf(v)===active) members.push(v);
   let pick=members[0];
   for(const v of members) if(dens[v-1]>dens[pick-1]) pick=v;
-  return {tickets:out, pools, pick, cluster:[members[0],members[members.length-1]]};
+  return {tickets:out, pools, pick, cluster:[members[0],members[members.length-1]], pairData};
+}
+
+/* Spectral colormap (JMP/matplotlib-style): low=blue -> green -> yellow -> red */
+const SPECTRAL = [[15,40,110],[50,136,189],[102,194,165],[171,221,164],[230,245,152],
+                  [254,224,139],[253,174,97],[244,109,67],[213,62,79]];
+function spectral(t){
+  const s = Math.max(0, Math.min(1, t)) * (SPECTRAL.length - 1);
+  const k = Math.min(SPECTRAL.length - 2, Math.floor(s)), u = s - k;
+  const a = SPECTRAL[k], b = SPECTRAL[k+1];
+  return [a[0]+(b[0]-a[0])*u, a[1]+(b[1]-a[1])*u, a[2]+(b[2]-a[2])*u];
+}
+
+function renderPairPlots(pairData, N){
+  const holder = document.getElementById("cl-plots");
+  if(!holder) return;
+  holder.innerHTML = "";
+  const CELL = 3, size = N * CELL;
+  for(const pd of pairData){
+    const div = document.createElement("div");
+    div.className = "pp";
+    div.innerHTML = `<p class="lbl">num ${pd.i+1} (x) vs num ${pd.j+1} (y)</p>`;
+    const cv = document.createElement("canvas");
+    cv.width = cv.height = size;
+    cv.title = `Drawn position ${pd.i+1} vs ${pd.j+1} — KDE density over the window`;
+    div.appendChild(cv);
+    holder.appendChild(div);
+    const ctx = cv.getContext("2d");
+    // density field on the integer grid
+    const img = ctx.createImageData(size, size);
+    const dens = new Float64Array(N * N);
+    let dmax = 0;
+    for(let gx = 1; gx <= N; gx++)
+      for(let gy = 1; gy <= N; gy++){
+        const v = pd.f(gx, gy);
+        dens[(gx-1)*N + (gy-1)] = v;
+        if(v > dmax) dmax = v;
+      }
+    for(let gx = 0; gx < N; gx++)
+      for(let gy = 0; gy < N; gy++){
+        const [r, g, b] = spectral(dens[gx*N + gy] / dmax);
+        const py0 = (N - 1 - gy) * CELL;           // y axis points up
+        for(let dx = 0; dx < CELL; dx++)
+          for(let dy = 0; dy < CELL; dy++){
+            const o = ((py0 + dy) * size + gx * CELL + dx) * 4;
+            img.data[o] = r; img.data[o+1] = g; img.data[o+2] = b; img.data[o+3] = 255;
+          }
+      }
+    ctx.putImageData(img, 0, 0);
+    // draws as dark dots
+    ctx.fillStyle = "rgba(0,0,0,0.55)";
+    for(let k = 0; k < pd.xs.length; k++)
+      ctx.fillRect((pd.xs[k]-1)*CELL, (N-pd.ys[k])*CELL, 2, 2);
+    // high-density band points as white rings
+    ctx.strokeStyle = "#fff"; ctx.lineWidth = 1;
+    for(const k of pd.sel){
+      ctx.beginPath();
+      ctx.arc((pd.xs[k]-1)*CELL+1, (N-pd.ys[k])*CELL+1, 2.4, 0, 2*Math.PI);
+      ctx.stroke();
+    }
+  }
 }
 
 function renderClusterResult(res, whites){
@@ -438,6 +520,7 @@ function renderClusterResult(res, whites){
   }).join("");
   document.getElementById("cl-pools").innerHTML =
     res.pools.map((p,i)=>`<span class="chip"><b>pos${i+1}</b> ${p.join(", ")}</span>`).join("");
+  renderPairPlots(res.pairData, 69);
 }
 
 function wireCluster(){
