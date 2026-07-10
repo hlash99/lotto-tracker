@@ -153,11 +153,12 @@ function clusterBody(c, slReason){
   const bt = c.backtest, tun = c.tuning;
   const chance = Math.abs(bt.z3) < 2 && bt.mean_ratio < 1.15;
   return `
-    <p class="sub">All 10 position-pair KDEs on the last <b id="cl-w-label">${c.window}</b> draws in drawn order,
-      points selected at normalized density ≥ <b id="cl-d-label">0.94</b>, tickets ranked by summed log pair-density.
-      Server-tuned defaults: window ${c.window} (walk-forward sweep ${tun.tuned}: train ratio ${tun.train_mean_ratio},
-      holdout ${tun.holdout_mean_ratio}), density 0.94 (from the original f5.jsl).
-      PB from the most-recently-active 1D cluster.</p>
+    <p class="sub">Adjacent-position pair KDEs (num1·num2, num2·num3, num3·num4, num4·num5 — the physically
+      plausible pairs; non-adjacent pairs excluded) on the last <b id="cl-w-label">${c.window}</b> draws in drawn
+      order, points selected at normalized density ≥ <b id="cl-d-label">0.94</b>, tickets ranked by summed log
+      pair-density. Server-tuned defaults: window ${c.window} (walk-forward sweep ${tun.tuned}: train ratio
+      ${tun.train_mean_ratio}, holdout ${tun.holdout_mean_ratio}), density 0.94 (from the original f5.jsl).
+      PB from the most-recently-active 1D cluster (separate chamber).</p>
     <div class="controls">
       <label>Window (draws)
         <input id="cl-window" type="number" min="30" max="1900" step="10" value="${c.window}"></label>
@@ -175,9 +176,9 @@ function clusterBody(c, slReason){
         <div class="chips" id="cl-pools"></div>
       </div>
       <div>
-        <h3>Nonparametric pair densities (Spectral)</h3>
+        <h3>Nonparametric adjacent-pair densities (Spectral)</h3>
         <div class="cl-plots" id="cl-plots"></div>
-        <div class="note">2D KDE of each drawn-position pair over the current window;
+        <div class="note">2D KDE of each adjacent drawn-position pair over the current window;
           dark dots = draws, white rings = points in the ≥ density band.</div>
       </div>
     </div>
@@ -328,7 +329,7 @@ function wireDnD(){
 let DRAWN = null;   // {whites:[[5]], specials:[], dates:[]}
 async function loadDrawn(){
   if(DRAWN) return DRAWN;
-  const txt = await (await fetch("data/drawn_order.csv")).text();
+  const txt = await (await fetch("data/drawn_order.csv", {cache:"no-cache"})).text();
   const lines = txt.trim().split("\n");
   const hdr = lines[0].split(",");
   const di = [1,2,3,4,5].map(i=>hdr.indexOf("d"+i)), pi = hdr.indexOf("powerball"), da = hdr.indexOf("draw_date");
@@ -372,8 +373,9 @@ function kde1(v){
   return x=>{let s=0; for(const xi of v)s+=Math.exp(-0.5*(x-xi)*(x-xi)/h); return norm*s;};
 }
 
-const PAIRJS = [];
-for(let i=0;i<5;i++)for(let j=i+1;j<5;j++)PAIRJS.push([i,j]);
+// Adjacent draw positions only — ball i can plausibly influence ball i+1;
+// non-adjacent pairs (e.g. num2 vs num4) have no mechanism and are excluded.
+const PAIRJS = [[0,1],[1,2],[2,3],[3,4]];
 
 function clusterSuggest(whites, specials, W, lo, poolSize, nTickets, smax){
   const win = whites.slice(-W);
@@ -563,7 +565,7 @@ function wireCluster(){
 
 /* ---------------- boot ---------------- */
 
-fetch("data.json").then(r=>r.json()).then(d=>{
+fetch("data.json", {cache:"no-cache"}).then(r=>r.json()).then(d=>{
   document.getElementById("updated").textContent =
     "Updated " + new Date(d.updated).toLocaleString() + " · auto-refreshes after every draw";
   window.__tunedWindow = d.powerball.cluster.window;

@@ -59,7 +59,9 @@ GAMES = {
     },
 }
 
-PAIRS = list(combinations(range(5), 2))  # all 10 position pairs, like f5.jsl
+# Adjacent draw positions only: ball i can plausibly influence ball i+1;
+# non-adjacent pairs (e.g. 2 vs 4) have no physical mechanism and are excluded.
+PAIRS = [(0, 1), (1, 2), (2, 3), (3, 4)]
 EPS = 1e-12
 
 

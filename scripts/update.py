@@ -28,17 +28,19 @@ import cluster_picker as cp  # noqa: E402
 
 ORDER_TEST_PERMS = 5000
 
-# Cluster-method window, tuned 2026-07-08 by walk-forward sweep
-# (50/75/100/150/200/300) on the first 70% of history, validated on the
-# held-out 30%. w=200 had the best mean-match ratio on BOTH slices
-# (train 1.034, holdout 1.096) but zero 3+ hits in holdout (3.8 expected) —
-# metrics disagree, so treat as no demonstrated edge. See data.json tuning.
-CLUSTER_WINDOW = 200
+# Cluster-method window, re-tuned 2026-07-09 for ADJACENT position pairs only
+# (num1·num2 … num4·num5 — the physically motivated pairs; non-adjacent pairs
+# excluded). Walk-forward sweep (50/75/100/150/200/300) on the first 70% of
+# history, validated on the held-out 30%. w=300 was best on both slices
+# (train ratio 1.017, holdout 1.055 with 6 vs 3.8 expected 3+ hits, z=+1.15)
+# — still within chance range. See data.json tuning.
+CLUSTER_WINDOW = 300
 CLUSTER_TUNING = {
-    "tuned": "2026-07-08", "windows_swept": [50, 75, 100, 150, 200, 300],
-    "train_mean_ratio": 1.034, "holdout_mean_ratio": 1.096,
-    "holdout_hits3": 0, "holdout_hits3_expected": 3.77,
-    "verdict": "metrics disagree across slices — consistent with chance",
+    "tuned": "2026-07-09 (adjacent pairs)",
+    "windows_swept": [50, 75, 100, 150, 200, 300],
+    "train_mean_ratio": 1.017, "holdout_mean_ratio": 1.055,
+    "holdout_hits3": 6, "holdout_hits3_expected": 3.77,
+    "verdict": "best on both slices but within chance range",
 }
 
 
