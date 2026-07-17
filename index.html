@@ -72,6 +72,13 @@
     font-size:12.5px;padding:7px 12px;cursor:pointer}
   .controls button:hover{border-color:var(--accent)}
   .controls .status{font-size:12px;color:var(--muted);align-self:center;flex:1;min-width:140px}
+  .hitbox{border:1px solid rgba(232,185,62,.45);background:rgba(232,185,62,.08);border-radius:12px;
+    padding:12px 14px;margin:10px 0 4px;font-size:13px;
+    animation:hitglow 2.4s ease-in-out infinite}
+  @keyframes hitglow{0%,100%{box-shadow:0 0 0 rgba(232,185,62,0)}50%{box-shadow:0 0 18px rgba(232,185,62,.25)}}
+  .hitbox .hb-title{font-weight:700;color:var(--slp);margin:0 0 6px}
+  .hitbox .balls{margin:6px 0}
+  .ball.hit{box-shadow:0 0 0 2px var(--slp),0 0 10px rgba(232,185,62,.6)}
   .cl-cols{display:flex;gap:22px;align-items:flex-start}
   .cl-left{flex:1;min-width:280px}
   .cl-plots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;width:390px}
@@ -158,7 +165,8 @@ function clusterBody(c, slReason){
       order, points selected at normalized density ≥ <b id="cl-d-label">0.94</b>, tickets ranked by summed log
       pair-density. Server-tuned defaults: window ${c.window} (walk-forward sweep ${tun.tuned}: train ratio
       ${tun.train_mean_ratio}, holdout ${tun.holdout_mean_ratio}), density 0.94 (from the original f5.jsl).
-      PB from the most-recently-active 1D cluster (separate chamber).</p>
+      PB from the most-recently-active 1D cluster (separate chamber). The hit-check box below replays
+      the method before each of the last 10 draws at your current settings and flags any 3+ white or PB match.</p>
     <div class="controls">
       <label>Window (draws)
         <input id="cl-window" type="number" min="30" max="1900" step="10" value="${c.window}"></label>
@@ -168,6 +176,7 @@ function clusterBody(c, slReason){
       <button id="cl-share" title="Copies a URL that restores your window, density, panel order and collapsed panels in any browser">Copy settings link</button>
       <span class="status" id="cl-status">Server-computed picks (defaults)</span>
     </div>
+    <div id="cl-hits"><div class="note">Hit check: replaying the method before each of the last ${HIT_LOOKBACK} draws…</div></div>
     <div class="cl-cols">
       <div class="cl-left">
         <h3>Powerball suggestions</h3>
@@ -525,6 +534,76 @@ function renderClusterResult(res, whites){
   renderPairPlots(res.pairData, 69);
 }
 
+/* ---------------- recent-draw hit check ----------------
+   Replays the exact method before each of the last HIT_LOOKBACK draws at the
+   current window/density: picks are computed only from draws strictly before
+   the draw being checked, then compared against what actually came out. */
+const HIT_LOOKBACK = 10;
+let hitRun = 0;
+
+function prizeFor(wm, pb){
+  if(wm===5) return pb ? "the jackpot" : "$1,000,000";
+  if(wm===4) return pb ? "$50,000" : "$100";
+  if(wm===3) return pb ? "$100" : "$7";
+  if(wm===2 && pb) return "$7";
+  if(pb) return "$4";
+  return null;
+}
+
+async function runHitCheck(d, W, lo){
+  const holder = document.getElementById("cl-hits");
+  if(!holder) return;
+  const myRun = ++hitRun;
+  holder.innerHTML = `<div class="note">Hit check: replaying the method before each of the last ${HIT_LOOKBACK} draws…</div>`;
+  const start = Math.max(1, d.whites.length - HIT_LOOKBACK);
+  const results = [];
+  for(let t = start; t < d.whites.length; t++){
+    await new Promise(r=>setTimeout(r,0));           // keep the UI responsive
+    if(myRun !== hitRun) return;                     // superseded by newer settings
+    const res = clusterSuggest(d.whites.slice(0,t), d.specials.slice(0,t), W, lo, 3, 5, 26);
+    const actual = new Set(d.whites[t]);
+    let best = 0, bestIdx = 0, bestMatched = [];
+    res.tickets.forEach((tk,i)=>{
+      const m = tk.combo.filter(v=>actual.has(v));
+      if(m.length > best){ best = m.length; bestIdx = i; bestMatched = m; }
+    });
+    results.push({t, date:d.dates[t], whites:d.whites[t], special:d.specials[t],
+                  best, bestIdx, bestMatched, pbPick:res.pick, pbHit:res.pick===d.specials[t]});
+  }
+  if(myRun !== hitRun) return;
+  const hits = results.filter(r => r.best >= 3 || r.pbHit);
+  if(hits.length){
+    holder.innerHTML = hits.map(r=>{
+      // credit whites when they reach a prize tier on their own (3+), or any
+      // overlap on the best ticket when the PB also hit (it pays alongside it)
+      const credit = (r.best >= 3 || (r.pbHit && r.best >= 1)) ? r.bestMatched : [];
+      const matched = new Set(credit);
+      const balls = [...r.whites].sort((a,b)=>a-b).map(w=>
+        `<span class="ball sm${matched.has(w)?" hit":""}">${w}</span>`).join("")
+        + `<span class="ball sm sp${r.pbHit?" hit":""}" style="background:var(--pb)">${r.special}</span>`;
+      const what = [];
+      if(credit.length) what.push(`${credit.length} of 5 whites (${credit.slice().sort((a,b)=>a-b).join(" · ")}) on ticket #${r.bestIdx+1}`);
+      if(r.pbHit) what.push(`the Powerball (${r.pbPick})`);
+      const prize = prizeFor(credit.length, r.pbHit);
+      return `<div class="hitbox">
+        <p class="hb-title">🎯 Recent hit — draw of ${r.date}</p>
+        <div class="balls">${balls}</div>
+        The picks this method would have generated <b>before</b> that draw — window ${W},
+        density ≥ ${lo}, from draws up to ${d.dates[r.t-1]} — matched ${what.join(" and ")}.
+        ${prize ? `A real ticket would have won <b>${prize}</b>.` : ""}
+        <div class="note" style="margin-top:6px">Honesty check: with 5 near-duplicate tickets replayed
+          over ${results.length} draws, an occasional ${r.best>=3?r.best+"/5":"PB"} hit is within chance
+          expectations — see the backtest scoreboard below before reading anything into it.</div>
+      </div>`;
+    }).join("");
+  }else{
+    const near = results.reduce((a,b)=> b.best > a.best ? b : a, results[0]);
+    holder.innerHTML = `<div class="note">Hit check: no 3+ white or Powerball hits in the method's
+      replayed picks over the last ${results.length} draws at window ${W}, density ≥ ${lo}
+      (best: ${near.best}/5 whites on ${near.date}).</div>`;
+  }
+}
+
 function wireCluster(){
   const wEl=document.getElementById("cl-window"), dEl=document.getElementById("cl-density");
   if(!wEl) return;
@@ -548,6 +627,7 @@ function wireCluster(){
       updateHash();
       status.textContent=(fromUser?`Recomputed in your browser (${(performance.now()-t0).toFixed(0)} ms) — `:
         `Computed in your browser — `)+`window ${W}, density ≥ ${lo}, PB ${res.pick} (cluster ${res.cluster[0]}–${res.cluster[1]})`;
+      runHitCheck(d, W, lo);
     }catch(e){ status.textContent="Failed to compute: "+e; }
   }
   const onchange=()=>{ clearTimeout(timer); timer=setTimeout(()=>recalc(true), 350); };
