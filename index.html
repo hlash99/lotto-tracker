@@ -130,8 +130,6 @@ function gameBody(g, color){
        <span class="track"><span class="fill" style="width:${100*c/maxCt}%;background:${color}"></span></span>
        <span class="ct">${c}×</span></div>`).join("");
   const cold = S.white_cold.map(([n,c])=>`<span class="chip"><b>${n}</b> ${c}×</span>`).join("");
-  const picks = g.picks.map((t,i)=>
-    `<div class="ticket"><span class="idx">${i+1}</span>${ballRow(t.whites, t.special, color, true)}</div>`).join("");
   const chiOk = S.chi2_white.uniform && S.chi2_special.uniform;
   const drawnOrder = L.drawn_order
     ? `<h3>Drawn order (as the balls came out)</h3>
@@ -149,11 +147,7 @@ function gameBody(g, color){
     <div class="verdict ${chiOk?'ok':'warn'}">${chiOk
       ? `χ² test: hot/cold spread is consistent with a fair uniform draw (p=${fmtP(S.chi2_white.p)})`
       : `χ² test flags non-uniformity (p=${fmtP(S.chi2_white.p)}) — check data before excitement`}</div>
-    <h3>Today's screened quick picks</h3>
-    ${picks}
-    <div class="note">Uniform random, screened against all ${S.draws} past winners and
-      over-played patterns. Jackpot odds per ticket: 1 in ${g.odds.toLocaleString()} —
-      unchanged by any strategy; screening only reduces the chance of splitting.</div>`;
+    <div class="note">Jackpot odds per ticket: 1 in ${g.odds.toLocaleString()} — unchanged by any strategy.</div>`;
 }
 
 function clusterBody(c, slReason){
@@ -759,8 +753,8 @@ fetch("data.json", {cache:"no-cache"}).then(r=>r.json()).then(d=>{
     "<b>The honest fine print:</b> lottery draws are independent; no analysis of past results " +
     "changes any ticket's odds. This tracker exists to (1) archive drawn-order data, " +
     "(2) test the order-dependence hypothesis rigorously as data accumulates, and " +
-    "(3) generate picks that minimize expected jackpot-splitting. Chi-square and permutation " +
-    "tests recompute on every refresh — if the draws ever stop looking uniform, this page will say so.";
+    "(3) keep the cluster-method picks under continuous walk-forward testing. Chi-square and " +
+    "permutation tests recompute on every refresh — if the draws ever stop looking uniform, this page will say so.";
 }).catch(e=>{
   document.getElementById("updated").textContent = "Failed to load data.json — " + e;
 });
