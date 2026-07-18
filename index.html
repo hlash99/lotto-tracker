@@ -191,19 +191,20 @@ function clusterBody(c, slReason){
           dark dots = draws, white rings = points in the ≥ density band.</div>
       </div>
     </div>
-    <h3>Rolling walk-forward backtest — at the tuned defaults only</h3>
+    <h3>Rolling walk-forward backtest — <span id="bt-label">at the tuned defaults — server-computed, full history</span></h3>
     <table>
       <tr><th>metric</th><th class="r">method</th><th class="r">random</th></tr>
-      <tr><td>mean white matches / ticket (${bt.tickets.toLocaleString()} tickets, ${bt.tested.toLocaleString()} draws)</td>
-          <td class="r">${bt.mean_matches}</td><td class="r">${bt.random_mean}</td></tr>
-      <tr><td>3+ ball hits</td><td class="r">${bt.obs3}</td><td class="r">${bt.exp3}</td></tr>
-      <tr><td>PB cluster-pick hit rate</td><td class="r">${bt.special_rate ?? "—"}</td><td class="r">${bt.special_random}</td></tr>
+      <tr><td id="bt-scale">mean white matches / ticket (${bt.tickets.toLocaleString()} tickets, ${bt.tested.toLocaleString()} draws)</td>
+          <td class="r" id="bt-mean">${bt.mean_matches}</td><td class="r" id="bt-rmean">${bt.random_mean}</td></tr>
+      <tr><td>3+ ball hits</td><td class="r" id="bt-obs3">${bt.obs3}</td><td class="r" id="bt-exp3">${bt.exp3}</td></tr>
+      <tr><td>PB cluster-pick hit rate</td><td class="r" id="bt-sprate">${bt.special_rate ?? "—"}</td><td class="r" id="bt-sprand">${bt.special_random}</td></tr>
     </table>
-    <div class="verdict ${chance?'ok':'warn'}">${chance
+    <div class="verdict ${chance?'ok':'warn'}" id="bt-verdict">${chance
       ? `Backtest verdict: performance is consistent with chance (z = ${bt.z3 >= 0 ? "+" : ""}${bt.z3} on 3+ hits) — these picks are the method faithfully applied, not a demonstrated edge`
       : `Backtest deviates from chance (z = ${bt.z3}) — verify data before believing it`}</div>
-    <div class="note">Changing window/density recomputes the picks in your browser from the full
-      drawn-order archive; the backtest scoreboard above stays at the tuned defaults.</div>
+    <div class="note">Changing window/density recomputes the picks, the hit check and the backtest
+      scoreboard in your browser from the full drawn-order archive. Very large windows are
+      compute-capped to the most recent eligible draws to stay responsive.</div>
     <div class="note">SuperLotto: cluster picks disabled — ${esc(slReason)}</div>`;
 }
 
@@ -541,6 +542,14 @@ function renderClusterResult(res, whites){
 const HIT_LOOKBACK = 10;
 let hitRun = 0;
 
+// UI-friendly yield that browsers don't clamp in background tabs (setTimeout
+// is throttled to 1s+ when the tab is hidden, stalling long computations)
+const uiYield = () => new Promise(r=>{
+  const c = new MessageChannel();
+  c.port1.onmessage = () => r();
+  c.port2.postMessage(0);
+});
+
 function prizeFor(wm, pb){
   if(wm===5) return pb ? "the jackpot" : "$1,000,000";
   if(wm===4) return pb ? "$50,000" : "$100";
@@ -558,7 +567,7 @@ async function runHitCheck(d, W, lo){
   const start = Math.max(1, d.whites.length - HIT_LOOKBACK);
   const results = [];
   for(let t = start; t < d.whites.length; t++){
-    await new Promise(r=>setTimeout(r,0));           // keep the UI responsive
+    await uiYield();                                 // keep the UI responsive
     if(myRun !== hitRun) return;                     // superseded by newer settings
     const res = clusterSuggest(d.whites.slice(0,t), d.specials.slice(0,t), W, lo, 3, 5, 26);
     const actual = new Set(d.whites[t]);
@@ -604,6 +613,89 @@ async function runHitCheck(d, W, lo){
   }
 }
 
+/* ---------------- dynamic walk-forward backtest ----------------
+   Same walk-forward as scripts/cluster_picker.py (verified to reproduce the
+   server's numbers exactly at the tuned defaults), recomputed in-browser at
+   the current window/density. Big windows are compute-capped by BT_BUDGET
+   (kernel evaluations ≈ draws × 4·window²) so the page stays responsive. */
+let btRunId = 0;
+const BT_CACHE = new Map();          // "W|lo" -> {m, label}
+const BT_BUDGET = 1.5e9;
+
+function comb(n,k){ let r=1; for(let i=0;i<k;i++) r=r*(n-i)/(i+1); return r; }
+const P3PLUS = (()=>{ let p=0; for(let k=3;k<=5;k++) p+=comb(5,k)*comb(64,5-k); return p/comb(69,5); })();
+
+function paintBacktest(m, label, verdictOverride){
+  const set=(id,v)=>{ const el=document.getElementById(id); if(el) el.textContent=v; };
+  set("bt-label", label);
+  set("bt-scale", `mean white matches / ticket (${m.tickets.toLocaleString()} tickets, ${m.tested.toLocaleString()} draws)`);
+  set("bt-mean", m.mean_matches); set("bt-rmean", m.random_mean);
+  set("bt-obs3", m.obs3); set("bt-exp3", m.exp3);
+  set("bt-sprate", m.special_rate ?? "—"); set("bt-sprand", m.special_random);
+  const v=document.getElementById("bt-verdict");
+  if(!v) return;
+  if(verdictOverride){ v.className="verdict warn"; v.textContent=verdictOverride; return; }
+  const chance = Math.abs(m.z3) < 2 && m.mean_ratio < 1.15;
+  v.className = "verdict " + (chance ? "ok" : "warn");
+  v.textContent = chance
+    ? `Backtest verdict: performance is consistent with chance (z = ${m.z3 >= 0 ? "+" : ""}${m.z3} on 3+ hits) — these picks are the method faithfully applied, not a demonstrated edge`
+    : `Backtest deviates from chance (z = ${m.z3}) — verify data before believing it`;
+}
+
+async function runBacktestDynamic(d, W, lo){
+  if(!document.getElementById("bt-label")) return;
+  const my = ++btRunId;
+  const sbt = window.__serverBT;
+  if(W === (window.__tunedWindow||200) && Math.abs(lo - 0.94) < 1e-9 && sbt){
+    paintBacktest(sbt, "at the tuned defaults — server-computed, full history");
+    return;
+  }
+  const key = W + "|" + lo;
+  if(BT_CACHE.has(key)){ const c = BT_CACHE.get(key); paintBacktest(c.m, c.label); return; }
+  const n = d.whites.length, avail = n - W;
+  const empty = {tickets:0, tested:0, mean_matches:"—", random_mean:(25/69).toFixed(4),
+                 obs3:"—", exp3:"—", special_rate:"—", special_random:(1/26).toFixed(4)};
+  if(avail < 10){
+    paintBacktest(empty, `window ${W}, density ≥ ${lo}`,
+      `Backtest unavailable: window ${W} leaves only ${Math.max(0,avail)} draws to walk forward — shrink the window`);
+    return;
+  }
+  const T = Math.min(avail, Math.max(10, Math.round(BT_BUDGET/(4*W*W))));
+  const tallies=[0,0,0,0,0,0];
+  let ticketsPlayed=0, spHits=0, spPreds=0, tested=0, last=performance.now();
+  for(let t = n-T; t < n; t++){
+    const res = clusterSuggest(d.whites.slice(0,t), d.specials.slice(0,t), W, lo, 3, 5, 26);
+    const actual = new Set(d.whites[t]);
+    for(const tk of res.tickets){
+      let k=0; for(const v of tk.combo) if(actual.has(v)) k++;
+      tallies[k]++; ticketsPlayed++;
+    }
+    spPreds++; if(res.pick === d.specials[t]) spHits++;
+    tested++;
+    if(performance.now()-last > 150){
+      const el=document.getElementById("bt-label");
+      if(el) el.textContent = `window ${W}, density ≥ ${lo} — backtesting in your browser… ${tested}/${T} draws`;
+      await uiYield();
+      if(my !== btRunId) return;                   // superseded by newer settings
+      last = performance.now();
+    }
+  }
+  const meanM = tallies.reduce((s,c,k)=>s+k*c,0)/Math.max(1,ticketsPlayed);
+  const randM = 25/69;
+  const exp3 = P3PLUS*ticketsPlayed, obs3 = tallies[3]+tallies[4]+tallies[5];
+  const m = {tickets:ticketsPlayed, tested, mean_matches:meanM.toFixed(4),
+    random_mean:randM.toFixed(4), mean_ratio:meanM/randM, obs3, exp3:exp3.toFixed(2),
+    z3:+((obs3-exp3)/Math.sqrt(exp3)).toFixed(2),
+    special_rate:spPreds ? (spHits/spPreds).toFixed(4) : null,
+    special_random:(1/26).toFixed(4)};
+  const label = `window ${W}, density ≥ ${lo} — browser-computed over ` +
+    (T===avail ? `all ${avail.toLocaleString()} eligible draws`
+               : `the last ${T.toLocaleString()} of ${avail.toLocaleString()} eligible draws (compute-capped)`);
+  BT_CACHE.set(key, {m, label});
+  if(my !== btRunId) return;
+  paintBacktest(m, label);
+}
+
 function wireCluster(){
   const wEl=document.getElementById("cl-window"), dEl=document.getElementById("cl-density");
   if(!wEl) return;
@@ -628,6 +720,7 @@ function wireCluster(){
       status.textContent=(fromUser?`Recomputed in your browser (${(performance.now()-t0).toFixed(0)} ms) — `:
         `Computed in your browser — `)+`window ${W}, density ≥ ${lo}, PB ${res.pick} (cluster ${res.cluster[0]}–${res.cluster[1]})`;
       runHitCheck(d, W, lo);
+      runBacktestDynamic(d, W, lo);
     }catch(e){ status.textContent="Failed to compute: "+e; }
   }
   const onchange=()=>{ clearTimeout(timer); timer=setTimeout(()=>recalc(true), 350); };
@@ -649,6 +742,7 @@ fetch("data.json", {cache:"no-cache"}).then(r=>r.json()).then(d=>{
   document.getElementById("updated").textContent =
     "Updated " + new Date(d.updated).toLocaleString() + " · auto-refreshes after every draw";
   window.__tunedWindow = d.powerball.cluster.window;
+  window.__serverBT = d.powerball.cluster.backtest;
   PANELS = [
     {key:"pb",      title:"Powerball",        color:"var(--pb)",  wide:false,
      body:`<p class="sub">Mon · Wed · Sat · 5 of 69 + Powerball 1–26</p>`+gameBody(d.powerball,"var(--pb)")},
