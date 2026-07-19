@@ -1,28 +1,28 @@
 {
- "updated": "2026-07-18T14:21:22+00:00",
+ "updated": "2026-07-19T07:19:14+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
   "special_max": 26,
   "odds": 292201338,
   "latest": {
-   "date": "2026-07-15",
+   "date": "2026-07-18",
    "whites": [
-    2,
-    7,
-    18,
-    29,
-    38
+    9,
+    14,
+    44,
+    50,
+    56
    ],
    "drawn_order": [
-    18,
-    2,
-    29,
-    38,
-    7
+    56,
+    14,
+    44,
+    50,
+    9
    ],
-   "special": 16,
-   "power_play": "2"
+   "special": 3,
+   "power_play": "4"
   },
   "stats": {
    "draws": 1376,
@@ -172,82 +172,82 @@
   "picks": [
    {
     "whites": [
-     10,
      18,
-     32,
-     61,
-     66
+     30,
+     52,
+     53,
+     57
     ],
-    "special": 12
-   },
-   {
-    "whites": [
-     3,
-     34,
-     36,
-     57,
-     63
-    ],
-    "special": 23
-   },
-   {
-    "whites": [
-     2,
-     26,
-     27,
-     44,
-     47
-    ],
-    "special": 10
-   },
-   {
-    "whites": [
-     2,
-     9,
-     12,
-     21,
-     68
-    ],
-    "special": 7
+    "special": 3
    },
    {
     "whites": [
      25,
-     41,
-     46,
-     55,
-     66
+     34,
+     35,
+     39,
+     51
     ],
-    "special": 16
+    "special": 25
+   },
+   {
+    "whites": [
+     1,
+     5,
+     38,
+     42,
+     58
+    ],
+    "special": 25
+   },
+   {
+    "whites": [
+     14,
+     17,
+     33,
+     35,
+     52
+    ],
+    "special": 11
+   },
+   {
+    "whites": [
+     42,
+     60,
+     61,
+     63,
+     64
+    ],
+    "special": 25
    }
   ],
   "order_test": {
-   "draws": 1381,
+   "draws": 1382,
    "perms": 5000,
    "results": [
     {
      "name": "lag-1 correlation (ball i vs ball i+1)",
-     "observed": -0.0139,
-     "null_mean": -0.0169,
-     "p": 0.7842
+     "observed": -0.0143,
+     "null_mean": -0.0168,
+     "p": 0.8142
     },
     {
      "name": "mean |step| between successive balls",
-     "observed": 23.3554,
-     "null_mean": 23.3638,
-     "p": 0.9588
+     "observed": 23.36,
+     "null_mean": 23.3621,
+     "p": 0.9872
     },
     {
      "name": "position effect (var of position means)",
-     "observed": 0.3474,
-     "null_mean": 0.2367,
-     "p": 0.2088
+     "observed": 0.3483,
+     "null_mean": 0.2349,
+     "p": 0.205
     },
     {
      "name": "mean value of first ball drawn",
-     "observed": 34.7212,
-     "null_mean": 35.3664,
-     "p": 0.1842
+     "observed": 34.7366,
+     "null_mean": 35.3762,
+     "p": 0.1816
     }
    ],
    "dependence_detected": false
@@ -255,8 +255,8 @@
   "cluster": {
    "window": 300,
    "window_dates": [
-    "2024-08-17",
-    "2026-07-15"
+    "2024-08-19",
+    "2026-07-18"
    ],
    "pools": [
     [
@@ -288,7 +288,61 @@
    "tickets": [
     {
      "whites": [
-      25,
+      21,
+      38,
+      40,
+      48,
+      53
+     ],
+     "positional": [
+      38,
+      21,
+      48,
+      53,
+      40
+     ],
+     "score": -32.9,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      21,
+      37,
+      40,
+      48,
+      53
+     ],
+     "positional": [
+      37,
+      21,
+      48,
+      53,
+      40
+     ],
+     "score": -32.9,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      21,
+      38,
+      42,
+      48,
+      53
+     ],
+     "positional": [
+      38,
+      21,
+      48,
+      53,
+      42
+     ],
+     "score": -32.9,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      21,
       40,
       42,
       48,
@@ -296,12 +350,12 @@
      ],
      "positional": [
       40,
-      25,
+      21,
       48,
       53,
       42
      ],
-     "score": -33.0,
+     "score": -32.9,
      "best_past_overlap": 3
     },
     {
@@ -319,89 +373,35 @@
       53,
       40
      ],
-     "score": -33.0,
-     "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      25,
-      40,
-      42,
-      49,
-      53
-     ],
-     "positional": [
-      40,
-      25,
-      49,
-      53,
-      42
-     ],
-     "score": -33.0,
-     "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      25,
-      38,
-      42,
-      48,
-      53
-     ],
-     "positional": [
-      38,
-      25,
-      48,
-      53,
-      42
-     ],
-     "score": -33.0,
-     "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      25,
-      38,
-      40,
-      49,
-      53
-     ],
-     "positional": [
-      38,
-      25,
-      49,
-      53,
-      40
-     ],
-     "score": -33.0,
+     "score": -32.9,
      "best_past_overlap": 3
     }
    ],
-   "special_pick": 21,
+   "special_pick": 4,
    "special_cluster": [
-    13,
-    26
+    1,
+    9
    ],
    "backtest": {
     "window": 300,
-    "tested": 1081,
-    "tickets": 5405,
+    "tested": 1082,
+    "tickets": 5410,
     "tallies": [
-     3586,
+     3591,
      1622,
      184,
      13,
      0,
      0
     ],
-    "mean_matches": 0.3754,
+    "mean_matches": 0.375,
     "random_mean": 0.3623,
-    "mean_ratio": 1.0361,
+    "mean_ratio": 1.0351,
     "obs3": 13,
-    "exp3": 9.85,
+    "exp3": 9.86,
     "z3": 1.0,
     "special_hits": 36,
-    "special_preds": 1081,
+    "special_preds": 1082,
     "special_rate": 0.0333,
     "special_random": 0.0385
    },
@@ -429,20 +429,20 @@
   "special_max": 27,
   "odds": 41416353,
   "latest": {
-   "date": "2026-07-15",
+   "date": "2026-07-18",
    "whites": [
     2,
-    5,
-    34,
-    36,
+    3,
+    10,
+    27,
     37
    ],
-   "special": 3
+   "special": 7
   },
   "stats": {
-   "draws": 1552,
+   "draws": 1553,
    "first_date": "2011-08-31",
-   "last_date": "2026-07-15",
+   "last_date": "2026-07-18",
    "white_hot": [
     [
      8,
@@ -473,12 +473,12 @@
      178
     ],
     [
-     12,
+     2,
      177
     ],
     [
-     2,
-     176
+     12,
+     177
     ],
     [
      32,
@@ -572,68 +572,68 @@
     ]
    ],
    "chi2_white": {
-    "stat": 53.0,
+    "stat": 53.3,
     "df": 46,
-    "p": 0.2216,
+    "p": 0.2143,
     "uniform": true
    },
    "chi2_special": {
     "stat": 27.5,
     "df": 26,
-    "p": 0.3835,
+    "p": 0.3844,
     "uniform": true
    }
   },
   "picks": [
    {
     "whites": [
-     1,
+     7,
      13,
-     39,
-     42,
+     15,
+     25,
      44
     ],
-    "special": 3
+    "special": 20
+   },
+   {
+    "whites": [
+     2,
+     13,
+     30,
+     32,
+     33
+    ],
+    "special": 13
    },
    {
     "whites": [
      1,
-     2,
-     18,
-     28,
-     39
-    ],
-    "special": 7
-   },
-   {
-    "whites": [
-     9,
-     11,
-     15,
+     5,
      23,
-     33
-    ],
-    "special": 11
-   },
-   {
-    "whites": [
-     2,
-     8,
-     10,
-     14,
-     32
+     34,
+     40
     ],
     "special": 25
    },
    {
     "whites": [
-     9,
-     21,
-     26,
-     30,
-     32
+     13,
+     18,
+     25,
+     29,
+     47
     ],
-    "special": 17
+    "special": 21
+   },
+   {
+    "whites": [
+     3,
+     29,
+     31,
+     42,
+     45
+    ],
+    "special": 11
    }
   ],
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
