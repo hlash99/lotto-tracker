@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-21T07:25:00+00:00",
+ "updated": "2026-07-21T15:05:59+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -25,9 +25,9 @@
    "power_play": "2"
   },
   "stats": {
-   "draws": 1377,
+   "draws": 1378,
    "first_date": "2015-10-07",
-   "last_date": "2026-07-18",
+   "last_date": "2026-07-20",
    "white_hot": [
     [
      21,
@@ -145,7 +145,7 @@
     ],
     [
      8,
-     44
+     45
     ],
     [
      7,
@@ -157,68 +157,68 @@
     ]
    ],
    "chi2_white": {
-    "stat": 80.0,
+    "stat": 80.4,
     "df": 68,
-    "p": 0.1516,
+    "p": 0.1439,
     "uniform": true
    },
    "chi2_special": {
-    "stat": 24.0,
+    "stat": 23.6,
     "df": 25,
-    "p": 0.5217,
+    "p": 0.5413,
     "uniform": true
    }
   },
   "picks": [
    {
     "whites": [
-     7,
-     17,
-     26,
-     57,
-     58
-    ],
-    "special": 22
-   },
-   {
-    "whites": [
-     11,
-     23,
-     43,
-     48,
-     50
-    ],
-    "special": 24
-   },
-   {
-    "whites": [
-     1,
      29,
-     39,
-     61,
-     68
+     34,
+     41,
+     54,
+     60
+    ],
+    "special": 9
+   },
+   {
+    "whites": [
+     14,
+     19,
+     22,
+     56,
+     64
+    ],
+    "special": 19
+   },
+   {
+    "whites": [
+     20,
+     36,
+     45,
+     52,
+     53
+    ],
+    "special": 21
+   },
+   {
+    "whites": [
+     13,
+     22,
+     29,
+     41,
+     43
     ],
     "special": 2
    },
    {
     "whites": [
-     22,
-     48,
-     51,
-     52,
-     66
-    ],
-    "special": 1
-   },
-   {
-    "whites": [
-     18,
-     51,
-     52,
+     9,
+     46,
      55,
-     58
+     56,
+     69
     ],
-    "special": 12
+    "special": 10
    }
   ],
   "order_test": {
@@ -587,53 +587,53 @@
   "picks": [
    {
     "whites": [
-     20,
+     6,
+     18,
      23,
+     36,
+     44
+    ],
+    "special": 1
+   },
+   {
+    "whites": [
+     17,
+     18,
+     20,
+     32,
+     40
+    ],
+    "special": 13
+   },
+   {
+    "whites": [
+     8,
+     27,
      34,
-     40,
-     45
+     45,
+     47
     ],
     "special": 23
    },
    {
     "whites": [
-     2,
-     20,
-     30,
-     33,
-     36
-    ],
-    "special": 4
-   },
-   {
-    "whites": [
-     8,
-     23,
-     33,
-     37,
-     41
-    ],
-    "special": 27
-   },
-   {
-    "whites": [
-     1,
-     2,
      4,
-     36,
-     41
+     16,
+     22,
+     26,
+     35
     ],
-    "special": 19
+    "special": 7
    },
    {
     "whites": [
-     14,
-     21,
-     26,
-     27,
+     9,
+     17,
+     22,
+     38,
      45
     ],
-    "special": 1
+    "special": 25
    }
   ],
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
