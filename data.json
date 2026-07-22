@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-22T07:27:13+00:00",
+ "updated": "2026-07-22T15:06:37+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,53 +172,53 @@
   "picks": [
    {
     "whites": [
-     3,
-     7,
-     31,
-     53,
-     57
+     25,
+     30,
+     37,
+     43,
+     47
     ],
-    "special": 17
-   },
-   {
-    "whites": [
-     3,
-     6,
-     10,
-     26,
-     40
-    ],
-    "special": 5
+    "special": 10
    },
    {
     "whites": [
      33,
      38,
-     45,
-     54,
-     67
+     39,
+     46,
+     60
+    ],
+    "special": 23
+   },
+   {
+    "whites": [
+     8,
+     37,
+     43,
+     53,
+     65
     ],
     "special": 1
    },
    {
     "whites": [
-     7,
-     30,
-     44,
-     59,
-     68
+     14,
+     18,
+     21,
+     25,
+     51
     ],
-    "special": 14
+    "special": 19
    },
    {
     "whites": [
-     4,
-     47,
-     48,
-     63,
-     67
+     8,
+     25,
+     28,
+     33,
+     57
     ],
-    "special": 17
+    "special": 25
    }
   ],
   "order_test": {
@@ -587,53 +587,53 @@
   "picks": [
    {
     "whites": [
-     1,
-     17,
-     18,
-     26,
+     16,
+     28,
+     37,
+     42,
      46
     ],
-    "special": 12
+    "special": 15
    },
    {
     "whites": [
+     6,
+     20,
+     21,
+     31,
+     41
+    ],
+    "special": 6
+   },
+   {
+    "whites": [
+     1,
      5,
-     18,
-     29,
-     36,
+     16,
+     25,
      42
     ],
-    "special": 16
+    "special": 11
    },
    {
     "whites": [
+     2,
      16,
+     37,
+     45,
+     47
+    ],
+    "special": 18
+   },
+   {
+    "whites": [
+     15,
      18,
      25,
-     40,
-     41
+     30,
+     45
     ],
-    "special": 10
-   },
-   {
-    "whites": [
-     14,
-     22,
-     31,
-     39,
-     41
-    ],
-    "special": 10
-   },
-   {
-    "whites": [
-     7,
-     15,
-     22,
-     26,
-     34
-    ],
-    "special": 20
+    "special": 25
    }
   ],
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
