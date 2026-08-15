@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-15T05:13:35+00:00",
+ "updated": "2026-08-15T13:32:08+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,53 +172,53 @@
   "picks": [
    {
     "whites": [
-     5,
-     13,
-     27,
-     63,
-     67
-    ],
-    "special": 21
-   },
-   {
-    "whites": [
-     2,
-     9,
-     15,
-     42,
-     44
-    ],
-    "special": 22
-   },
-   {
-    "whites": [
-     13,
-     26,
+     11,
+     33,
      39,
-     55,
+     41,
      61
     ],
     "special": 13
    },
    {
     "whites": [
-     31,
-     42,
-     48,
-     51,
-     57
+     5,
+     11,
+     20,
+     26,
+     58
     ],
-    "special": 15
+    "special": 2
    },
    {
     "whites": [
-     13,
-     32,
-     47,
-     57,
+     18,
+     22,
+     40,
+     67,
      68
     ],
-    "special": 17
+    "special": 8
+   },
+   {
+    "whites": [
+     9,
+     43,
+     46,
+     51,
+     62
+    ],
+    "special": 8
+   },
+   {
+    "whites": [
+     11,
+     17,
+     27,
+     58,
+     59
+    ],
+    "special": 26
    }
   ],
   "order_test": {
@@ -587,53 +587,53 @@
   "picks": [
    {
     "whites": [
-     5,
-     13,
-     24,
-     34,
-     45
+     6,
+     32,
+     37,
+     41,
+     43
     ],
-    "special": 11
+    "special": 7
    },
    {
     "whites": [
-     21,
-     23,
-     24,
-     29,
-     47
+     3,
+     8,
+     17,
+     34,
+     42
     ],
-    "special": 5
+    "special": 26
    },
    {
     "whites": [
      2,
+     15,
      29,
      36,
-     37,
-     39
+     38
     ],
-    "special": 21
+    "special": 3
    },
    {
     "whites": [
-     8,
-     11,
+     2,
      24,
-     27,
-     41
+     34,
+     38,
+     44
     ],
-    "special": 11
+    "special": 12
    },
    {
     "whites": [
-     14,
+     1,
+     7,
      19,
-     20,
-     29,
-     33
+     26,
+     35
     ],
-    "special": 6
+    "special": 15
    }
   ],
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
