@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-30T10:09:24+00:00",
+ "updated": "2026-08-30T17:14:59+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,53 +172,53 @@
   "picks": [
    {
     "whites": [
-     7,
-     39,
-     52,
-     59,
-     64
-    ],
-    "special": 5
-   },
-   {
-    "whites": [
      5,
-     32,
-     41,
-     44,
-     47
-    ],
-    "special": 8
-   },
-   {
-    "whites": [
+     19,
+     26,
      29,
-     39,
-     56,
-     57,
-     66
+     52
     ],
     "special": 24
    },
    {
     "whites": [
      26,
-     35,
-     44,
+     45,
      48,
-     59
+     53,
+     60
     ],
-    "special": 7
+    "special": 5
    },
    {
     "whites": [
-     2,
-     20,
-     24,
-     29,
-     39
+     31,
+     39,
+     53,
+     54,
+     65
     ],
-    "special": 4
+    "special": 26
+   },
+   {
+    "whites": [
+     1,
+     29,
+     38,
+     42,
+     66
+    ],
+    "special": 3
+   },
+   {
+    "whites": [
+     17,
+     22,
+     25,
+     66,
+     68
+    ],
+    "special": 24
    }
   ],
   "order_test": {
@@ -587,53 +587,53 @@
   "picks": [
    {
     "whites": [
-     13,
-     17,
+     7,
+     16,
      24,
-     31,
-     38
+     39,
+     42
     ],
-    "special": 7
+    "special": 27
+   },
+   {
+    "whites": [
+     6,
+     16,
+     38,
+     43,
+     45
+    ],
+    "special": 1
    },
    {
     "whites": [
      3,
-     4,
-     21,
+     7,
+     17,
      40,
-     43
+     46
     ],
-    "special": 10
+    "special": 11
    },
    {
     "whites": [
-     8,
-     26,
-     32,
-     43,
-     47
-    ],
-    "special": 14
-   },
-   {
-    "whites": [
-     23,
-     27,
+     2,
      31,
+     35,
      37,
      39
     ],
-    "special": 13
+    "special": 25
    },
    {
     "whites": [
-     4,
      5,
-     38,
-     39,
-     40
+     12,
+     16,
+     26,
+     45
     ],
-    "special": 7
+    "special": 18
    }
   ],
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
