@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-01T17:13:10+00:00",
+ "updated": "2026-09-02T09:08:31+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,53 +172,53 @@
   "picks": [
    {
     "whites": [
-     17,
-     18,
-     23,
-     42,
-     57
+     19,
+     31,
+     44,
+     54,
+     62
     ],
-    "special": 8
+    "special": 6
    },
    {
     "whites": [
-     8,
-     25,
-     34,
-     43,
-     68
-    ],
-    "special": 22
-   },
-   {
-    "whites": [
-     14,
      15,
-     25,
-     59,
-     66
+     48,
+     65,
+     66,
+     69
+    ],
+    "special": 12
+   },
+   {
+    "whites": [
+     4,
+     22,
+     32,
+     40,
+     42
     ],
     "special": 18
    },
    {
     "whites": [
-     7,
-     8,
-     17,
-     37,
-     48
+     27,
+     43,
+     45,
+     47,
+     62
     ],
-    "special": 21
+    "special": 12
    },
    {
     "whites": [
-     10,
-     29,
-     36,
-     45,
-     60
+     2,
+     51,
+     54,
+     59,
+     66
     ],
-    "special": 21
+    "special": 25
    }
   ],
   "order_test": {
@@ -587,53 +587,53 @@
   "picks": [
    {
     "whites": [
-     2,
-     8,
+     10,
      19,
-     25,
-     39
+     34,
+     35,
+     42
     ],
     "special": 3
    },
    {
     "whites": [
-     5,
-     6,
-     38,
-     42,
-     46
+     10,
+     26,
+     28,
+     29,
+     36
     ],
-    "special": 1
-   },
-   {
-    "whites": [
-     8,
-     13,
-     27,
-     30,
-     34
-    ],
-    "special": 9
+    "special": 26
    },
    {
     "whites": [
      1,
-     7,
-     19,
-     28,
-     44
+     13,
+     16,
+     33,
+     46
     ],
-    "special": 7
+    "special": 8
    },
    {
     "whites": [
-     15,
-     22,
+     16,
+     21,
      28,
-     37,
-     41
+     30,
+     34
     ],
-    "special": 23
+    "special": 17
+   },
+   {
+    "whites": [
+     8,
+     28,
+     31,
+     33,
+     47
+    ],
+    "special": 6
    }
   ],
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
