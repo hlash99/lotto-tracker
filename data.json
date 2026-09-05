@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-05T08:40:15+00:00",
+ "updated": "2026-09-05T15:51:17+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,53 +172,53 @@
   "picks": [
    {
     "whites": [
-     5,
-     23,
-     30,
-     32,
-     56
+     6,
+     38,
+     40,
+     44,
+     49
     ],
-    "special": 13
+    "special": 7
    },
    {
     "whites": [
      1,
-     13,
-     32,
-     46,
-     69
-    ],
-    "special": 23
-   },
-   {
-    "whites": [
-     12,
-     13,
-     44,
-     58,
-     63
-    ],
-    "special": 3
-   },
-   {
-    "whites": [
-     5,
-     14,
-     25,
-     54,
-     69
+     23,
+     43,
+     52,
+     64
     ],
     "special": 6
    },
    {
     "whites": [
-     12,
-     13,
-     20,
-     37,
-     63
+     2,
+     32,
+     41,
+     59,
+     64
     ],
-    "special": 24
+    "special": 21
+   },
+   {
+    "whites": [
+     2,
+     9,
+     17,
+     50,
+     65
+    ],
+    "special": 25
+   },
+   {
+    "whites": [
+     18,
+     19,
+     42,
+     43,
+     51
+    ],
+    "special": 3
    }
   ],
   "order_test": {
@@ -587,53 +587,53 @@
   "picks": [
    {
     "whites": [
-     2,
-     12,
-     15,
-     23,
-     34
+     9,
+     13,
+     30,
+     41,
+     45
+    ],
+    "special": 11
+   },
+   {
+    "whites": [
+     7,
+     16,
+     33,
+     40,
+     45
+    ],
+    "special": 6
+   },
+   {
+    "whites": [
+     10,
+     19,
+     33,
+     42,
+     43
     ],
     "special": 27
    },
    {
     "whites": [
-     8,
-     15,
-     21,
-     31,
-     37
+     17,
+     19,
+     26,
+     34,
+     44
+    ],
+    "special": 1
+   },
+   {
+    "whites": [
+     7,
+     10,
+     28,
+     33,
+     38
     ],
     "special": 8
-   },
-   {
-    "whites": [
-     6,
-     16,
-     19,
-     27,
-     35
-    ],
-    "special": 7
-   },
-   {
-    "whites": [
-     5,
-     10,
-     12,
-     38,
-     42
-    ],
-    "special": 12
-   },
-   {
-    "whites": [
-     5,
-     23,
-     25,
-     36,
-     46
-    ],
-    "special": 10
    }
   ],
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
