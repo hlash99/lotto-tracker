@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-26T09:35:28+00:00",
+ "updated": "2026-09-26T16:56:07+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,53 +172,53 @@
   "picks": [
    {
     "whites": [
+     4,
      10,
-     36,
-     48,
-     55,
-     60
+     49,
+     65,
+     66
     ],
-    "special": 23
+    "special": 18
    },
    {
     "whites": [
-     3,
      18,
-     28,
-     33,
-     55
-    ],
-    "special": 22
-   },
-   {
-    "whites": [
-     3,
-     17,
-     33,
-     40,
+     23,
+     41,
+     45,
      69
     ],
-    "special": 12
+    "special": 10
    },
    {
     "whites": [
+     14,
+     15,
+     24,
+     29,
+     50
+    ],
+    "special": 19
+   },
+   {
+    "whites": [
+     4,
      19,
-     31,
-     34,
-     41,
-     51
+     23,
+     37,
+     44
     ],
     "special": 11
    },
    {
     "whites": [
-     9,
-     21,
-     25,
-     26,
-     67
+     6,
+     23,
+     28,
+     31,
+     39
     ],
-    "special": 5
+    "special": 20
    }
   ],
   "order_test": {
@@ -587,53 +587,53 @@
   "picks": [
    {
     "whites": [
-     8,
+     11,
+     18,
+     19,
+     40,
+     42
+    ],
+    "special": 21
+   },
+   {
+    "whites": [
      10,
      18,
-     22,
-     35
+     25,
+     31,
+     36
     ],
-    "special": 15
+    "special": 6
    },
    {
     "whites": [
-     20,
+     3,
+     4,
+     14,
      23,
-     25,
-     28,
-     39
-    ],
-    "special": 8
-   },
-   {
-    "whites": [
-     9,
-     12,
-     17,
-     29,
      38
-    ],
-    "special": 9
-   },
-   {
-    "whites": [
-     25,
-     33,
-     37,
-     40,
-     41
     ],
     "special": 4
    },
    {
     "whites": [
-     17,
-     23,
+     1,
+     12,
+     27,
      30,
-     35,
-     44
+     40
     ],
-    "special": 9
+    "special": 23
+   },
+   {
+    "whites": [
+     12,
+     20,
+     31,
+     32,
+     36
+    ],
+    "special": 21
    }
   ],
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
