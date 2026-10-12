@@ -28,19 +28,20 @@ import cluster_picker as cp  # noqa: E402
 
 ORDER_TEST_PERMS = 5000
 
-# Cluster-method window, re-tuned 2026-07-09 for ADJACENT position pairs only
-# (num1·num2 … num4·num5 — the physically motivated pairs; non-adjacent pairs
-# excluded). Walk-forward sweep (50/75/100/150/200/300) on the first 70% of
-# history, validated on the held-out 30%. w=300 was best on both slices
-# (train ratio 1.017, holdout 1.055 with 6 vs 3.8 expected 3+ hits, z=+1.15)
-# — still within chance range. See data.json tuning.
-CLUSTER_WINDOW = 300
+# Cluster-method window + density, re-tuned 2026-10-11 on a full grid
+# (58 windows 30-1400 x 52 densities 0.50-0.999, adjacent pairs). In-sample
+# leaders are indistinguishable from max-of-3016 noise, so the pick comes from
+# forward selection (before each draw, play whichever setting led so far):
+# it settled on w=270 / d=0.77, with 6 draws hitting 3+ vs 2.2 expected over
+# the last 418 draws (p~0.02 vs 300 null sims) but only p~0.16 over the most
+# recent 268 — weak and fading, not a demonstrated edge. See data.json tuning.
+CLUSTER_WINDOW = 270
+CLUSTER_DENSITY = 0.77
 CLUSTER_TUNING = {
-    "tuned": "2026-07-09 (adjacent pairs)",
-    "windows_swept": [50, 75, 100, 150, 200, 300],
-    "train_mean_ratio": 1.017, "holdout_mean_ratio": 1.055,
-    "holdout_hits3": 6, "holdout_hits3_expected": 3.77,
-    "verdict": "best on both slices but within chance range",
+    "tuned": "2026-10-11 (window x density grid, forward selection)",
+    "forward_draws": 418, "forward_hits3_draws": 6,
+    "forward_null_mean": 2.19, "forward_p": 0.023, "recent_p": 0.16,
+    "verdict": "weak, fading signal; within multiple-testing chance range",
 }
 
 
@@ -140,7 +141,7 @@ def cluster_block():
     dates, whites, specials = cp.load(game)
     W = CLUSTER_WINDOW
 
-    tix, pools = cp.suggest_whites(whites[-W:], 0.94, 3, 5)
+    tix, pools = cp.suggest_whites(whites[-W:], CLUSTER_DENSITY, 3, 5)
     pred, active, members = cp.suggest_special(specials[-W:], game["special_max"])
     hist_sets = [frozenset(int(v) for v in w) for w in whites]
     tickets = []
@@ -149,9 +150,10 @@ def cluster_block():
         tickets.append({"whites": sorted(set(combo)), "positional": list(combo),
                         "score": round(s, 1), "best_past_overlap": best})
 
-    bt = cp.run_backtest(whites, specials, game, W, 0.94, 3, 5)
+    bt = cp.run_backtest(whites, specials, game, W, CLUSTER_DENSITY, 3, 5)
     return {
         "window": W,
+        "density": CLUSTER_DENSITY,
         "window_dates": [dates[-W], dates[-1]],
         "pools": pools,
         "tickets": tickets,

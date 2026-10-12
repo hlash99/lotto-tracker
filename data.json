@@ -253,173 +253,167 @@
    "dependence_detected": false
   },
   "cluster": {
-   "window": 300,
+   "window": 270,
+   "density": 0.77,
    "window_dates": [
-    "2024-11-11",
+    "2025-01-20",
     "2026-10-10"
    ],
    "pools": [
     [
+     54,
      40,
-     38,
-     48
+     58
     ],
     [
-     25,
      28,
-     21
+     21,
+     13
     ],
     [
      49,
-     48,
+     44,
      52
     ],
     [
+     50,
      53,
-     56,
-     50
+     52
     ],
     [
      44,
-     40,
-     43
+     12,
+     16
     ]
    ],
    "tickets": [
     {
      "whites": [
-      25,
-      40,
-      43,
+      16,
+      21,
       49,
-      53
+      50,
+      58
      ],
      "positional": [
-      40,
-      25,
+      58,
+      21,
       49,
-      53,
-      43
+      50,
+      16
      ],
      "score": -33.0,
      "best_past_overlap": 3
     },
     {
      "whites": [
-      25,
-      40,
-      43,
-      52,
-      56
-     ],
-     "positional": [
-      40,
-      25,
-      52,
-      56,
-      43
-     ],
-     "score": -33.0,
-     "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      25,
-      40,
-      44,
-      49,
-      53
-     ],
-     "positional": [
-      40,
-      25,
-      49,
-      53,
-      44
-     ],
-     "score": -33.0,
-     "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      25,
-      40,
-      43,
-      52,
-      53
-     ],
-     "positional": [
-      40,
-      25,
-      52,
-      53,
-      43
-     ],
-     "score": -33.0,
-     "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      25,
-      40,
+      21,
       44,
       52,
-      53
+      53,
+      58
      ],
      "positional": [
-      40,
-      25,
+      58,
+      21,
       52,
       53,
       44
      ],
      "score": -33.0,
+     "best_past_overlap": 4
+    },
+    {
+     "whites": [
+      16,
+      21,
+      50,
+      52,
+      58
+     ],
+     "positional": [
+      58,
+      21,
+      52,
+      50,
+      16
+     ],
+     "score": -33.0,
      "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      12,
+      21,
+      49,
+      50,
+      58
+     ],
+     "positional": [
+      58,
+      21,
+      49,
+      50,
+      12
+     ],
+     "score": -33.0,
+     "best_past_overlap": 4
+    },
+    {
+     "whites": [
+      16,
+      21,
+      49,
+      50,
+      54
+     ],
+     "positional": [
+      54,
+      21,
+      49,
+      50,
+      16
+     ],
+     "score": -33.0,
+     "best_past_overlap": 2
     }
    ],
-   "special_pick": 13,
+   "special_pick": 14,
    "special_cluster": [
-    9,
+    10,
     17
    ],
    "backtest": {
-    "window": 300,
-    "tested": 1118,
-    "tickets": 5590,
+    "window": 270,
+    "tested": 1148,
+    "tickets": 5740,
     "tallies": [
-     3712,
-     1670,
-     195,
-     13,
+     3828,
+     1654,
+     231,
+     27,
      0,
      0
     ],
-    "mean_matches": 0.3755,
+    "mean_matches": 0.3828,
     "random_mean": 0.3623,
-    "mean_ratio": 1.0364,
-    "obs3": 13,
-    "exp3": 10.19,
-    "z3": 0.88,
-    "special_hits": 39,
-    "special_preds": 1118,
-    "special_rate": 0.0349,
+    "mean_ratio": 1.0564,
+    "obs3": 27,
+    "exp3": 10.46,
+    "z3": 5.11,
+    "special_hits": 46,
+    "special_preds": 1148,
+    "special_rate": 0.0401,
     "special_random": 0.0385
    },
    "tuning": {
-    "tuned": "2026-07-09 (adjacent pairs)",
-    "windows_swept": [
-     50,
-     75,
-     100,
-     150,
-     200,
-     300
-    ],
-    "train_mean_ratio": 1.017,
-    "holdout_mean_ratio": 1.055,
-    "holdout_hits3": 6,
-    "holdout_hits3_expected": 3.77,
-    "verdict": "best on both slices but within chance range"
+    "tuned": "2026-10-11 (window x density grid, forward selection)",
+    "forward_draws": 418,
+    "forward_hits3_draws": 6,
+    "forward_null_mean": 2.19,
+    "forward_p": 0.023,
+    "recent_p": 0.16,
+    "verdict": "weak, fading signal; within multiple-testing chance range"
    }
   }
  },

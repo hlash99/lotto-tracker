@@ -28,10 +28,11 @@ draw nights), commits fresh data, and GitHub Pages serves the result.
 - **Cluster-method picks** (`scripts/cluster_picker.py`, a port of the owner's
   JMP `f5.jsl`): adjacent-position pair KDEs (num1·num2 … num4·num5 — the
   physically plausible pairs; non-adjacent pairs excluded) on recent
-  drawn-order draws, points selected at normalized density ≥ 0.94, tickets
+  drawn-order draws, points selected at normalized density ≥ 0.77, tickets
   ranked by summed log pair-density; PB from the most-recently-active 1D
-  density cluster (separate chamber). Window (300) tuned by a train/holdout
-  walk-forward sweep; a rolling backtest is published next to the picks —
+  density cluster (separate chamber). Window (270) and density (0.77) chosen by
+  forward selection over a window × density grid (weak, fading signal); a
+  rolling backtest is published next to the picks —
   currently consistent with chance, and the page says so. Powerball only:
   the method requires drawn order, which CA does not publish for SuperLotto
   (CPRA records request is the open path).
