@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-14T09:48:26+00:00",
+ "updated": "2026-10-14T15:37:17+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,250 +172,55 @@
   "picks": [
    {
     "whites": [
-     5,
-     7,
-     15,
-     36,
-     38
-    ],
-    "special": 20
-   },
-   {
-    "whites": [
-     10,
-     20,
-     36,
+     39,
      43,
-     46
-    ],
-    "special": 17
-   },
-   {
-    "whites": [
-     22,
-     32,
-     36,
-     40,
-     49
+     52,
+     57,
+     59
     ],
     "special": 1
    },
    {
     "whites": [
-     25,
-     51,
-     52,
-     67,
-     69
+     36,
+     42,
+     60,
+     61,
+     64
     ],
-    "special": 4
+    "special": 25
    },
    {
     "whites": [
-     9,
+     7,
+     18,
+     37,
+     43,
+     50
+    ],
+    "special": 12
+   },
+   {
+    "whites": [
+     19,
+     24,
      25,
-     50,
-     52,
+     31,
+     45
+    ],
+    "special": 13
+   },
+   {
+    "whites": [
+     6,
+     11,
+     33,
+     65,
      66
     ],
-    "special": 20
+    "special": 7
    }
   ],
-  "order_test": {
-   "draws": 1419,
-   "perms": 5000,
-   "results": [
-    {
-     "name": "lag-1 correlation (ball i vs ball i+1)",
-     "observed": -0.0125,
-     "null_mean": -0.018,
-     "p": 0.6089
-    },
-    {
-     "name": "mean |step| between successive balls",
-     "observed": 23.3733,
-     "null_mean": 23.4048,
-     "p": 0.8376
-    },
-    {
-     "name": "position effect (var of position means)",
-     "observed": 0.357,
-     "null_mean": 0.2316,
-     "p": 0.1888
-    },
-    {
-     "name": "mean value of first ball drawn",
-     "observed": 34.7738,
-     "null_mean": 35.3459,
-     "p": 0.2402
-    }
-   ],
-   "dependence_detected": false
-  },
-  "cluster": {
-   "window": 270,
-   "density": 0.77,
-   "window_dates": [
-    "2025-01-22",
-    "2026-10-12"
-   ],
-   "pools": [
-    [
-     21,
-     40,
-     58
-    ],
-    [
-     28,
-     21,
-     13
-    ],
-    [
-     49,
-     44,
-     52
-    ],
-    [
-     50,
-     53,
-     52
-    ],
-    [
-     53,
-     44,
-     12
-    ]
-   ],
-   "tickets": [
-    {
-     "whites": [
-      21,
-      44,
-      52,
-      53,
-      58
-     ],
-     "positional": [
-      58,
-      21,
-      52,
-      53,
-      44
-     ],
-     "score": -33.0,
-     "best_past_overlap": 4
-    },
-    {
-     "whites": [
-      21,
-      44,
-      49,
-      53,
-      58
-     ],
-     "positional": [
-      58,
-      21,
-      49,
-      53,
-      44
-     ],
-     "score": -33.0,
-     "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      21,
-      44,
-      49,
-      52,
-      58
-     ],
-     "positional": [
-      58,
-      21,
-      49,
-      52,
-      44
-     ],
-     "score": -33.0,
-     "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      13,
-      21,
-      44,
-      52,
-      53
-     ],
-     "positional": [
-      21,
-      13,
-      52,
-      53,
-      44
-     ],
-     "score": -33.0,
-     "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      13,
-      21,
-      44,
-      49,
-      53
-     ],
-     "positional": [
-      21,
-      13,
-      49,
-      53,
-      44
-     ],
-     "score": -33.0,
-     "best_past_overlap": 3
-    }
-   ],
-   "special_pick": 4,
-   "special_cluster": [
-    1,
-    9
-   ],
-   "backtest": {
-    "window": 270,
-    "tested": 1149,
-    "tickets": 5745,
-    "tallies": [
-     3833,
-     1654,
-     231,
-     27,
-     0,
-     0
-    ],
-    "mean_matches": 0.3824,
-    "random_mean": 0.3623,
-    "mean_ratio": 1.0555,
-    "obs3": 27,
-    "exp3": 10.47,
-    "z3": 5.11,
-    "special_hits": 46,
-    "special_preds": 1149,
-    "special_rate": 0.04,
-    "special_random": 0.0385
-   },
-   "tuning": {
-    "tuned": "2026-10-11 (window x density grid, forward selection)",
-    "forward_draws": 418,
-    "forward_hits3_draws": 6,
-    "forward_null_mean": 2.19,
-    "forward_p": 0.023,
-    "recent_p": 0.16,
-    "verdict": "weak, fading signal; within multiple-testing chance range"
-   }
-  },
   "frame": {
    "white": {
     "frames": 1419,
@@ -1651,56 +1456,251 @@
    "tickets": [
     {
      "whites": [
-      17,
-      22,
-      26,
-      63,
-      67
-     ],
-     "special": 21
-    },
-    {
-     "whites": [
       14,
-      19,
-      29,
-      36,
-      48
+      20,
+      51,
+      57,
+      65
      ],
      "special": 15
     },
     {
      "whites": [
-      2,
-      10,
-      15,
-      31,
-      37
+      9,
+      17,
+      39,
+      48,
+      53
      ],
-     "special": 3
+     "special": 22
     },
     {
      "whites": [
-      3,
+      6,
       8,
-      20,
-      25,
-      35
+      21,
+      31,
+      41
      ],
-     "special": 14
+     "special": 21
     },
     {
      "whites": [
-      7,
-      10,
-      27,
-      38,
+      31,
+      32,
+      44,
+      56,
       69
      ],
-     "special": 6
+     "special": 23
+    },
+    {
+     "whites": [
+      11,
+      13,
+      41,
+      50,
+      57
+     ],
+     "special": 12
     }
    ],
    "sims": 2000
+  },
+  "order_test": {
+   "draws": 1419,
+   "perms": 5000,
+   "results": [
+    {
+     "name": "lag-1 correlation (ball i vs ball i+1)",
+     "observed": -0.0125,
+     "null_mean": -0.018,
+     "p": 0.6089
+    },
+    {
+     "name": "mean |step| between successive balls",
+     "observed": 23.3733,
+     "null_mean": 23.4048,
+     "p": 0.8376
+    },
+    {
+     "name": "position effect (var of position means)",
+     "observed": 0.357,
+     "null_mean": 0.2316,
+     "p": 0.1888
+    },
+    {
+     "name": "mean value of first ball drawn",
+     "observed": 34.7738,
+     "null_mean": 35.3459,
+     "p": 0.2402
+    }
+   ],
+   "dependence_detected": false
+  },
+  "cluster": {
+   "window": 270,
+   "density": 0.77,
+   "window_dates": [
+    "2025-01-22",
+    "2026-10-12"
+   ],
+   "pools": [
+    [
+     21,
+     40,
+     58
+    ],
+    [
+     28,
+     21,
+     13
+    ],
+    [
+     49,
+     44,
+     52
+    ],
+    [
+     50,
+     53,
+     52
+    ],
+    [
+     53,
+     44,
+     12
+    ]
+   ],
+   "tickets": [
+    {
+     "whites": [
+      21,
+      44,
+      52,
+      53,
+      58
+     ],
+     "positional": [
+      58,
+      21,
+      52,
+      53,
+      44
+     ],
+     "score": -33.0,
+     "best_past_overlap": 4
+    },
+    {
+     "whites": [
+      21,
+      44,
+      49,
+      53,
+      58
+     ],
+     "positional": [
+      58,
+      21,
+      49,
+      53,
+      44
+     ],
+     "score": -33.0,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      21,
+      44,
+      49,
+      52,
+      58
+     ],
+     "positional": [
+      58,
+      21,
+      49,
+      52,
+      44
+     ],
+     "score": -33.0,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      13,
+      21,
+      44,
+      52,
+      53
+     ],
+     "positional": [
+      21,
+      13,
+      52,
+      53,
+      44
+     ],
+     "score": -33.0,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      13,
+      21,
+      44,
+      49,
+      53
+     ],
+     "positional": [
+      21,
+      13,
+      49,
+      53,
+      44
+     ],
+     "score": -33.0,
+     "best_past_overlap": 3
+    }
+   ],
+   "special_pick": 4,
+   "special_cluster": [
+    1,
+    9
+   ],
+   "backtest": {
+    "window": 270,
+    "tested": 1149,
+    "tickets": 5745,
+    "tallies": [
+     3833,
+     1654,
+     231,
+     27,
+     0,
+     0
+    ],
+    "mean_matches": 0.3824,
+    "random_mean": 0.3623,
+    "mean_ratio": 1.0555,
+    "obs3": 27,
+    "exp3": 10.47,
+    "z3": 5.11,
+    "special_hits": 46,
+    "special_preds": 1149,
+    "special_rate": 0.04,
+    "special_random": 0.0385
+   },
+   "tuning": {
+    "tuned": "2026-10-11 (window x density grid, forward selection)",
+    "forward_draws": 418,
+    "forward_hits3_draws": 6,
+    "forward_null_mean": 2.19,
+    "forward_p": 0.023,
+    "recent_p": 0.16,
+    "verdict": "weak, fading signal; within multiple-testing chance range"
+   }
   }
  },
  "superlotto": {
@@ -1867,60 +1867,55 @@
   "picks": [
    {
     "whites": [
-     2,
-     16,
-     17,
-     29,
-     44
-    ],
-    "special": 22
-   },
-   {
-    "whites": [
-     11,
+     3,
+     4,
      13,
-     15,
-     33,
-     45
+     17,
+     42
     ],
-    "special": 16
-   },
-   {
-    "whites": [
-     2,
-     19,
-     28,
-     34,
-     47
-    ],
-    "special": 2
-   },
-   {
-    "whites": [
-     21,
-     25,
-     39,
-     44,
-     45
-    ],
-    "special": 4
+    "special": 11
    },
    {
     "whites": [
      1,
-     6,
-     34,
-     35,
-     45
+     17,
+     20,
+     27,
+     44
+    ],
+    "special": 18
+   },
+   {
+    "whites": [
+     21,
+     22,
+     23,
+     28,
+     47
     ],
     "special": 1
+   },
+   {
+    "whites": [
+     2,
+     7,
+     31,
+     34,
+     41
+    ],
+    "special": 11
+   },
+   {
+    "whites": [
+     1,
+     2,
+     7,
+     40,
+     46
+    ],
+    "special": 27
    }
   ],
-  "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
-  "cluster": {
-   "available": false,
-   "reason": "Cluster method requires drawn order. CA conducts mechanical draws but publishes sorted numbers only \u2014 no stream archive or drawing videos exist. A CPRA records request for the official draw sequence is the remaining path."
-  },
   "frame": {
    "white": {
     "frames": 1577,
@@ -2904,56 +2899,61 @@
    "tickets": [
     {
      "whites": [
-      10,
+      15,
+      27,
+      29,
+      38,
+      39
+     ],
+     "special": 21
+    },
+    {
+     "whites": [
+      4,
+      22,
+      26,
+      27,
+      38
+     ],
+     "special": 4
+    },
+    {
+     "whites": [
+      11,
+      13,
       16,
-      19,
       38,
       47
      ],
-     "special": 3
+     "special": 22
     },
     {
      "whites": [
-      18,
-      24,
-      25,
-      35,
-      36
-     ],
-     "special": 11
-    },
-    {
-     "whites": [
-      21,
+      2,
       27,
-      31,
-      40,
-      45
+      44,
+      46,
+      47
      ],
-     "special": 7
+     "special": 14
     },
     {
      "whites": [
+      7,
+      17,
       19,
-      23,
-      32,
-      33,
-      34
+      24,
+      38
      ],
-     "special": 17
-    },
-    {
-     "whites": [
-      9,
-      26,
-      27,
-      37,
-      39
-     ],
-     "special": 27
+     "special": 24
     }
    ],
    "sims": 2000
+  },
+  "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
+  "cluster": {
+   "available": false,
+   "reason": "Cluster method requires drawn order. CA conducts mechanical draws but publishes sorted numbers only \u2014 no stream archive or drawing videos exist. A CPRA records request for the official draw sequence is the remaining path."
   }
  }
 }
