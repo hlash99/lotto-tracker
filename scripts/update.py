@@ -4,7 +4,8 @@ Server-side refresh for the lotto tracker.
 
 1. Fetches fresh official results (Powerball sorted + drawn order, SuperLotto).
 2. Recomputes all analysis: frequency stats, chi-square vs uniform, the
-   within-draw order-dependence permutation test, and screened quick picks.
+   within-draw order-dependence permutation test, the stacked-frame
+   hot-pixel check, and screened quick picks.
 3. Writes data.json for index.html and the dashboard card.
 
 Run from anywhere: paths resolve relative to the repo root.
@@ -25,6 +26,7 @@ sys.path.insert(0, str(SCRIPTS))
 import picker  # noqa: E402
 import order_dependence_test as odt  # noqa: E402
 import cluster_picker as cp  # noqa: E402
+import stacked_frame as sf  # noqa: E402
 
 ORDER_TEST_PERMS = 5000
 
@@ -185,6 +187,7 @@ def main():
             "latest": latest_block(key),
             "stats": freq_block(draws, game),
             "picks": picks_block(draws, game),
+            "frame": sf.frame_block(draws, game, special_label),
         }
 
     out["powerball"]["order_test"] = order_test_block()

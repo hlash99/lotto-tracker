@@ -21,6 +21,14 @@ draw nights), commits fresh data, and GitHub Pages serves the result.
 - **Order-dependence permutation test** (Powerball): does ball *i* influence
   ball *i+1* within a draw? Order is shuffled within each draw 5,000× to build
   the null, so number frequencies and without-replacement effects cancel out.
+- **Stacked-frame hot-pixel check** (`scripts/stacked_frame.py`, both games):
+  the astrophotography dark-frame idea — stack every draw and look for balls
+  that stick out. A ball counts as a hot (or dead) pixel only if it clears a
+  family-wise bar (max |z| over 2,000 simulated fair histories) *and* is off
+  in the same direction in both independent halves of history. Also reports a
+  fixed-pattern test (do halves / odd-vs-even draws agree on which balls run
+  hot?), the smallest bias detectable at the current depth, and a
+  recommendation + tickets built only from confirmed pixels.
 - Screened quick picks: uniform random tickets, re-drawn if they match
   over-played human patterns (all-birthday, arithmetic sequences, past
   jackpots). Doesn't change the odds — nothing can — only reduces expected

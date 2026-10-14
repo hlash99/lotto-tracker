@@ -87,6 +87,33 @@
   .pp{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:7px}
   .pp .lbl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 5px;font-weight:600}
   .pp canvas{width:100%;aspect-ratio:1;border-radius:6px;display:block}
+  /* stacked frame / hot-pixel panel */
+  :root{--hot:#f2804a;--cold:#5aa7ec}
+  .seg{display:inline-flex;background:var(--surface2);border:1px solid var(--line);border-radius:9px;padding:2px;margin:2px 0 10px}
+  .seg button{background:none;border:none;color:var(--muted);font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:7px;cursor:pointer}
+  .seg button.on{background:var(--bg);color:var(--ink)}
+  .rec{border-radius:12px;padding:12px 14px;margin:4px 0 6px;font-size:13px}
+  .rec.clean{background:rgba(62,201,196,.08);border:1px solid rgba(62,201,196,.35)}
+  .rec.pixels{background:rgba(242,128,74,.1);border:1px solid rgba(242,128,74,.5)}
+  .rec .rh{font-weight:700;margin:0 0 4px}
+  .rec.clean .rh{color:var(--accent)} .rec.pixels .rh{color:var(--hot)}
+  .rec .rd{color:var(--muted);font-size:12.5px}
+  .fr-cols{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:22px;align-items:start}
+  @media(max-width:760px){.fr-cols{grid-template-columns:minmax(0,1fr)}}
+  .sensor{display:grid;grid-template-columns:repeat(10,1fr);gap:3px}
+  .px{aspect-ratio:1;border-radius:4px;display:flex;align-items:center;justify-content:center;
+    font-size:10.5px;font-weight:600;color:rgba(255,255,255,.82);cursor:default}
+  .px.lit{outline:2px solid #fff;outline-offset:-2px}
+  .px.sp{font-size:11px}
+  .legend{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);margin-top:6px}
+  .legend .ramp{flex:1;height:8px;border-radius:4px;max-width:160px}
+  .dev svg{width:100%;height:auto;display:block}
+  .dev text{fill:var(--muted);font-size:10px}
+  .statgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+  .stat{background:var(--surface2);border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+  .stat .k{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
+  .stat .v{font-size:16px;font-weight:700;margin-top:2px}
+  .stat .s{font-size:11.5px;color:var(--muted)}
   .crumb{font-size:13px;color:var(--muted,#6b7280);margin-bottom:8px}
   .crumb a{color:inherit;text-decoration:none}
   .crumb a:hover{text-decoration:underline}
@@ -227,6 +254,135 @@ function orderBody(t){
       effect must survive averaging across equipment.</div>`;
 }
 
+/* ---------------- stacked frame / hot-pixel check ---------------- */
+
+const FRAME_GAMES = {};   // key -> {g, color, label, perYear}
+const zColor = z => {     // diverging: cold blue <- neutral -> hot orange, saturating at |z|=3.5
+  const t = Math.min(1, Math.abs(z)/3.5);
+  const [r,g,b] = z >= 0 ? [242,128,74] : [90,167,236];
+  const n = [22,39,60];
+  return `rgb(${Math.round(n[0]+(r-n[0])*t)},${Math.round(n[1]+(g-n[1])*t)},${Math.round(n[2]+(b-n[2])*t)})`;
+};
+const sgn = z => (z >= 0 ? "+" : "") + z.toFixed(2);
+
+function sensorGrid(ch, cols, sp){
+  return `<div class="sensor" style="grid-template-columns:repeat(${cols},1fr)">` + ch.balls.map(b=>
+    `<div class="px${sp?" sp":""}${b.pixel?" lit":""}" style="background:${zColor(b.z)}"
+      title="Ball ${b.n}: ${b.count}× vs ${ch.expected} expected (z ${sgn(b.z)}; halves ${sgn(b.z_h1)} / ${sgn(b.z_h2)}; family-wise p ${b.fw_p})${b.pixel?" — CONFIRMED "+b.pixel.toUpperCase()+" PIXEL":""}">${b.n}</div>`
+  ).join("") + `</div>`;
+}
+
+function devChart(ch, color){
+  const N = ch.balls.length, W = 720, H = 170, padL = 30, padR = 6, padT = 8, padB = 18;
+  const iw = W-padL-padR, ih = H-padT-padB;
+  const lim = Math.max(ch.z_crit*1.15, ...ch.balls.map(b=>Math.abs(b.z)*1.05)) * ch.sd;
+  const y = v => padT + ih/2 - (v/lim)*(ih/2);
+  const bw = iw/N;
+  const fw = ch.z_crit*ch.sd, s2 = 2*ch.sd;
+  let svg = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Deviation of each ball's count from expected">`;
+  svg += `<rect x="${padL}" y="${y(s2)}" width="${iw}" height="${y(-s2)-y(s2)}" fill="rgba(143,166,189,.13)"/>`;
+  for(const v of [fw,-fw]) svg += `<line x1="${padL}" x2="${W-padR}" y1="${y(v)}" y2="${y(v)}" stroke="var(--hot)" stroke-dasharray="4 3" stroke-width="1" opacity=".75"/>`;
+  svg += `<line x1="${padL}" x2="${W-padR}" y1="${y(0)}" y2="${y(0)}" stroke="rgba(255,255,255,.25)"/>`;
+  svg += `<text x="${padL-4}" y="${y(fw)+3}" text-anchor="end">+${Math.round(fw)}</text>`;
+  svg += `<text x="${padL-4}" y="${y(-fw)+3}" text-anchor="end">−${Math.round(fw)}</text>`;
+  svg += `<text x="${padL-4}" y="${y(0)+3}" text-anchor="end">0</text>`;
+  ch.balls.forEach((b,i)=>{
+    const dv = b.count - ch.expected, x = padL + i*bw + bw*0.15, w = bw*0.7;
+    const out = Math.abs(dv) > s2;
+    const fill = b.pixel ? "#fff" : out ? (dv>0?"var(--hot)":"var(--cold)") : "rgba(234,242,252,.45)";
+    svg += `<rect x="${x.toFixed(1)}" y="${Math.min(y(dv),y(0)).toFixed(1)}" width="${w.toFixed(1)}"
+      height="${Math.max(1,Math.abs(y(dv)-y(0))).toFixed(1)}" rx="1" fill="${fill}">
+      <title>Ball ${b.n}: ${b.count}× (${dv>=0?"+":""}${dv.toFixed(1)} vs expected ${ch.expected}, z ${sgn(b.z)})</title></rect>`;
+    if(b.n===1 || b.n%10===0) svg += `<text x="${(x+w/2).toFixed(1)}" y="${H-4}" text-anchor="middle">${b.n}</text>`;
+  });
+  return svg + `</svg>`;
+}
+
+function frameView(key){
+  const {g, label, perYear} = FRAME_GAMES[key];
+  const F = g.frame, w = F.white, s = F.special, R = F.recommendation, sl = g.special_label;
+  const yrs = n => (n/perYear) < 10 ? (n/perYear).toFixed(1) : Math.round(n/perYear);
+  const watch = w.watchlist.map(n=>w.balls[n-1]).concat(s.watchlist.slice(0,3).map(n=>({...s.balls[n-1], sp:true})));
+  const why = b => b.pixel ? `<b style="color:var(--hot)">confirmed ${b.pixel} pixel</b>`
+    : !b.stands_out ? `noise — under the family-wise bar (p ${b.fw_p})`
+    : `stands out but not in both halves`;
+  const fp = (ch) => ch.persistence.fixed_pattern
+    ? `<span style="color:var(--hot)">detected</span>` : "none";
+  const tickets = F.tickets.map((t,i)=>`<div class="ticket"><span class="idx">${i+1}</span>${ballRow(t.whites, t.special, FRAME_GAMES[key].color, true)}</div>`).join("");
+  return `
+    <div class="rec ${R.status}"><p class="rh">${R.status==="clean"?"✓":"🔥"} Recommendation · ${label}: ${esc(R.headline)}</p>
+      <div class="rd">${esc(R.detail)}</div>
+      <h3 style="margin-top:12px">Recommended tickets</h3>${tickets}
+      <div class="note">Screened random picks${R.status==="clean"?` with a different ${sl} on each ticket`:" built around the confirmed pixels"}.
+        Regenerated on every refresh.</div></div>
+    <div class="fr-cols">
+      <div>
+        <h3>Sensor view · white balls</h3>
+        ${sensorGrid(w, 10, false)}
+        <h3>Sensor view · ${sl}</h3>
+        ${sensorGrid(s, 9, true)}
+        <div class="legend">cold <span class="ramp" style="background:linear-gradient(90deg,${zColor(-3.5)},${zColor(0)},${zColor(3.5)})"></span> hot
+          · white outline = confirmed pixel</div>
+      </div>
+      <div>
+        <h3>Stacked frame · count − expected, ${w.frames.toLocaleString()} draws</h3>
+        <div class="dev">${devChart(w)}</div>
+        <div class="note">Gray band = ±2σ normal noise per ball (±${Math.round(2*w.sd)} draws). Dashed orange = hot-pixel bar
+          (|z| ≥ ${w.z_crit}) — the line a ball must cross once you account for checking all ${w.balls.length} at once.
+          A few bars poking past the gray band is expected; ${(w.balls.length*0.0455).toFixed(0)} would on average.</div>
+        <h3>Frame quality</h3>
+        <div class="statgrid">
+          <div class="stat"><div class="k">Frames stacked</div><div class="v">${w.frames.toLocaleString()}</div><div class="s">${w.persistence.halves.join(" + ")} in two halves</div></div>
+          <div class="stat"><div class="k">Per-ball noise</div><div class="v">±${(100*w.sd/w.expected).toFixed(0)}%</div><div class="s">${w.expected} expected, σ ${w.sd}</div></div>
+          <div class="stat"><div class="k">χ² flatness</div><div class="v">p ${fmtP(w.chi2.p)}</div><div class="s">${w.chi2.p>0.05?"flat field":"not flat"} · ${sl} p ${fmtP(s.chi2.p)}</div></div>
+          <div class="stat"><div class="k">Fixed pattern</div><div class="v">${fp(w)}</div><div class="s">halves r ${sgn(w.persistence.r)} (p ${w.persistence.p}) · odd/even r ${sgn(w.persistence.r_interleaved)} (p ${w.persistence.p_interleaved})</div></div>
+          <div class="stat"><div class="k">Smallest visible bias</div><div class="v">±${Math.round(100*w.min_detectable_bias)}%</div><div class="s">${sl}: ±${Math.round(100*s.min_detectable_bias)}%</div></div>
+          <div class="stat"><div class="k">To see a 10% bias</div><div class="v">${w.frames_for_10pct.toLocaleString()}</div><div class="s">draws ≈ ${yrs(w.frames_for_10pct)} years of draws</div></div>
+        </div>
+      </div>
+    </div>
+    <h3>Watchlist · most extreme balls and why they're not hot pixels</h3>
+    <table>
+      <tr><th>ball</th><th class="r">count</th><th class="r">vs fair</th><th class="r">z</th><th class="r">1st half</th><th class="r">2nd half</th><th>verdict</th></tr>
+      ${watch.map(b=>`<tr><td>${b.sp?sl+" ":""}<b>${b.n}</b></td><td class="r">${b.count}</td>
+        <td class="r">${b.rate_ratio>=1?"+":""}${Math.round(100*(b.rate_ratio-1))}%</td><td class="r">${sgn(b.z)}</td>
+        <td class="r">${sgn(b.z_h1)}</td><td class="r">${sgn(b.z_h2)}</td><td>${why(b)}</td></tr>`).join("")}
+    </table>
+    <div class="note">A <b>hot pixel</b> must (1) clear the dashed bar in the full stack and (2) be off in the same
+      direction (z ≥ 1.645) in <i>both</i> independent halves — noise doesn't repeat, physical defects do.
+      Thresholds come from ${F.sims.toLocaleString()} simulated fair histories. Fixed pattern = do the two halves
+      (and odd vs even draws) agree on which balls run hot? It must show in both splits to count.
+      ${key==="powerball" ? "MUSL rotates machines and ball sets before each draw" : "Lotteries rotate machines and ball sets"},
+      so a single bad ball set would be diluted across draws.</div>`;
+}
+
+function frameBody(d){
+  FRAME_GAMES.powerball = {g:d.powerball, color:"var(--pb)", label:"Powerball", perYear:156};
+  FRAME_GAMES.superlotto = {g:d.superlotto, color:"var(--slp)", label:"SuperLotto Plus", perYear:104};
+  return `<p class="sub">The astrophotography dark-frame idea: treat every draw as one exposure and stack them.
+      A fair draw stacks to a flat field; a heavy or damaged ball would show up as a <b>hot pixel</b> that sticks out
+      and stays lit across independent sub-stacks.</p>
+    <div class="seg" id="fr-seg"><button data-g="powerball" class="on">Powerball</button><button data-g="superlotto">SuperLotto Plus</button></div>
+    <div id="fr-view">${frameView("powerball")}</div>`;
+}
+
+const FRAME_KEY = "lotto_frame_game_v1";
+function wireFrame(){
+  const seg = document.getElementById("fr-seg");
+  if(!seg) return;
+  const show = k=>{
+    if(!FRAME_GAMES[k]) k = "powerball";
+    seg.querySelectorAll("button").forEach(b=>b.classList.toggle("on", b.dataset.g===k));
+    document.getElementById("fr-view").innerHTML = frameView(k);
+  };
+  seg.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+    show(b.dataset.g);
+    try{ localStorage.setItem(FRAME_KEY, b.dataset.g); }catch(e){}
+  });
+  let k = "powerball"; try{ k = localStorage.getItem(FRAME_KEY) || k; }catch(e){}
+  if(k !== "powerball") show(k);
+}
+
 /* ---------------- window manager: reorder + collapse ---------------- */
 
 const ORDER_KEY = "lotto_panel_order_v1", COLL_KEY = "lotto_panel_collapsed_v1",
@@ -328,7 +484,7 @@ function wireDnD(){
       keys.splice(keys.indexOf(panel.dataset.key),0,dragKey);
       localStorage.setItem(ORDER_KEY, JSON.stringify(keys));
       HASH.delete("order");  // localStorage is now the source of truth
-      renderPanels(); wireCluster(); updateHash();
+      renderPanels(); wireCluster(); wireFrame(); updateHash();
     });
   });
 }
@@ -753,13 +909,18 @@ fetch("data.json", {cache:"no-cache"}).then(r=>r.json()).then(d=>{
     {key:"order",   title:"Does ball 1 influence ball 2? — drawn-order test", color:"var(--pb)", wide:true,
      body:orderBody(d.powerball.order_test)},
   ];
+  if(d.powerball.frame && d.superlotto.frame)
+    PANELS.splice(2, 0, {key:"frame", title:"Stacked frame — hot-pixel check", color:"var(--hot)", wide:true,
+     body:frameBody(d)});
   renderPanels();
   wireCluster();
+  wireFrame();
   document.getElementById("honesty").innerHTML =
     "<b>The honest fine print:</b> lottery draws are independent; no analysis of past results " +
     "changes any ticket's odds. This tracker exists to (1) archive drawn-order data, " +
     "(2) test the order-dependence hypothesis rigorously as data accumulates, and " +
-    "(3) keep the cluster-method picks under continuous walk-forward testing. Chi-square and " +
+    "(3) keep the cluster-method picks under continuous walk-forward testing. Chi-square, " +
+    "hot-pixel and " +
     "permutation tests recompute on every refresh — if the draws ever stop looking uniform, this page will say so.";
 }).catch(e=>{
   document.getElementById("updated").textContent = "Failed to load data.json — " + e;
