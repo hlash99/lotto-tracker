@@ -29,6 +29,15 @@ draw nights), commits fresh data, and GitHub Pages serves the result.
   fixed-pattern test (do halves / odd-vs-even draws agree on which balls run
   hot?), the smallest bias detectable at the current depth, and a
   recommendation + tickets built only from confirmed pixels.
+- **One recommended ticket set per game** (`scripts/consolidated.py`):
+  confirmed hot/dead pixels are always applied; the cluster method's tickets
+  are used only once its *out-of-sample* record (draws after the 2026-10-11
+  tuning) beats chance at p < 0.01 over ≥ 100 draws, on an exact
+  overlap-aware test (total white matches across the 5 tickets, with the
+  null mean/variance computed from how many tickets share each ball).
+  Otherwise: screened random tickets with a distinct special ball each —
+  ~20% chance of some prize per draw vs ~4% for the cluster tickets, which
+  share most balls and one PB.
 - Screened quick picks: uniform random tickets, re-drawn if they match
   over-played human patterns (all-birthday, arithmetic sequences, past
   jackpots). Doesn't change the odds — nothing can — only reduces expected

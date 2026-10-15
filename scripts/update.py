@@ -27,6 +27,7 @@ import picker  # noqa: E402
 import order_dependence_test as odt  # noqa: E402
 import cluster_picker as cp  # noqa: E402
 import stacked_frame as sf  # noqa: E402
+import consolidated as co  # noqa: E402
 
 ORDER_TEST_PERMS = 5000
 
@@ -41,6 +42,7 @@ CLUSTER_WINDOW = 270
 CLUSTER_DENSITY = 0.77
 CLUSTER_TUNING = {
     "tuned": "2026-10-11 (window x density grid, forward selection)",
+    "tuned_through": "2026-10-11",   # draws after this are out-of-sample
     "forward_draws": 418, "forward_hits3_draws": 6,
     "forward_null_mean": 2.19, "forward_p": 0.023, "recent_p": 0.16,
     "verdict": "weak, fading signal; within multiple-testing chance range",
@@ -152,8 +154,18 @@ def cluster_block():
         tickets.append({"whites": sorted(set(combo)), "positional": list(combo),
                         "score": round(s, 1), "best_past_overlap": best})
 
-    bt = cp.run_backtest(whites, specials, game, W, CLUSTER_DENSITY, 3, 5)
-    return {
+    records = []
+    bt = cp.run_backtest(whites, specials, game, W, CLUSTER_DENSITY, 3, 5,
+                         records=records)
+    # Overlap-aware version of the scoreboard (z3 treats the 5 near-duplicate
+    # tickets as independent and overstates significance).
+    bt["exact"] = co.match_sum_test(records, whites, game["white_max"])
+    bt["exact_special"] = co.special_test(records, specials, game["special_max"])
+    raw = {"combos": [list(map(int, c)) for _, c in tix], "special": int(pred),
+           "records": records, "whites": whites, "specials": specials,
+           "dates": dates, "white_max": game["white_max"],
+           "special_max": game["special_max"]}
+    return raw, {
         "window": W,
         "density": CLUSTER_DENSITY,
         "window_dates": [dates[-W], dates[-1]],
@@ -191,7 +203,20 @@ def main():
         }
 
     out["powerball"]["order_test"] = order_test_block()
-    out["powerball"]["cluster"] = cluster_block()
+    raw, out["powerball"]["cluster"] = cluster_block()
+    out["powerball"]["recommended"] = co.consolidate(
+        {"white_max": raw["white_max"], "special_max": raw["special_max"]},
+        out["powerball"]["frame"], raw["combos"], raw["special"], raw["records"],
+        raw["whites"], raw["specials"], raw["dates"], CLUSTER_TUNING["tuned_through"])
+    sl = out["superlotto"]
+    sl["recommended"] = {
+        "source": "screened", "tickets": sl["frame"]["tickets"],
+        "pixels": {"hot": sl["frame"]["white"]["hot"], "dead": sl["frame"]["white"]["dead"],
+                   "hot_special": sl["frame"]["special"]["hot"],
+                   "dead_special": sl["frame"]["special"]["dead"]},
+        "compare": {"recommended": co.prize_profile(
+            sl["frame"]["tickets"], sl["white_max"], sl["special_max"])},
+    }
     out["superlotto"]["order_note"] = (
         "CA Lottery publishes SuperLotto numbers sorted; drawn order is not "
         "available from any official feed.")

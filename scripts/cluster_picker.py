@@ -180,9 +180,10 @@ def hypergeom_pmf(k, white_max):
 
 
 def run_backtest(whites, specials, game, window, lo, pool_size, n_tickets,
-                 start_frac=0.0, end_frac=1.0):
+                 start_frac=0.0, end_frac=1.0, records=None):
     """Walk-forward backtest over test draws in [start_frac, end_frac) of
-       history. Returns a metrics dict."""
+       history. Returns a metrics dict. If `records` is a list, appends
+       (draw index, [ticket combos], predicted special) for each tested draw."""
     n = len(whites)
     t0 = max(window, int(start_frac * n))
     t1 = int(end_frac * n)
@@ -203,6 +204,7 @@ def run_backtest(whites, specials, game, window, lo, pool_size, n_tickets,
         for _, combo in tix:
             tallies[len(actual & set(combo))] += 1
             tickets_played += 1
+        pred = None
         try:
             pred, _, _ = suggest_special(specials[t - window:t], game["special_max"])
             special_preds += 1
@@ -210,6 +212,8 @@ def run_backtest(whites, specials, game, window, lo, pool_size, n_tickets,
                 special_hits += 1
         except Exception:
             pass
+        if records is not None:
+            records.append((t, [list(map(int, c)) for _, c in tix], pred))
         tested += 1
         if tested % 200 == 0:
             print(f"  ...{tested} draws backtested (window={window})", file=sys.stderr)

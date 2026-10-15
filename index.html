@@ -114,6 +114,9 @@
   .stat .k{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600}
   .stat .v{font-size:16px;font-weight:700;margin-top:2px}
   .stat .s{font-size:11.5px;color:var(--muted)}
+  details.raw{margin:18px 0 0}
+  details.raw summary{cursor:pointer;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+  details.raw[open] summary{margin-bottom:6px}
   .crumb{font-size:13px;color:var(--muted,#6b7280);margin-bottom:8px}
   .crumb a{color:inherit;text-decoration:none}
   .crumb a:hover{text-decoration:underline}
@@ -181,9 +184,37 @@ function gameBody(g, color){
     <div class="note">Jackpot odds per ticket: 1 in ${g.odds.toLocaleString()} — unchanged by any strategy.</div>`;
 }
 
+/* Verdict from the overlap-aware test: tickets are fixed before each draw, so
+   total white matches has an exact null mean/variance even though the five
+   tickets share most of their balls (the naive 3+-hit z treats them as
+   independent and overstates significance several-fold). */
+function btVerdict(m){
+  const x = m.exact;
+  if(!x || !x.draws) return {ok:true, text:"Backtest verdict: not enough draws to test"};
+  const ok = x.p >= 0.01;
+  return {ok, text: ok
+    ? `Backtest verdict: consistent with chance — ${x.obs.toLocaleString()} white matches vs ${x.exp.toLocaleString()} expected (×${x.ratio}), overlap-aware z = ${sgn(x.z)}, p = ${x.p}. In-sample: these settings were tuned on the same draws, so even this flatters the method`
+    : `Backtest beats chance in-sample (overlap-aware z = ${sgn(x.z)}, p = ${x.p}) — but these settings were tuned on the same draws; only out-of-sample draws count (see Recommended tickets)`};
+}
+function exactAdd(acc, combos, actual){       // accumulate one draw into the exact test
+  const p = 5/69, v1 = p*(1-p), cv = 20/(69*68) - p*p, m = new Map();
+  for(const c of combos) for(const v of c) m.set(v, (m.get(v)||0)+1);
+  let s1=0, s2=0, o=0;
+  for(const [b,k] of m){ s1+=k; s2+=k*k; if(actual.has(b)) o+=k; }
+  acc.obs += o; acc.exp += p*s1; acc.var += (v1-cv)*s2 + cv*s1*s1; acc.draws++;
+}
+function exactFinish(a){
+  if(!a.draws) return {draws:0};
+  const z = (a.obs-a.exp)/Math.sqrt(a.var);
+  const erfc = x=>{ const t=1/(1+0.5*Math.abs(x)); const r=t*Math.exp(-x*x-1.26551223+t*(1.00002368+t*(0.37409196+t*(0.09678418+t*(-0.18628806+t*(0.27886807+t*(-1.13520398+t*(1.48851587+t*(-0.82215223+t*0.17087277)))))))));
+    return x>=0 ? r : 2-r; };
+  return {draws:a.draws, obs:a.obs, exp:+a.exp.toFixed(1), ratio:+(a.obs/a.exp).toFixed(3),
+          z:+z.toFixed(2), p:+(0.5*erfc(z/Math.SQRT2)).toFixed(4)};
+}
+
 function clusterBody(c, slReason){
   const bt = c.backtest, tun = c.tuning;
-  const chance = Math.abs(bt.z3) < 2 && bt.mean_ratio < 1.15;
+  const V = btVerdict(bt);
   return `
     <p class="sub">Adjacent-position pair KDEs (num1·num2, num2·num3, num3·num4, num4·num5 — the physically
       plausible pairs; non-adjacent pairs excluded) on the last <b id="cl-w-label">${c.window}</b> draws in drawn
@@ -205,8 +236,12 @@ function clusterBody(c, slReason){
     <div id="cl-hits"><div class="note">Hit check: replaying the method before each of the last ${HIT_LOOKBACK} draws…</div></div>
     <div class="cl-cols">
       <div class="cl-left">
-        <h3>Powerball suggestions</h3>
-        <div id="cl-tickets"></div>
+        <details class="raw">
+          <summary>Method's raw tickets — research output, not the play set</summary>
+          <div class="note">These go into the Recommended tickets panel only once the method beats chance
+            out-of-sample. Ticket numbers here are the ones the hit check refers to.</div>
+          <div id="cl-tickets"></div>
+        </details>
         <h3>Candidate pools by drawn position</h3>
         <div class="chips" id="cl-pools"></div>
       </div>
@@ -225,9 +260,7 @@ function clusterBody(c, slReason){
       <tr><td>3+ ball hits</td><td class="r" id="bt-obs3">${bt.obs3}</td><td class="r" id="bt-exp3">${bt.exp3}</td></tr>
       <tr><td>PB cluster-pick hit rate</td><td class="r" id="bt-sprate">${bt.special_rate ?? "—"}</td><td class="r" id="bt-sprand">${bt.special_random}</td></tr>
     </table>
-    <div class="verdict ${chance?'ok':'warn'}" id="bt-verdict">${chance
-      ? `Backtest verdict: performance is consistent with chance (z = ${bt.z3 >= 0 ? "+" : ""}${bt.z3} on 3+ hits) — these picks are the method faithfully applied, not a demonstrated edge`
-      : `Backtest deviates from chance (z = ${bt.z3}) — verify data before believing it`}</div>
+    <div class="verdict ${V.ok?'ok':'warn'}" id="bt-verdict">${V.text}</div>
     <div class="note">Changing window/density recomputes the picks, the hit check and the backtest
       scoreboard in your browser from the full drawn-order archive. Very large windows are
       compute-capped to the most recent eligible draws to stay responsive.</div>
@@ -308,13 +341,10 @@ function frameView(key){
     : `stands out but not in both halves`;
   const fp = (ch) => ch.persistence.fixed_pattern
     ? `<span style="color:var(--hot)">detected</span>` : "none";
-  const tickets = F.tickets.map((t,i)=>`<div class="ticket"><span class="idx">${i+1}</span>${ballRow(t.whites, t.special, FRAME_GAMES[key].color, true)}</div>`).join("");
   return `
     <div class="rec ${R.status}"><p class="rh">${R.status==="clean"?"✓":"🔥"} Recommendation · ${label}: ${esc(R.headline)}</p>
       <div class="rd">${esc(R.detail)}</div>
-      <h3 style="margin-top:12px">Recommended tickets</h3>${tickets}
-      <div class="note">Screened random picks${R.status==="clean"?` with a different ${sl} on each ticket`:" built around the confirmed pixels"}.
-        Regenerated on every refresh.</div></div>
+      <div class="note">This verdict feeds the <b>Recommended tickets</b> panel at the top.</div></div>
     <div class="fr-cols">
       <div>
         <h3>Sensor view · white balls</h3>
@@ -354,6 +384,57 @@ function frameView(key){
       (and odd vs even draws) agree on which balls run hot? It must show in both splits to count.
       ${key==="powerball" ? "MUSL rotates machines and ball sets before each draw" : "Lotteries rotate machines and ball sets"},
       so a single bad ball set would be diluted across draws.</div>`;
+}
+
+/* ---------------- the one recommended set ---------------- */
+
+function recGame(g, color, label){
+  const R = g.recommended, sl = g.special_label, P = R.pixels, C = R.compare;
+  const pct = x => (100*x).toFixed(1) + "%";
+  const px = (P.hot.length||P.dead.length||P.hot_special.length||P.dead_special.length)
+    ? `<b style="color:var(--hot)">applied</b> — ${[
+        P.hot.length && "include "+P.hot.join(", "), P.dead.length && "avoid "+P.dead.join(", "),
+        P.hot_special.length && sl+" "+P.hot_special[0], P.dead_special.length && "avoid "+sl+" "+P.dead_special.join(", ")
+      ].filter(Boolean).join("; ")}`
+    : `clean frame — no ball favored or avoided`;
+  let cl;
+  if(R.gate){
+    const G = R.gate, gw = G.whites, ins = R.insample;
+    cl = R.source === "cluster"
+      ? `<b style="color:var(--hot)">gate open</b> — out-of-sample z ${sgn(gw.z)} (p ${gw.p}) over ${gw.draws} draws; tickets use its whites`
+      : `gate closed — needs p &lt; ${G.alpha} on ≥ ${G.min_draws} draws after tuning (${G.tuned_through});
+         ${gw.draws} so far${gw.draws ? ` (${gw.obs} vs ${gw.exp} expected matches)` : ""}.
+         Full-history record z ${sgn(ins.z)}, p ${ins.p} — not significant even with tuning in its favor`;
+  } else cl = `n/a — needs drawn order, which CA doesn't publish`;
+  const cmp = C.cluster_raw
+    ? `<table style="margin-top:8px">
+        <tr><th></th><th class="r">P(any prize) / draw</th><th class="r">whites covered</th><th class="r">${sl}s covered</th></tr>
+        <tr><td><b>This set</b></td><td class="r"><b>${pct(C.recommended.any_prize)}</b></td><td class="r">${C.recommended.distinct_whites}</td><td class="r">${C.recommended.distinct_specials}</td></tr>
+        <tr><td>Cluster raw tickets</td><td class="r">${pct(C.cluster_raw.any_prize)}</td><td class="r">${C.cluster_raw.distinct_whites}</td><td class="r">${C.cluster_raw.distinct_specials}</td></tr>
+       </table>`
+    : `<div class="note">Chance this set wins something on a draw: <b>${pct(C.recommended.any_prize)}</b>
+        (${C.recommended.distinct_whites} whites, ${C.recommended.distinct_specials} ${sl}s covered).</div>`;
+  return `<div>
+    <h3>${label}</h3>
+    ${R.tickets.map((t,i)=>`<div class="ticket"><span class="idx">${i+1}</span>${ballRow(t.whites, t.special, color)}</div>`).join("")}
+    <table style="margin-top:10px">
+      <tr><td style="width:96px;color:var(--muted)">Hot pixels</td><td>${px}</td></tr>
+      <tr><td style="color:var(--muted)">Cluster method</td><td>${cl}</td></tr>
+    </table>
+    ${cmp}
+  </div>`;
+}
+
+function recBody(d){
+  return `<p class="sub">One set per game, combining both analyses. Each analysis only changes the tickets when its
+      evidence clears a fixed bar: confirmed hot/dead pixels are always applied; the cluster method's tickets are used
+      only after it beats chance on draws it wasn't tuned on. Until then the set is screened random picks — no
+      over-played patterns, a different ${d.powerball.special_label} on each ticket, and the widest coverage, so the
+      best chance of winning <i>something</i> each draw. Jackpot odds are the same for every ticket either way.</p>
+    <div class="fr-cols" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))">
+      ${recGame(d.powerball, "var(--pb)", "Powerball")}
+      ${recGame(d.superlotto, "var(--slp)", "SuperLotto Plus")}
+    </div>`;
 }
 
 function frameBody(d){
@@ -790,11 +871,9 @@ function paintBacktest(m, label, verdictOverride){
   const v=document.getElementById("bt-verdict");
   if(!v) return;
   if(verdictOverride){ v.className="verdict warn"; v.textContent=verdictOverride; return; }
-  const chance = Math.abs(m.z3) < 2 && m.mean_ratio < 1.15;
-  v.className = "verdict " + (chance ? "ok" : "warn");
-  v.textContent = chance
-    ? `Backtest verdict: performance is consistent with chance (z = ${m.z3 >= 0 ? "+" : ""}${m.z3} on 3+ hits) — these picks are the method faithfully applied, not a demonstrated edge`
-    : `Backtest deviates from chance (z = ${m.z3}) — verify data before believing it`;
+  const V = btVerdict(m);
+  v.className = "verdict " + (V.ok ? "ok" : "warn");
+  v.textContent = V.text;
 }
 
 async function runBacktestDynamic(d, W, lo){
@@ -818,6 +897,7 @@ async function runBacktestDynamic(d, W, lo){
   const T = Math.min(avail, Math.max(10, Math.round(BT_BUDGET/(4*W*W))));
   const tallies=[0,0,0,0,0,0];
   let ticketsPlayed=0, spHits=0, spPreds=0, tested=0, last=performance.now();
+  const ex = {obs:0, exp:0, var:0, draws:0};
   for(let t = n-T; t < n; t++){
     const res = clusterSuggest(d.whites.slice(0,t), d.specials.slice(0,t), W, lo, 3, 5, 26);
     const actual = new Set(d.whites[t]);
@@ -825,6 +905,7 @@ async function runBacktestDynamic(d, W, lo){
       let k=0; for(const v of tk.combo) if(actual.has(v)) k++;
       tallies[k]++; ticketsPlayed++;
     }
+    exactAdd(ex, res.tickets.map(tk=>tk.combo), actual);
     spPreds++; if(res.pick === d.specials[t]) spHits++;
     tested++;
     if(performance.now()-last > 150){
@@ -840,7 +921,7 @@ async function runBacktestDynamic(d, W, lo){
   const exp3 = P3PLUS*ticketsPlayed, obs3 = tallies[3]+tallies[4]+tallies[5];
   const m = {tickets:ticketsPlayed, tested, mean_matches:meanM.toFixed(4),
     random_mean:randM.toFixed(4), mean_ratio:meanM/randM, obs3, exp3:exp3.toFixed(2),
-    z3:+((obs3-exp3)/Math.sqrt(exp3)).toFixed(2),
+    z3:+((obs3-exp3)/Math.sqrt(exp3)).toFixed(2), exact:exactFinish(ex),
     special_rate:spPreds ? (spHits/spPreds).toFixed(4) : null,
     special_random:(1/26).toFixed(4)};
   const label = `window ${W}, density ≥ ${lo} — browser-computed over ` +
@@ -900,6 +981,8 @@ fetch("data.json", {cache:"no-cache"}).then(r=>r.json()).then(d=>{
   window.__tunedDensity = d.powerball.cluster.density ?? 0.94;
   window.__serverBT = d.powerball.cluster.backtest;
   PANELS = [
+    ...(d.powerball.recommended ? [{key:"rec", title:"🎟 Recommended tickets", color:"var(--accent)", wide:true,
+     body:recBody(d)}] : []),
     {key:"pb",      title:"Powerball",        color:"var(--pb)",  wide:false,
      body:`<p class="sub">Mon · Wed · Sat · 5 of 69 + Powerball 1–26</p>`+gameBody(d.powerball,"var(--pb)")},
     {key:"slp",     title:"SuperLotto Plus",  color:"var(--slp)", wide:false,
