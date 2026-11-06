@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-06T12:33:08+00:00",
+ "updated": "2026-11-06T19:53:20+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,53 +172,53 @@
   "picks": [
    {
     "whites": [
-     1,
-     18,
-     26,
+     2,
+     15,
+     32,
      45,
-     61
+     46
+    ],
+    "special": 5
+   },
+   {
+    "whites": [
+     24,
+     26,
+     33,
+     47,
+     48
+    ],
+    "special": 20
+   },
+   {
+    "whites": [
+     9,
+     14,
+     27,
+     45,
+     57
     ],
     "special": 18
    },
    {
     "whites": [
-     1,
-     3,
-     7,
-     45,
-     55
-    ],
-    "special": 19
-   },
-   {
-    "whites": [
-     14,
-     16,
-     54,
-     60,
-     67
-    ],
-    "special": 1
-   },
-   {
-    "whites": [
-     3,
-     14,
+     23,
      29,
-     34,
-     52
-    ],
-    "special": 7
-   },
-   {
-    "whites": [
-     5,
-     38,
-     46,
-     47,
+     50,
+     53,
      58
     ],
-    "special": 8
+    "special": 20
+   },
+   {
+    "whites": [
+     6,
+     29,
+     30,
+     34,
+     48
+    ],
+    "special": 15
    }
   ],
   "frame": {
@@ -1456,53 +1456,53 @@
    "tickets": [
     {
      "whites": [
-      11,
+      6,
       22,
-      52,
-      57,
-      61
+      23,
+      51,
+      65
+     ],
+     "special": 12
+    },
+    {
+     "whites": [
+      3,
+      15,
+      20,
+      47,
+      62
      ],
      "special": 14
     },
     {
      "whites": [
-      13,
-      15,
-      31,
-      56,
-      61
+      20,
+      32,
+      36,
+      41,
+      43
+     ],
+     "special": 19
+    },
+    {
+     "whites": [
+      27,
+      28,
+      37,
+      46,
+      69
+     ],
+     "special": 15
+    },
+    {
+     "whites": [
+      22,
+      29,
+      47,
+      50,
+      60
      ],
      "special": 26
-    },
-    {
-     "whites": [
-      8,
-      24,
-      29,
-      56,
-      67
-     ],
-     "special": 17
-    },
-    {
-     "whites": [
-      20,
-      52,
-      55,
-      60,
-      66
-     ],
-     "special": 4
-    },
-    {
-     "whites": [
-      10,
-      17,
-      42,
-      59,
-      61
-     ],
-     "special": 24
     }
    ],
    "sims": 2000
@@ -1722,53 +1722,53 @@
    "tickets": [
     {
      "whites": [
-      11,
+      6,
       22,
-      52,
-      57,
-      61
+      23,
+      51,
+      65
+     ],
+     "special": 12
+    },
+    {
+     "whites": [
+      3,
+      15,
+      20,
+      47,
+      62
      ],
      "special": 14
     },
     {
      "whites": [
-      13,
-      15,
-      31,
-      56,
-      61
+      20,
+      32,
+      36,
+      41,
+      43
+     ],
+     "special": 19
+    },
+    {
+     "whites": [
+      27,
+      28,
+      37,
+      46,
+      69
+     ],
+     "special": 15
+    },
+    {
+     "whites": [
+      22,
+      29,
+      47,
+      50,
+      60
      ],
      "special": 26
-    },
-    {
-     "whites": [
-      8,
-      24,
-      29,
-      56,
-      67
-     ],
-     "special": 17
-    },
-    {
-     "whites": [
-      20,
-      52,
-      55,
-      60,
-      66
-     ],
-     "special": 4
-    },
-    {
-     "whites": [
-      10,
-      17,
-      42,
-      59,
-      61
-     ],
-     "special": 24
     }
    ],
    "gate": {
@@ -1808,8 +1808,8 @@
    },
    "compare": {
     "recommended": {
-     "any_prize": 0.1986,
-     "distinct_whites": 21,
+     "any_prize": 0.1991,
+     "distinct_whites": 22,
      "distinct_specials": 5
     },
     "cluster_raw": {
@@ -1818,6 +1818,188 @@
      "distinct_specials": 1
     }
    }
+  },
+  "last_result": {
+   "draw_date": "2026-11-04",
+   "whites": [
+    15,
+    34,
+    41,
+    53,
+    56
+   ],
+   "special": 21,
+   "scored_against_picks_from": "2026-11-04T20:19:30+00:00",
+   "tickets": [
+    {
+     "source": "recommended",
+     "index": 0,
+     "whites": [
+      12,
+      44,
+      52,
+      57,
+      64
+     ],
+     "special": 16,
+     "white_hits": 0,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    },
+    {
+     "source": "recommended",
+     "index": 1,
+     "whites": [
+      5,
+      20,
+      30,
+      33,
+      57
+     ],
+     "special": 14,
+     "white_hits": 0,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    },
+    {
+     "source": "recommended",
+     "index": 2,
+     "whites": [
+      19,
+      32,
+      59,
+      62,
+      69
+     ],
+     "special": 10,
+     "white_hits": 0,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    },
+    {
+     "source": "recommended",
+     "index": 3,
+     "whites": [
+      4,
+      28,
+      42,
+      44,
+      45
+     ],
+     "special": 22,
+     "white_hits": 0,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    },
+    {
+     "source": "recommended",
+     "index": 4,
+     "whites": [
+      3,
+      12,
+      52,
+      53,
+      54
+     ],
+     "special": 24,
+     "white_hits": 1,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    },
+    {
+     "source": "cluster",
+     "index": 0,
+     "whites": [
+      13,
+      21,
+      40,
+      52,
+      53
+     ],
+     "special": 21,
+     "white_hits": 1,
+     "special_hit": true,
+     "tier": "1+PB",
+     "significant": false
+    },
+    {
+     "source": "cluster",
+     "index": 1,
+     "whites": [
+      13,
+      21,
+      42,
+      52,
+      53
+     ],
+     "special": 21,
+     "white_hits": 1,
+     "special_hit": true,
+     "tier": "1+PB",
+     "significant": false
+    },
+    {
+     "source": "cluster",
+     "index": 2,
+     "whites": [
+      12,
+      13,
+      21,
+      50,
+      52
+     ],
+     "special": 21,
+     "white_hits": 0,
+     "special_hit": true,
+     "tier": "PB",
+     "significant": false
+    },
+    {
+     "source": "cluster",
+     "index": 3,
+     "whites": [
+      12,
+      13,
+      21,
+      48,
+      52
+     ],
+     "special": 21,
+     "white_hits": 0,
+     "special_hit": true,
+     "tier": "PB",
+     "significant": false
+    },
+    {
+     "source": "cluster",
+     "index": 4,
+     "whites": [
+      13,
+      21,
+      40,
+      50,
+      52
+     ],
+     "special": 21,
+     "white_hits": 0,
+     "special_hit": true,
+     "tier": "PB",
+     "significant": false
+    }
+   ],
+   "best": {
+    "tier": "1+PB",
+    "source": "cluster",
+    "ticket": 0,
+    "white_hits": 1,
+    "special_hit": true
+   },
+   "significant": false
   },
   "ledger": [
    {
@@ -7924,189 +8106,7 @@
     },
     "significant": false
    }
-  ],
-  "last_result": {
-   "draw_date": "2026-11-04",
-   "whites": [
-    15,
-    34,
-    41,
-    53,
-    56
-   ],
-   "special": 21,
-   "scored_against_picks_from": "2026-11-04T20:19:30+00:00",
-   "tickets": [
-    {
-     "source": "recommended",
-     "index": 0,
-     "whites": [
-      12,
-      44,
-      52,
-      57,
-      64
-     ],
-     "special": 16,
-     "white_hits": 0,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    },
-    {
-     "source": "recommended",
-     "index": 1,
-     "whites": [
-      5,
-      20,
-      30,
-      33,
-      57
-     ],
-     "special": 14,
-     "white_hits": 0,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    },
-    {
-     "source": "recommended",
-     "index": 2,
-     "whites": [
-      19,
-      32,
-      59,
-      62,
-      69
-     ],
-     "special": 10,
-     "white_hits": 0,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    },
-    {
-     "source": "recommended",
-     "index": 3,
-     "whites": [
-      4,
-      28,
-      42,
-      44,
-      45
-     ],
-     "special": 22,
-     "white_hits": 0,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    },
-    {
-     "source": "recommended",
-     "index": 4,
-     "whites": [
-      3,
-      12,
-      52,
-      53,
-      54
-     ],
-     "special": 24,
-     "white_hits": 1,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    },
-    {
-     "source": "cluster",
-     "index": 0,
-     "whites": [
-      13,
-      21,
-      40,
-      52,
-      53
-     ],
-     "special": 21,
-     "white_hits": 1,
-     "special_hit": true,
-     "tier": "1+PB",
-     "significant": false
-    },
-    {
-     "source": "cluster",
-     "index": 1,
-     "whites": [
-      13,
-      21,
-      42,
-      52,
-      53
-     ],
-     "special": 21,
-     "white_hits": 1,
-     "special_hit": true,
-     "tier": "1+PB",
-     "significant": false
-    },
-    {
-     "source": "cluster",
-     "index": 2,
-     "whites": [
-      12,
-      13,
-      21,
-      50,
-      52
-     ],
-     "special": 21,
-     "white_hits": 0,
-     "special_hit": true,
-     "tier": "PB",
-     "significant": false
-    },
-    {
-     "source": "cluster",
-     "index": 3,
-     "whites": [
-      12,
-      13,
-      21,
-      48,
-      52
-     ],
-     "special": 21,
-     "white_hits": 0,
-     "special_hit": true,
-     "tier": "PB",
-     "significant": false
-    },
-    {
-     "source": "cluster",
-     "index": 4,
-     "whites": [
-      13,
-      21,
-      40,
-      50,
-      52
-     ],
-     "special": 21,
-     "white_hits": 0,
-     "special_hit": true,
-     "tier": "PB",
-     "significant": false
-    }
-   ],
-   "best": {
-    "tier": "1+PB",
-    "source": "cluster",
-    "ticket": 0,
-    "white_hits": 1,
-    "special_hit": true
-   },
-   "significant": false
-  }
+  ]
  },
  "superlotto": {
   "special_label": "Mega",
@@ -8272,53 +8272,53 @@
   "picks": [
    {
     "whites": [
-     15,
-     43,
-     44,
-     45,
-     47
-    ],
-    "special": 8
-   },
-   {
-    "whites": [
-     1,
-     9,
-     13,
+     8,
      17,
-     36
+     25,
+     37,
+     38
     ],
-    "special": 25
+    "special": 16
    },
    {
     "whites": [
-     11,
-     15,
-     43,
-     45,
-     47
+     7,
+     18,
+     21,
+     31,
+     37
     ],
     "special": 20
    },
    {
     "whites": [
-     1,
-     15,
-     27,
-     39,
-     40
+     16,
+     18,
+     28,
+     30,
+     46
     ],
-    "special": 22
+    "special": 14
    },
    {
     "whites": [
-     7,
-     16,
-     19,
-     36,
-     46
+     1,
+     6,
+     17,
+     29,
+     33
     ],
-    "special": 5
+    "special": 17
+   },
+   {
+    "whites": [
+     8,
+     27,
+     35,
+     39,
+     42
+    ],
+    "special": 16
    }
   ],
   "frame": {
@@ -9304,53 +9304,53 @@
    "tickets": [
     {
      "whites": [
-      1,
-      26,
-      32,
-      38,
-      44
+      13,
+      22,
+      25,
+      29,
+      34
      ],
-     "special": 10
+     "special": 2
     },
     {
      "whites": [
-      2,
-      13,
-      33,
-      43,
-      44
+      1,
+      9,
+      15,
+      35,
+      39
      ],
-     "special": 5
+     "special": 6
     },
     {
      "whites": [
       8,
-      10,
-      19,
-      28,
-      36
+      9,
+      18,
+      21,
+      35
      ],
-     "special": 21
+     "special": 24
     },
     {
      "whites": [
-      15,
-      18,
-      39,
-      42,
-      45
+      7,
+      14,
+      20,
+      34,
+      46
      ],
-     "special": 18
+     "special": 9
     },
     {
      "whites": [
       4,
-      6,
-      29,
-      32,
-      46
+      8,
+      16,
+      34,
+      37
      ],
-     "special": 27
+     "special": 17
     }
    ],
    "sims": 2000
@@ -9360,53 +9360,53 @@
    "tickets": [
     {
      "whites": [
-      1,
-      26,
-      32,
-      38,
-      44
+      13,
+      22,
+      25,
+      29,
+      34
      ],
-     "special": 10
+     "special": 2
     },
     {
      "whites": [
-      2,
-      13,
-      33,
-      43,
-      44
+      1,
+      9,
+      15,
+      35,
+      39
      ],
-     "special": 5
+     "special": 6
     },
     {
      "whites": [
       8,
-      10,
-      19,
-      28,
-      36
+      9,
+      18,
+      21,
+      35
      ],
-     "special": 21
+     "special": 24
     },
     {
      "whites": [
-      15,
-      18,
-      39,
-      42,
-      45
+      7,
+      14,
+      20,
+      34,
+      46
      ],
-     "special": 18
+     "special": 9
     },
     {
      "whites": [
       4,
-      6,
-      29,
-      32,
-      46
+      8,
+      16,
+      34,
+      37
      ],
-     "special": 27
+     "special": 17
     }
    ],
    "pixels": {
@@ -9417,8 +9417,8 @@
    },
    "compare": {
     "recommended": {
-     "any_prize": 0.2068,
-     "distinct_whites": 23,
+     "any_prize": 0.2096,
+     "distinct_whites": 20,
      "distinct_specials": 5
     }
    }
@@ -9427,6 +9427,108 @@
   "cluster": {
    "available": false,
    "reason": "Cluster method requires drawn order. CA conducts mechanical draws but publishes sorted numbers only \u2014 no stream archive or drawing videos exist. A CPRA records request for the official draw sequence is the remaining path."
+  },
+  "last_result": {
+   "draw_date": "2026-11-04",
+   "whites": [
+    1,
+    2,
+    4,
+    26,
+    34
+   ],
+   "special": 1,
+   "scored_against_picks_from": "2026-11-04T20:19:30+00:00",
+   "tickets": [
+    {
+     "source": "recommended",
+     "index": 0,
+     "whites": [
+      2,
+      10,
+      20,
+      22,
+      41
+     ],
+     "special": 21,
+     "white_hits": 1,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    },
+    {
+     "source": "recommended",
+     "index": 1,
+     "whites": [
+      4,
+      13,
+      17,
+      26,
+      33
+     ],
+     "special": 10,
+     "white_hits": 2,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    },
+    {
+     "source": "recommended",
+     "index": 2,
+     "whites": [
+      5,
+      21,
+      29,
+      45,
+      46
+     ],
+     "special": 4,
+     "white_hits": 0,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    },
+    {
+     "source": "recommended",
+     "index": 3,
+     "whites": [
+      11,
+      13,
+      26,
+      38,
+      44
+     ],
+     "special": 13,
+     "white_hits": 1,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    },
+    {
+     "source": "recommended",
+     "index": 4,
+     "whites": [
+      3,
+      13,
+      21,
+      29,
+      39
+     ],
+     "special": 17,
+     "white_hits": 0,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    }
+   ],
+   "best": {
+    "tier": null,
+    "source": "recommended",
+    "ticket": 1,
+    "white_hits": 2,
+    "special_hit": false
+   },
+   "significant": false
   },
   "ledger": [
    {
@@ -10143,108 +10245,6 @@
     },
     "significant": false
    }
-  ],
-  "last_result": {
-   "draw_date": "2026-11-04",
-   "whites": [
-    1,
-    2,
-    4,
-    26,
-    34
-   ],
-   "special": 1,
-   "scored_against_picks_from": "2026-11-04T20:19:30+00:00",
-   "tickets": [
-    {
-     "source": "recommended",
-     "index": 0,
-     "whites": [
-      2,
-      10,
-      20,
-      22,
-      41
-     ],
-     "special": 21,
-     "white_hits": 1,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    },
-    {
-     "source": "recommended",
-     "index": 1,
-     "whites": [
-      4,
-      13,
-      17,
-      26,
-      33
-     ],
-     "special": 10,
-     "white_hits": 2,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    },
-    {
-     "source": "recommended",
-     "index": 2,
-     "whites": [
-      5,
-      21,
-      29,
-      45,
-      46
-     ],
-     "special": 4,
-     "white_hits": 0,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    },
-    {
-     "source": "recommended",
-     "index": 3,
-     "whites": [
-      11,
-      13,
-      26,
-      38,
-      44
-     ],
-     "special": 13,
-     "white_hits": 1,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    },
-    {
-     "source": "recommended",
-     "index": 4,
-     "whites": [
-      3,
-      13,
-      21,
-      29,
-      39
-     ],
-     "special": 17,
-     "white_hits": 0,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    }
-   ],
-   "best": {
-    "tier": null,
-    "source": "recommended",
-    "ticket": 1,
-    "white_hits": 2,
-    "special_hit": false
-   },
-   "significant": false
-  }
+  ]
  }
 }
