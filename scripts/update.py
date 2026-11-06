@@ -6,7 +6,9 @@ Server-side refresh for the lotto tracker.
 2. Recomputes all analysis: frequency stats, chi-square vs uniform, the
    within-draw order-dependence permutation test, the stacked-frame
    hot-pixel check, and screened quick picks.
-3. Writes data.json for index.html and the dashboard card.
+3. Scores the previous run's picks against the draw they were made for
+   (last_result + rolling ledger, via hit_check.py).
+4. Writes data.json for index.html and the dashboard card.
 
 Run from anywhere: paths resolve relative to the repo root.
 """
@@ -28,6 +30,7 @@ import order_dependence_test as odt  # noqa: E402
 import cluster_picker as cp  # noqa: E402
 import stacked_frame as sf  # noqa: E402
 import consolidated as co  # noqa: E402
+import hit_check  # noqa: E402
 
 ORDER_TEST_PERMS = 5000
 
@@ -179,6 +182,10 @@ def cluster_block():
 
 
 def main():
+    # Previous run's picks were made for the draw after its `latest`; keep
+    # them so they can be scored once that draw is in (see hit_check.py).
+    prev = hit_check.load_previous(ROOT / "data.json")
+
     run("fetch_official_results.py", "--out", str(DATA / "official_results.csv"))
     run("fetch_drawn_order.py", "--out", str(DATA / "drawn_order.csv"),
         "--official", str(DATA / "official_results.csv"))
@@ -227,6 +234,8 @@ def main():
                    "or drawing videos exist. A CPRA records request for the "
                    "official draw sequence is the remaining path."),
     }
+
+    hit_check.attach_results(out, prev, DATA)
 
     with open(ROOT / "data.json", "w") as f:
         json.dump(out, f, indent=1)
