@@ -494,10 +494,10 @@ function recGame(g, color, label){
       : `${what} not applied (out-of-sample r ${o.r==null?"n/a":sgn(o.r)}, p ${fmtP(o.p)} over ${o.draws} draws; needs p &lt; ${K.alpha} on ≥ ${K.min_oos})`;
     cr = part(K.white.gate_open, K.white.oos, "white balls") + "; " + part(K.special.gate_open, K.special.oos, sl);
     if(RC && RC.crowd_mean != null && (RC.white_used || RC.special_used))
-      cr += `. These tickets: about <b>${crowdPct(RC.crowd_mean)}</b> other holders than an average ticket`;
+      cr += `. These tickets: roughly <b>${crowdPct(RC.crowd_mean)}</b> co-winners on a full match vs an average ticket`;
   }
   const crowdTag = t => (t.crowd != null && RC && (RC.white_used || RC.special_used))
-    ? `<span class="note" style="margin:0 0 0 6px" title="Predicted number of other tickets on these numbers, relative to an average ticket">${crowdPct(t.crowd)} crowd</span>` : "";
+    ? `<span class="note" style="margin:0 0 0 6px" title="Predicted co-winners on a full match, relative to an average ticket">${crowdPct(t.crowd)} crowd</span>` : "";
   const cmp = C.cluster_raw
     ? `<table style="margin-top:8px">
         <tr><th></th><th class="r">P(any prize) / draw</th><th class="r">whites covered</th><th class="r">${sl}s covered</th></tr>
