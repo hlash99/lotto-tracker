@@ -8,6 +8,8 @@ on:
     - cron: '0 5 * * *'    # 10pm PT — catches same-evening CA results
     - cron: '0 13 * * *'   # 6am PT — catches overnight Powerball postings
   workflow_dispatch: {}
+  push:
+    branches: [claude/crowd-model]   # TEMP: first data pull, removed before merge
 
 permissions:
   contents: write

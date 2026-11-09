@@ -138,7 +138,7 @@
   <footer>
     Sources: <a href="https://data.ny.gov/resource/d6yy-54nr.json">NY Open Data</a> (Powerball official),
     <a href="https://www.texaslottery.com/export/sites/lottery/Games/Powerball/Winning_Numbers/powerball.csv">Texas Lottery</a> (drawn order),
-    <a href="https://www.calottery.com">CA Lottery API</a> (SuperLotto Plus).
+    <a href="https://www.calottery.com">CA Lottery API</a> (SuperLotto Plus results; per-tier winner counts for both games).
     Refreshed by <a href="https://github.com/hlash99/lotto-tracker">GitHub Actions</a>.
   </footer>
 </div>
@@ -386,6 +386,85 @@ function frameView(key){
       so a single bad ball set would be diluted across draws.</div>`;
 }
 
+/* ---------------- crowd model: which numbers other players hold ---------------- */
+
+const crowdPct = r => (r >= 1 ? "+" : "−") + Math.abs(Math.round(100*(r-1))) + "%";
+const crowdColor = r => zColor((r-1)/0.10*3.5);   // saturates at ±10% vs uniform
+
+function crowdGrid(ratio, cols, seen){
+  return `<div class="sensor" style="grid-template-columns:repeat(${cols},1fr)">` + ratio.map((r,i)=>
+    `<div class="px" style="background:${seen && !seen[i] ? "var(--surface2)" : crowdColor(r)}"
+      title="${i+1}: ${seen && !seen[i] ? "not drawn in the sample yet — no reading" : "held by "+crowdPct(r)+" as many tickets as uniform play would give"}">${i+1}</div>`
+  ).join("") + `</div>`;
+}
+
+function crowdView(key){
+  const {g, label} = FRAME_GAMES[key];
+  const K = g.crowd, sl = g.special_label;
+  if(!K || !K.available)
+    return `<div class="rec clean"><p class="rh">Collecting data · ${label}</p>
+      <div class="rd">${esc((K && K.reason) || "California prize tables not collected yet.")}</div></div>`;
+  const w = K.white, s = K.special;
+  const anyOpen = w.gate_open || s.gate_open;
+  const gate = (o, open) => `${open ? "✓ passes" : "not yet"} · r ${o.r==null?"n/a":sgn(o.r)}, p ${fmtP(o.p)}`;
+  const pay = P => !P ? "" : `<h3>Did it pay? · average ${K.payoff.tier} prize by ${esc(P.basis)}</h3>
+    <table><tr><th>draws grouped by crowding</th><th class="r">draws</th><th class="r">crowding vs uniform</th><th class="r">avg prize</th></tr>
+    ${P.rows.map(r=>`<tr><td>${r.label}</td><td class="r">${r.draws}</td><td class="r">${crowdPct(r.index)}</td><td class="r">$${Math.round(r.prize).toLocaleString()}</td></tr>`).join("")}</table>`;
+  return `
+    <div class="rec ${anyOpen?"pixels":"clean"}"><p class="rh">${anyOpen
+        ? "✓ Crowd forecast is working out of sample · " + label + " picks now favor under-played numbers"
+        : "Crowd forecast hasn't cleared the bar yet · " + label + " picks stay plain screened random"}</p>
+      <div class="rd">White balls: ${gate(w.oos, w.gate_open)} over ${w.oos.draws} draws forecast in advance.
+        ${sl}: ${gate(s.oos, s.gate_open)} over ${s.oos.draws} draws. Bar: p &lt; ${K.alpha} on ≥ ${K.min_oos} draws.</div>
+      <div class="note">This verdict feeds the <b>Recommended tickets</b> panel at the top.</div></div>
+    <div class="fr-cols">
+      <div>
+        <h3>How crowded each white ball is</h3>
+        ${crowdGrid(w.ratio, 10)}
+        <h3>How crowded each ${sl} is</h3>
+        ${crowdGrid(s.ratio, 9, s.seen)}
+        <div class="legend">under-played <span class="ramp" style="background:linear-gradient(90deg,${crowdColor(0.9)},${crowdColor(1)},${crowdColor(1.1)})"></span> over-played
+          · scale ±10% vs uniform</div>
+      </div>
+      <div>
+        <h3>Model quality</h3>
+        <div class="statgrid">
+          <div class="stat"><div class="k">Draws measured</div><div class="v">${K.draws}</div><div class="s">${K.first_date} → ${K.last_date}</div></div>
+          <div class="stat"><div class="k">Forecast accuracy</div><div class="v">${w.oos.r==null?"n/a":"r "+sgn(w.oos.r)}</div><div class="s">${w.oos.skill==null?"":"explains "+Math.round(100*Math.max(0,w.oos.skill))+"% of draw-to-draw crowding, "}forecast before each draw</div></div>
+          <div class="stat"><div class="k">Crowding swing</div><div class="v">±${(100*w.index_sd).toFixed(1)}%</div><div class="s">typical draw-to-draw spread in holders of the drawn balls</div></div>
+          <div class="stat"><div class="k">Least held</div><div class="v" style="font-size:13px">${w.least.join(" · ")}</div><div class="s">white balls</div></div>
+          <div class="stat"><div class="k">Most held</div><div class="v" style="font-size:13px">${w.most.join(" · ")}</div><div class="s">white balls</div></div>
+        </div>
+        ${pay(K.payoff.predicted)}
+        ${pay(K.payoff.observed)}
+      </div>
+    </div>
+    <div class="note"><b>How it's measured.</b> California publishes how many tickets won each prize tier on every draw.
+      Among tickets that matched the ${sl}, the tiers give the whole spread of white-ball matches; its average equals the
+      summed share of tickets holding each drawn ball, so each ball's share falls out of a regression across draws
+      (ridge, shrunk toward uniform, strength set by leave-one-out). ${sl} shares come from 3+-white winners with vs
+      without the ${sl}. Most tickets are computer quick picks, which is why the swings are a few percent, not tens.
+      ${key==="powerball" ? "Counts are California tickets only — a direct read on California's pari-mutuel prizes, a proxy for the national jackpot pool." : ""}
+      The CA feed only reaches back about a year; the archive grows with every refresh.</div>`;
+}
+
+function crowdBody(d){
+  return `<p class="sub">The draw can't be predicted; the players can. Numbers that fewer people hold win exactly as
+      often, but the prize is split among fewer winners — and in California every tier is split that way, not just the
+      jackpot. This panel measures which numbers Californians actually play, from the published winner counts.</p>
+    <div class="seg" id="cr-seg"><button data-g="powerball" class="on">Powerball</button><button data-g="superlotto">SuperLotto Plus</button></div>
+    <div id="cr-view">${crowdView("powerball")}</div>`;
+}
+
+function wireCrowd(){
+  const seg = document.getElementById("cr-seg");
+  if(!seg) return;
+  seg.querySelectorAll("button").forEach(b=>b.onclick=()=>{
+    seg.querySelectorAll("button").forEach(x=>x.classList.toggle("on", x===b));
+    document.getElementById("cr-view").innerHTML = crowdView(b.dataset.g);
+  });
+}
+
 /* ---------------- the one recommended set ---------------- */
 
 function recGame(g, color, label){
@@ -406,6 +485,19 @@ function recGame(g, color, label){
          ${gw.draws} so far${gw.draws ? ` (${gw.obs} vs ${gw.exp} expected matches)` : ""}.
          Full-history record z ${sgn(ins.z)}, p ${ins.p} — not significant even with tuning in its favor`;
   } else cl = `n/a — needs drawn order, which CA doesn't publish`;
+  const K = g.crowd, RC = R.crowd;
+  let cr;
+  if(!K || !K.available) cr = `collecting California prize tables${K && K.draws!=null ? ` (${K.draws} draws so far)` : ""} — tickets are screened random for now`;
+  else {
+    const part = (on, o, what) => on
+      ? `<b style="color:var(--accent)">${what} applied</b> (out-of-sample r ${sgn(o.r)}, p ${fmtP(o.p)}, ${o.draws} draws)`
+      : `${what} not applied (out-of-sample r ${o.r==null?"n/a":sgn(o.r)}, p ${fmtP(o.p)} over ${o.draws} draws; needs p &lt; ${K.alpha} on ≥ ${K.min_oos})`;
+    cr = part(K.white.gate_open, K.white.oos, "white balls") + "; " + part(K.special.gate_open, K.special.oos, sl);
+    if(RC && RC.crowd_mean != null && (RC.white_used || RC.special_used))
+      cr += `. These tickets: about <b>${crowdPct(RC.crowd_mean)}</b> other holders than an average ticket`;
+  }
+  const crowdTag = t => (t.crowd != null && RC && (RC.white_used || RC.special_used))
+    ? `<span class="note" style="margin:0 0 0 6px" title="Predicted number of other tickets on these numbers, relative to an average ticket">${crowdPct(t.crowd)} crowd</span>` : "";
   const cmp = C.cluster_raw
     ? `<table style="margin-top:8px">
         <tr><th></th><th class="r">P(any prize) / draw</th><th class="r">whites covered</th><th class="r">${sl}s covered</th></tr>
@@ -416,9 +508,10 @@ function recGame(g, color, label){
         (${C.recommended.distinct_whites} whites, ${C.recommended.distinct_specials} ${sl}s covered).</div>`;
   return `<div>
     <h3>${label}</h3>
-    ${R.tickets.map((t,i)=>`<div class="ticket"><span class="idx">${i+1}</span>${ballRow(t.whites, t.special, color)}</div>`).join("")}
+    ${R.tickets.map((t,i)=>`<div class="ticket"><span class="idx">${i+1}</span>${ballRow(t.whites, t.special, color)}${crowdTag(t)}</div>`).join("")}
     <table style="margin-top:10px">
-      <tr><td style="width:96px;color:var(--muted)">Hot pixels</td><td>${px}</td></tr>
+      <tr><td style="width:96px;color:var(--muted)">Crowd model</td><td>${cr}</td></tr>
+      <tr><td style="color:var(--muted)">Hot pixels</td><td>${px}</td></tr>
       <tr><td style="color:var(--muted)">Cluster method</td><td>${cl}</td></tr>
     </table>
     ${cmp}
@@ -426,10 +519,13 @@ function recGame(g, color, label){
 }
 
 function recBody(d){
-  return `<p class="sub">One set per game, combining both analyses. Each analysis only changes the tickets when its
-      evidence clears a fixed bar: confirmed hot/dead pixels are always applied; the cluster method's tickets are used
-      only after it beats chance on draws it wasn't tuned on. Until then the set is screened random picks — no
-      over-played patterns, a different ${d.powerball.special_label} on each ticket, and the widest coverage, so the
+  return `<p class="sub">One set per game. Nothing here predicts which balls come out — every test on this page says
+      that can't be done. What <i>can</i> be predicted is which numbers other players hold, and California pays every
+      prize tier pari-mutuel, so less-crowded numbers win just as often and pay more when they do. Each analysis only
+      changes the tickets once its evidence clears a fixed bar: the <b>crowd model</b> steers picks toward
+      under-played numbers once it forecasts crowding on draws it hasn't seen; confirmed hot/dead pixels are always
+      applied; the cluster method's whites are used only after it beats chance out of sample. No white ball is
+      repeated across a set and there is a different ${d.powerball.special_label} on each ticket — the widest coverage, so the
       best chance of winning <i>something</i> each draw. Jackpot odds are the same for every ticket either way.</p>
     <div class="fr-cols" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr))">
       ${recGame(d.powerball, "var(--pb)", "Powerball")}
@@ -995,14 +1091,19 @@ fetch("data.json", {cache:"no-cache"}).then(r=>r.json()).then(d=>{
   if(d.powerball.frame && d.superlotto.frame)
     PANELS.splice(2, 0, {key:"frame", title:"Stacked frame — hot-pixel check", color:"var(--hot)", wide:true,
      body:frameBody(d)});
+  if(d.powerball.frame && d.superlotto.frame && d.powerball.crowd)
+    PANELS.splice(1, 0, {key:"crowd", title:"Crowd model — which numbers other players hold", color:"var(--accent)", wide:true,
+     body:crowdBody(d)});
   renderPanels();
   wireCluster();
   wireFrame();
+  wireCrowd();
   document.getElementById("honesty").innerHTML =
     "<b>The honest fine print:</b> lottery draws are independent; no analysis of past results " +
     "changes any ticket's odds. This tracker exists to (1) archive drawn-order data, " +
     "(2) test the order-dependence hypothesis rigorously as data accumulates, and " +
-    "(3) keep the cluster-method picks under continuous walk-forward testing. Chi-square, " +
+    "(3) keep the cluster-method picks under continuous walk-forward testing, and " +
+    "(4) steer picks toward numbers fewer people hold, which changes the size of a prize, never the chance of one. Chi-square, " +
     "hot-pixel and " +
     "permutation tests recompute on every refresh — if the draws ever stop looking uniform, this page will say so.";
 }).catch(e=>{

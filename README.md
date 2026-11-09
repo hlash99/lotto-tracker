@@ -29,13 +29,27 @@ draw nights), commits fresh data, and GitHub Pages serves the result.
   fixed-pattern test (do halves / odd-vs-even draws agree on which balls run
   hot?), the smallest bias detectable at the current depth, and a
   recommendation + tickets built only from confirmed pixels.
+- **Crowd model** (`scripts/crowd.py`, both games): predicts the players, not
+  the balls. California pays every tier pari-mutuel and publishes the winner
+  count per tier for every draw (`scripts/fetch_ca_prizes.py` →
+  `data/ca_prizes_<game>.csv`, accumulating because the API only reaches back
+  ~12 months). Among tickets that matched the special ball, the mean number of
+  white matches equals the summed share of tickets holding each drawn ball, so
+  per-ball shares come from a ridge regression across draws (shrunk toward
+  uniform, strength by leave-one-out); special-ball shares come from 3+-white
+  winners with vs without the special. Gated like everything else: whites must
+  forecast crowding walk-forward (p < 0.01 on ≥ 50 draws), specials by
+  leave-one-draw-out with a label-permutation p. When a gate is open the
+  recommended tickets are drawn from the least-crowded slice of screened
+  random tickets — same odds of winning, larger expected prize.
 - **One recommended ticket set per game** (`scripts/consolidated.py`):
   confirmed hot/dead pixels are always applied; the cluster method's tickets
   are used only once its *out-of-sample* record (draws after the 2026-10-11
   tuning) beats chance at p < 0.01 over ≥ 100 draws, on an exact
   overlap-aware test (total white matches across the 5 tickets, with the
   null mean/variance computed from how many tickets share each ball).
-  Otherwise: screened random tickets with a distinct special ball each —
+  Otherwise: screened random tickets (crowd-aware once that gate opens), no
+  white ball repeated across the five, with a distinct special ball each —
   ~20% chance of some prize per draw vs ~4% for the cluster tickets, which
   share most balls and one PB.
 - Screened quick picks: uniform random tickets, re-drawn if they match

@@ -5,7 +5,8 @@ Server-side refresh for the lotto tracker.
 1. Fetches fresh official results (Powerball sorted + drawn order, SuperLotto).
 2. Recomputes all analysis: frequency stats, chi-square vs uniform, the
    within-draw order-dependence permutation test, the stacked-frame
-   hot-pixel check, and screened quick picks.
+   hot-pixel check, the crowd model (which numbers other players hold,
+   from California's per-tier winner counts), and screened quick picks.
 3. Scores the previous run's picks against the draw they were made for
    (last_result + rolling ledger, via hit_check.py).
 4. Writes data.json for index.html and the dashboard card.
@@ -31,6 +32,7 @@ import cluster_picker as cp  # noqa: E402
 import stacked_frame as sf  # noqa: E402
 import consolidated as co  # noqa: E402
 import hit_check  # noqa: E402
+import crowd  # noqa: E402
 
 ORDER_TEST_PERMS = 5000
 
@@ -190,8 +192,13 @@ def main():
     run("fetch_drawn_order.py", "--out", str(DATA / "drawn_order.csv"),
         "--official", str(DATA / "official_results.csv"))
     run("fetch_superlotto.py", "--out", str(DATA / "superlotto_results.csv"))
+    try:    # prize tables feed the crowd model only; never block the refresh
+        run("fetch_ca_prizes.py", "--out-dir", str(DATA))
+    except subprocess.CalledProcessError as e:
+        print(f"prize-table fetch failed ({e}); using what is on disk", flush=True)
 
     out = {"updated": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+    game_draws = {}
     for key, csv_name, special_label in (
             ("powerball", "official_results.csv", "Powerball"),
             ("superlotto", "superlotto_results.csv", "Mega")):
@@ -207,7 +214,9 @@ def main():
             "stats": freq_block(draws, game),
             "picks": picks_block(draws, game),
             "frame": sf.frame_block(draws, game, special_label),
+            "crowd": crowd.crowd_block(DATA / f"ca_prizes_{key}.csv", game),
         }
+        game_draws[key] = (game, draws)
 
     out["powerball"]["order_test"] = order_test_block()
     raw, out["powerball"]["cluster"] = cluster_block()
@@ -234,6 +243,27 @@ def main():
                    "or drawing videos exist. A CPRA records request for the "
                    "official draw sequence is the remaining path."),
     }
+
+    # Crowd-aware set: same screened random tickets, but no white ball repeated
+    # across the five, and - once the crowd model has proven itself out of
+    # sample - drawn from the numbers fewest other players hold. Left alone if
+    # the cluster gate ever opens (its tickets then take over the whites).
+    for key in ("powerball", "superlotto"):
+        g = out[key]
+        rec = g["recommended"]
+        if rec["source"] != "screened":
+            continue
+        game, draws = game_draws[key]
+        tickets, summary = crowd.build_tickets(
+            game, draws, g["frame"]["white"], g["frame"]["special"], g["crowd"])
+        if len(tickets) < len(rec["tickets"]):
+            continue
+        rec["tickets"] = tickets
+        rec["crowd"] = summary
+        if summary["white_used"] or summary["special_used"]:
+            rec["source"] = "crowd"
+        rec["compare"]["recommended"] = co.prize_profile(
+            tickets, g["white_max"], g["special_max"])
 
     hit_check.attach_results(out, prev, DATA)
 
