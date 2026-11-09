@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T22:54:49+00:00",
+ "updated": "2026-11-09T23:31:25+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,53 +172,53 @@
   "picks": [
    {
     "whites": [
-     5,
-     22,
-     53,
-     54,
-     65
+     1,
+     32,
+     40,
+     48,
+     54
     ],
-    "special": 25
+    "special": 7
    },
    {
     "whites": [
-     2,
-     6,
-     22,
-     49,
-     61
+     16,
+     36,
+     52,
+     58,
+     67
+    ],
+    "special": 11
+   },
+   {
+    "whites": [
+     5,
+     8,
+     44,
+     45,
+     55
     ],
     "special": 14
    },
    {
     "whites": [
-     17,
-     37,
-     54,
-     65,
-     68
-    ],
-    "special": 17
-   },
-   {
-    "whites": [
+     9,
+     14,
      19,
-     21,
-     29,
-     57,
+     26,
      64
     ],
-    "special": 3
+    "special": 23
    },
    {
     "whites": [
-     1,
-     2,
-     17,
-     40,
-     67
+     18,
+     20,
+     31,
+     59,
+     66
     ],
-    "special": 2
+    "special": 20
    }
   ],
   "frame": {
@@ -1456,19 +1456,9 @@
    "tickets": [
     {
      "whites": [
-      17,
-      21,
-      25,
-      53,
-      66
-     ],
-     "special": 10
-    },
-    {
-     "whites": [
-      25,
-      26,
-      61,
+      28,
+      41,
+      59,
       64,
       69
      ],
@@ -1476,36 +1466,269 @@
     },
     {
      "whites": [
-      11,
-      42,
+      12,
+      17,
+      18,
+      32,
+      43
+     ],
+     "special": 26
+    },
+    {
+     "whites": [
+      14,
+      41,
+      43,
       46,
-      52,
-      53
+      65
      ],
-     "special": 14
+     "special": 13
     },
     {
      "whites": [
-      11,
-      27,
-      48,
-      52,
-      68
+      20,
+      34,
+      54,
+      57,
+      69
      ],
-     "special": 11
+     "special": 4
     },
     {
      "whites": [
-      19,
-      24,
-      35,
-      48,
-      68
+      1,
+      18,
+      52,
+      53,
+      61
      ],
-     "special": 15
+     "special": 24
     }
    ],
    "sims": 2000
+  },
+  "crowd": {
+   "available": true,
+   "draws": 118,
+   "first_date": "2026-02-07",
+   "last_date": "2026-11-07",
+   "alpha": 0.01,
+   "min_oos": 50,
+   "white": {
+    "ratio": [
+     1.119,
+     1.111,
+     1.123,
+     1.097,
+     1.107,
+     1.127,
+     1.129,
+     1.131,
+     1.109,
+     1.11,
+     1.116,
+     1.11,
+     1.062,
+     1.059,
+     1.045,
+     1.07,
+     1.068,
+     1.055,
+     1.068,
+     1.06,
+     1.057,
+     1.032,
+     1.081,
+     1.03,
+     1.04,
+     1.044,
+     1.037,
+     1.036,
+     1.027,
+     0.992,
+     1.02,
+     0.972,
+     0.987,
+     0.967,
+     0.969,
+     0.987,
+     0.976,
+     0.944,
+     0.974,
+     0.953,
+     0.953,
+     0.972,
+     0.952,
+     0.97,
+     0.963,
+     0.959,
+     0.966,
+     0.926,
+     0.936,
+     0.92,
+     0.917,
+     0.935,
+     0.933,
+     0.942,
+     0.93,
+     0.938,
+     0.927,
+     0.925,
+     0.921,
+     0.912,
+     0.903,
+     0.924,
+     0.921,
+     0.903,
+     0.889,
+     0.922,
+     0.914,
+     0.897,
+     0.929
+    ],
+    "ridge": 10.0,
+    "oos": {
+     "draws": 78,
+     "r": 0.848,
+     "p": 0.0,
+     "skill": 0.662
+    },
+    "gate_open": true,
+    "least": [
+     65,
+     68,
+     61,
+     64,
+     60,
+     67,
+     51,
+     50
+    ],
+    "most": [
+     8,
+     7,
+     6,
+     3,
+     1,
+     11,
+     2,
+     10
+    ],
+    "index_sd": 0.0323
+   },
+   "special": {
+    "ratio": [
+     0.997,
+     1.007,
+     0.979,
+     0.982,
+     1.029,
+     1.022,
+     1.067,
+     1.024,
+     1.023,
+     0.975,
+     1.039,
+     0.99,
+     1.079,
+     0.989,
+     0.991,
+     1.002,
+     1.013,
+     0.994,
+     0.952,
+     1.021,
+     0.965,
+     0.964,
+     1.006,
+     0.988,
+     0.952,
+     0.965
+    ],
+    "seen": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "oos": {
+     "draws": 116,
+     "r": 0.236,
+     "p": 0.01299
+    },
+    "gate_open": false
+   },
+   "payoff": {
+    "tier": "4 of 5",
+    "observed": {
+     "basis": "how crowded the drawn balls turned out to be",
+     "rows": [
+      {
+       "label": "least crowded third",
+       "draws": 39,
+       "index": 0.96,
+       "prize": 490.5
+      },
+      {
+       "label": "middle third",
+       "draws": 40,
+       "index": 0.997,
+       "prize": 427.5
+      },
+      {
+       "label": "most crowded third",
+       "draws": 39,
+       "index": 1.031,
+       "prize": 377.3
+      }
+     ]
+    },
+    "predicted": {
+     "basis": "the model's forecast made before each draw",
+     "rows": [
+      {
+       "label": "least crowded third",
+       "draws": 26,
+       "index": 0.964,
+       "prize": 478.7
+      },
+      {
+       "label": "middle third",
+       "draws": 26,
+       "index": 1.0,
+       "prize": 424.4
+      },
+      {
+       "label": "most crowded third",
+       "draws": 26,
+       "index": 1.036,
+       "prize": 388.2
+      }
+     ]
+    }
+   }
   },
   "order_test": {
    "draws": 1430,
@@ -1718,57 +1941,62 @@
    }
   },
   "recommended": {
-   "source": "screened",
+   "source": "crowd",
    "tickets": [
     {
      "whites": [
-      17,
-      21,
-      25,
+      32,
+      44,
+      49,
       53,
-      66
-     ],
-     "special": 10
-    },
-    {
-     "whites": [
-      25,
-      26,
-      61,
-      64,
       69
      ],
-     "special": 18
+     "special": 14,
+     "crowd": 0.729
     },
     {
      "whites": [
-      11,
-      42,
-      46,
-      52,
-      53
+      8,
+      60,
+      63,
+      65,
+      68
      ],
-     "special": 14
+     "special": 2,
+     "crowd": 0.757
     },
     {
      "whites": [
-      11,
+      26,
+      48,
+      54,
+      55,
+      66
+     ],
+     "special": 1,
+     "crowd": 0.761
+    },
+    {
+     "whites": [
+      21,
+      30,
+      59,
+      61,
+      67
+     ],
+     "special": 16,
+     "crowd": 0.789
+    },
+    {
+     "whites": [
       27,
-      48,
-      52,
-      68
+      46,
+      50,
+      51,
+      57
      ],
-     "special": 11
-    },
-    {
-     "whites": [
-      19,
-      24,
-      35,
-      48,
-      68
-     ],
-     "special": 15
+     "special": 13,
+     "crowd": 0.839
     }
    ],
    "gate": {
@@ -1808,8 +2036,8 @@
    },
    "compare": {
     "recommended": {
-     "any_prize": 0.2008,
-     "distinct_whites": 19,
+     "any_prize": 0.2,
+     "distinct_whites": 25,
      "distinct_specials": 5
     },
     "cluster_raw": {
@@ -1817,6 +2045,12 @@
      "distinct_whites": 7,
      "distinct_specials": 1
     }
+   },
+   "crowd": {
+    "white_used": true,
+    "special_used": false,
+    "disjoint": true,
+    "crowd_mean": 0.775
    }
   },
   "last_result": {
@@ -8454,53 +8688,53 @@
   "picks": [
    {
     "whites": [
-     8,
-     13,
-     18,
-     19,
-     36
-    ],
-    "special": 1
-   },
-   {
-    "whites": [
-     9,
-     18,
-     36,
-     40,
-     41
-    ],
-    "special": 5
-   },
-   {
-    "whites": [
-     7,
      10,
-     22,
-     29,
-     39
+     17,
+     36,
+     42,
+     43
     ],
-    "special": 25
+    "special": 9
+   },
+   {
+    "whites": [
+     11,
+     16,
+     20,
+     25,
+     33
+    ],
+    "special": 24
+   },
+   {
+    "whites": [
+     10,
+     12,
+     14,
+     19,
+     35
+    ],
+    "special": 26
    },
    {
     "whites": [
      2,
-     5,
-     15,
+     14,
      17,
-     38
+     23,
+     44
     ],
-    "special": 4
+    "special": 16
    },
    {
     "whites": [
-     5,
+     1,
+     7,
+     10,
      11,
-     28,
-     32,
-     33
+     43
     ],
-    "special": 26
+    "special": 16
    }
   ],
   "frame": {
@@ -9486,109 +9720,317 @@
    "tickets": [
     {
      "whites": [
-      1,
-      4,
-      30,
-      34,
-      41
+      2,
+      14,
+      26,
+      31,
+      43
      ],
      "special": 14
     },
     {
      "whites": [
-      3,
-      10,
+      20,
+      25,
+      27,
+      29,
+      39
+     ],
+     "special": 20
+    },
+    {
+     "whites": [
+      7,
+      12,
       18,
       21,
-      42
+      36
      ],
-     "special": 6
+     "special": 1
     },
     {
      "whites": [
-      3,
-      14,
-      35,
-      37,
-      38
-     ],
-     "special": 16
-    },
-    {
-     "whites": [
-      2,
       9,
-      21,
-      27,
-      47
-     ],
-     "special": 19
-    },
-    {
-     "whites": [
       13,
-      25,
-      26,
-      34,
+      36,
+      38,
       43
      ],
-     "special": 26
+     "special": 11
+    },
+    {
+     "whites": [
+      10,
+      12,
+      15,
+      30,
+      41
+     ],
+     "special": 3
     }
    ],
    "sims": 2000
   },
+  "crowd": {
+   "available": true,
+   "draws": 106,
+   "first_date": "2025-11-05",
+   "last_date": "2026-11-07",
+   "alpha": 0.01,
+   "min_oos": 50,
+   "white": {
+    "ratio": [
+     1.04,
+     1.019,
+     1.095,
+     1.057,
+     1.092,
+     1.062,
+     1.106,
+     1.087,
+     1.074,
+     1.054,
+     1.081,
+     1.06,
+     1.003,
+     1.007,
+     1.039,
+     1.014,
+     1.021,
+     0.985,
+     1.008,
+     1.012,
+     1.011,
+     1.02,
+     1.02,
+     0.986,
+     0.992,
+     0.997,
+     1.031,
+     1.019,
+     0.992,
+     0.978,
+     0.942,
+     0.961,
+     1.008,
+     0.933,
+     0.962,
+     0.953,
+     0.934,
+     0.917,
+     0.959,
+     0.932,
+     0.935,
+     0.921,
+     0.926,
+     0.932,
+     0.932,
+     0.929,
+     0.965
+    ],
+    "ridge": 3.0,
+    "oos": {
+     "draws": 66,
+     "r": 0.823,
+     "p": 0.0,
+     "skill": 0.676
+    },
+    "gate_open": true,
+    "least": [
+     38,
+     42,
+     43,
+     46,
+     40,
+     44,
+     45,
+     34
+    ],
+    "most": [
+     7,
+     3,
+     5,
+     8,
+     11,
+     9,
+     6,
+     12
+    ],
+    "index_sd": 0.0228
+   },
+   "special": {
+    "ratio": [
+     0.971,
+     0.978,
+     0.988,
+     0.988,
+     1.084,
+     1.002,
+     1.108,
+     1.036,
+     1.035,
+     1.027,
+     1.021,
+     1.047,
+     1.077,
+     1.0,
+     0.994,
+     0.958,
+     0.996,
+     1.012,
+     0.971,
+     0.987,
+     0.942,
+     1.006,
+     0.975,
+     0.934,
+     0.976,
+     0.946,
+     0.971
+    ],
+    "seen": [
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    "oos": {
+     "draws": 106,
+     "r": 0.53,
+     "p": 0.0005
+    },
+    "gate_open": true
+   },
+   "payoff": {
+    "tier": "4 of 5",
+    "observed": {
+     "basis": "how crowded the drawn balls turned out to be",
+     "rows": [
+      {
+       "label": "least crowded third",
+       "draws": 35,
+       "index": 0.976,
+       "prize": 103.0
+      },
+      {
+       "label": "middle third",
+       "draws": 36,
+       "index": 1.001,
+       "prize": 95.8
+      },
+      {
+       "label": "most crowded third",
+       "draws": 35,
+       "index": 1.026,
+       "prize": 90.0
+      }
+     ]
+    },
+    "predicted": {
+     "basis": "the model's forecast made before each draw",
+     "rows": [
+      {
+       "label": "least crowded third",
+       "draws": 22,
+       "index": 0.982,
+       "prize": 101.2
+      },
+      {
+       "label": "middle third",
+       "draws": 22,
+       "index": 1.003,
+       "prize": 96.2
+      },
+      {
+       "label": "most crowded third",
+       "draws": 22,
+       "index": 1.023,
+       "prize": 89.5
+      }
+     ]
+    }
+   }
+  },
   "recommended": {
-   "source": "screened",
+   "source": "crowd",
    "tickets": [
     {
      "whites": [
-      1,
-      4,
-      30,
-      34,
-      41
+      18,
+      22,
+      32,
+      43,
+      45
      ],
-     "special": 14
+     "special": 24,
+     "crowd": 0.758
     },
     {
      "whites": [
-      3,
-      10,
-      18,
-      21,
+      1,
+      13,
+      31,
+      38,
       42
      ],
-     "special": 6
+     "special": 1,
+     "crowd": 0.794
     },
     {
      "whites": [
-      3,
-      14,
-      35,
-      37,
-      38
-     ],
-     "special": 16
-    },
-    {
-     "whites": [
-      2,
-      9,
       21,
-      27,
-      47
+      26,
+      36,
+      40,
+      46
      ],
-     "special": 19
+     "special": 19,
+     "crowd": 0.793
     },
     {
      "whites": [
-      13,
+      16,
       25,
-      26,
-      34,
-      43
+      39,
+      41,
+      44
      ],
-     "special": 26
+     "special": 25,
+     "crowd": 0.808
+    },
+    {
+     "whites": [
+      14,
+      33,
+      34,
+      35,
+      37
+     ],
+     "special": 26,
+     "crowd": 0.79
     }
    ],
    "pixels": {
@@ -9599,10 +10041,16 @@
    },
    "compare": {
     "recommended": {
-     "any_prize": 0.2088,
-     "distinct_whites": 22,
+     "any_prize": 0.2091,
+     "distinct_whites": 25,
      "distinct_specials": 5
     }
+   },
+   "crowd": {
+    "white_used": true,
+    "special_used": true,
+    "disjoint": true,
+    "crowd_mean": 0.789
    }
   },
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
