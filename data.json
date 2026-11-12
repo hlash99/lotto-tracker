@@ -1,33 +1,33 @@
 {
- "updated": "2026-11-11T20:04:03+00:00",
+ "updated": "2026-11-12T13:21:03+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
   "special_max": 26,
   "odds": 292201338,
   "latest": {
-   "date": "2026-11-09",
+   "date": "2026-11-11",
    "whites": [
-    13,
-    34,
-    41,
+    8,
+    42,
     45,
-    48
+    51,
+    57
    ],
    "drawn_order": [
+    57,
     45,
-    13,
-    48,
-    41,
-    34
+    8,
+    51,
+    42
    ],
-   "special": 25,
-   "power_play": "2"
+   "special": 17,
+   "power_play": "3"
   },
   "stats": {
-   "draws": 1431,
+   "draws": 1432,
    "first_date": "2015-10-07",
-   "last_date": "2026-11-09",
+   "last_date": "2026-11-11",
    "white_hot": [
     [
      21,
@@ -96,15 +96,15 @@
      91
     ],
     [
-     51,
-     92
-    ],
-    [
      22,
      92
     ],
     [
      35,
+     93
+    ],
+    [
+     51,
      93
     ],
     [
@@ -140,11 +140,11 @@
      40
     ],
     [
-     17,
-     45
+     8,
+     46
     ],
     [
-     8,
+     17,
      46
     ],
     [
@@ -157,108 +157,108 @@
     ]
    ],
    "chi2_white": {
-    "stat": 76.8,
+    "stat": 76.4,
     "df": 68,
-    "p": 0.2164,
+    "p": 0.2277,
     "uniform": true
    },
    "chi2_special": {
-    "stat": 25.2,
+    "stat": 24.8,
     "df": 25,
-    "p": 0.4512,
+    "p": 0.4716,
     "uniform": true
    }
   },
   "picks": [
    {
     "whites": [
-     3,
-     33,
-     42,
-     67,
-     69
-    ],
-    "special": 22
-   },
-   {
-    "whites": [
-     24,
-     30,
-     35,
-     51,
-     60
-    ],
-    "special": 21
-   },
-   {
-    "whites": [
-     2,
-     21,
-     39,
-     65,
-     68
-    ],
-    "special": 24
-   },
-   {
-    "whites": [
-     1,
-     19,
-     28,
-     32,
-     50
-    ],
-    "special": 23
-   },
-   {
-    "whites": [
-     13,
-     24,
-     25,
-     33,
+     37,
+     43,
+     44,
+     49,
      55
     ],
+    "special": 9
+   },
+   {
+    "whites": [
+     9,
+     17,
+     27,
+     61,
+     66
+    ],
+    "special": 3
+   },
+   {
+    "whites": [
+     3,
+     16,
+     17,
+     29,
+     54
+    ],
     "special": 4
+   },
+   {
+    "whites": [
+     3,
+     27,
+     28,
+     48,
+     51
+    ],
+    "special": 12
+   },
+   {
+    "whites": [
+     6,
+     24,
+     28,
+     42,
+     64
+    ],
+    "special": 16
    }
   ],
   "frame": {
    "white": {
-    "frames": 1431,
-    "expected": 103.7,
+    "frames": 1432,
+    "expected": 103.77,
     "sd": 9.81,
-    "z_crit": 3.4,
+    "z_crit": 3.39,
     "band2": [
      84.1,
-     123.3
+     123.4
     ],
     "bandfw": [
-     70.4,
+     70.5,
      137.0
     ],
     "chi2": {
-     "stat": 76.8,
+     "stat": 76.4,
      "df": 68,
-     "p": 0.2164
+     "p": 0.2277
     },
     "persistence": {
-     "r": 0.259,
-     "p": 0.014,
+     "r": 0.242,
+     "p": 0.021,
      "halves": [
-      715,
+      716,
       716
      ],
-     "r_interleaved": 0.014,
-     "p_interleaved": 0.45,
+     "r_interleaved": 0.009,
+     "p_interleaved": 0.471,
      "fixed_pattern": false
     },
-    "min_detectable_bias": 0.321,
-    "frames_for_10pct": 14762,
+    "min_detectable_bias": 0.32,
+    "frames_for_10pct": 14687,
     "balls": [
      {
       "n": 1,
       "count": 95,
       "z": -0.89,
-      "z_h1": 0.03,
+      "z_h1": 0.02,
       "z_h2": -1.28,
       "fw_p": 1.0,
       "rate_ratio": 0.916,
@@ -269,11 +269,11 @@
      {
       "n": 2,
       "count": 104,
-      "z": 0.03,
-      "z_h1": -0.12,
+      "z": 0.02,
+      "z_h1": -0.13,
       "z_h2": 0.16,
       "fw_p": 1.0,
-      "rate_ratio": 1.003,
+      "rate_ratio": 1.002,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -281,11 +281,11 @@
      {
       "n": 3,
       "count": 115,
-      "z": 1.15,
-      "z_h1": 1.18,
+      "z": 1.14,
+      "z_h1": 1.17,
       "z_h2": 0.45,
       "fw_p": 1.0,
-      "rate_ratio": 1.109,
+      "rate_ratio": 1.108,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -293,11 +293,11 @@
      {
       "n": 4,
       "count": 102,
-      "z": -0.17,
+      "z": -0.18,
       "z_h1": -1.42,
       "z_h2": 1.17,
       "fw_p": 1.0,
-      "rate_ratio": 0.984,
+      "rate_ratio": 0.983,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -306,7 +306,7 @@
       "n": 5,
       "count": 95,
       "z": -0.89,
-      "z_h1": -0.26,
+      "z_h1": -0.27,
       "z_h2": -0.99,
       "fw_p": 1.0,
       "rate_ratio": 0.916,
@@ -317,11 +317,11 @@
      {
       "n": 6,
       "count": 109,
-      "z": 0.54,
-      "z_h1": 0.17,
+      "z": 0.53,
+      "z_h1": 0.16,
       "z_h2": 0.59,
       "fw_p": 1.0,
-      "rate_ratio": 1.051,
+      "rate_ratio": 1.05,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -329,8 +329,8 @@
      {
       "n": 7,
       "count": 97,
-      "z": -0.68,
-      "z_h1": -0.41,
+      "z": -0.69,
+      "z_h1": -0.42,
       "z_h2": -0.56,
       "fw_p": 1.0,
       "rate_ratio": 0.935,
@@ -340,12 +340,12 @@
      },
      {
       "n": 8,
-      "count": 97,
-      "z": -0.68,
-      "z_h1": 0.17,
-      "z_h2": -1.14,
+      "count": 98,
+      "z": -0.59,
+      "z_h1": 0.16,
+      "z_h2": -0.99,
       "fw_p": 1.0,
-      "rate_ratio": 0.935,
+      "rate_ratio": 0.944,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -353,11 +353,11 @@
      {
       "n": 9,
       "count": 96,
-      "z": -0.78,
-      "z_h1": -1.13,
+      "z": -0.79,
+      "z_h1": -1.14,
       "z_h2": 0.02,
       "fw_p": 1.0,
-      "rate_ratio": 0.926,
+      "rate_ratio": 0.925,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -366,7 +366,7 @@
       "n": 10,
       "count": 95,
       "z": -0.89,
-      "z_h1": 0.6,
+      "z_h1": 0.59,
       "z_h2": -1.86,
       "fw_p": 1.0,
       "rate_ratio": 0.916,
@@ -377,11 +377,11 @@
      {
       "n": 11,
       "count": 101,
-      "z": -0.27,
-      "z_h1": -0.55,
+      "z": -0.28,
+      "z_h1": -0.56,
       "z_h2": 0.16,
       "fw_p": 1.0,
-      "rate_ratio": 0.974,
+      "rate_ratio": 0.973,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -390,7 +390,7 @@
       "n": 12,
       "count": 106,
       "z": 0.23,
-      "z_h1": 0.32,
+      "z_h1": 0.31,
       "z_h2": 0.02,
       "fw_p": 1.0,
       "rate_ratio": 1.022,
@@ -402,9 +402,9 @@
       "n": 13,
       "count": 80,
       "z": -2.42,
-      "z_h1": -1.7,
+      "z_h1": -1.71,
       "z_h2": -1.71,
-      "fw_p": 0.668,
+      "fw_p": 0.696,
       "rate_ratio": 0.771,
       "stands_out": false,
       "persistent": true,
@@ -413,8 +413,8 @@
      {
       "n": 14,
       "count": 97,
-      "z": -0.68,
-      "z_h1": 0.03,
+      "z": -0.69,
+      "z_h1": 0.02,
       "z_h2": -0.99,
       "fw_p": 1.0,
       "rate_ratio": 0.935,
@@ -425,11 +425,11 @@
      {
       "n": 15,
       "count": 99,
-      "z": -0.48,
-      "z_h1": -0.12,
-      "z_h2": -0.56,
+      "z": -0.49,
+      "z_h1": 0.02,
+      "z_h2": -0.7,
       "fw_p": 1.0,
-      "rate_ratio": 0.955,
+      "rate_ratio": 0.954,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -437,11 +437,11 @@
      {
       "n": 16,
       "count": 113,
-      "z": 0.95,
-      "z_h1": 0.46,
+      "z": 0.94,
+      "z_h1": 0.45,
       "z_h2": 0.88,
       "fw_p": 1.0,
-      "rate_ratio": 1.09,
+      "rate_ratio": 1.089,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -449,11 +449,11 @@
      {
       "n": 17,
       "count": 102,
-      "z": -0.17,
-      "z_h1": 0.75,
+      "z": -0.18,
+      "z_h1": 0.74,
       "z_h2": -0.99,
       "fw_p": 1.0,
-      "rate_ratio": 0.984,
+      "rate_ratio": 0.983,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -461,11 +461,11 @@
      {
       "n": 18,
       "count": 107,
-      "z": 0.34,
-      "z_h1": -0.26,
+      "z": 0.33,
+      "z_h1": -0.27,
       "z_h2": 0.74,
       "fw_p": 1.0,
-      "rate_ratio": 1.032,
+      "rate_ratio": 1.031,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -474,7 +474,7 @@
       "n": 19,
       "count": 106,
       "z": 0.23,
-      "z_h1": -0.69,
+      "z_h1": -0.7,
       "z_h2": 1.03,
       "fw_p": 1.0,
       "rate_ratio": 1.022,
@@ -485,11 +485,11 @@
      {
       "n": 20,
       "count": 102,
-      "z": -0.17,
-      "z_h1": 0.89,
+      "z": -0.18,
+      "z_h1": 0.88,
       "z_h2": -1.14,
       "fw_p": 1.0,
-      "rate_ratio": 0.984,
+      "rate_ratio": 0.983,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -497,10 +497,10 @@
      {
       "n": 21,
       "count": 128,
-      "z": 2.48,
-      "z_h1": 2.19,
-      "z_h2": 1.31,
-      "fw_p": 0.626,
+      "z": 2.47,
+      "z_h1": 2.32,
+      "z_h2": 1.17,
+      "fw_p": 0.643,
       "rate_ratio": 1.234,
       "stands_out": false,
       "persistent": false,
@@ -509,8 +509,8 @@
      {
       "n": 22,
       "count": 92,
-      "z": -1.19,
-      "z_h1": -0.12,
+      "z": -1.2,
+      "z_h1": -0.13,
       "z_h2": -1.57,
       "fw_p": 1.0,
       "rate_ratio": 0.887,
@@ -521,11 +521,11 @@
      {
       "n": 23,
       "count": 120,
-      "z": 1.66,
-      "z_h1": 1.9,
+      "z": 1.65,
+      "z_h1": 1.89,
       "z_h2": 0.45,
       "fw_p": 1.0,
-      "rate_ratio": 1.157,
+      "rate_ratio": 1.156,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -533,11 +533,11 @@
      {
       "n": 24,
       "count": 101,
-      "z": -0.27,
-      "z_h1": -1.85,
+      "z": -0.28,
+      "z_h1": -1.86,
       "z_h2": 1.46,
       "fw_p": 1.0,
-      "rate_ratio": 0.974,
+      "rate_ratio": 0.973,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -545,11 +545,11 @@
      {
       "n": 25,
       "count": 91,
-      "z": -1.29,
-      "z_h1": -0.69,
+      "z": -1.3,
+      "z_h1": -0.7,
       "z_h2": -1.14,
       "fw_p": 1.0,
-      "rate_ratio": 0.878,
+      "rate_ratio": 0.877,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -558,10 +558,10 @@
       "n": 26,
       "count": 84,
       "z": -2.01,
-      "z_h1": -1.56,
+      "z_h1": -1.57,
       "z_h2": -1.28,
-      "fw_p": 0.964,
-      "rate_ratio": 0.81,
+      "fw_p": 0.96,
+      "rate_ratio": 0.809,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -569,11 +569,11 @@
      {
       "n": 27,
       "count": 118,
-      "z": 1.46,
-      "z_h1": 0.89,
+      "z": 1.45,
+      "z_h1": 0.88,
       "z_h2": 1.17,
       "fw_p": 1.0,
-      "rate_ratio": 1.138,
+      "rate_ratio": 1.137,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -582,10 +582,10 @@
       "n": 28,
       "count": 121,
       "z": 1.76,
-      "z_h1": 0.89,
+      "z_h1": 0.88,
       "z_h2": 1.6,
       "fw_p": 0.997,
-      "rate_ratio": 1.167,
+      "rate_ratio": 1.166,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -593,11 +593,11 @@
      {
       "n": 29,
       "count": 96,
-      "z": -0.78,
-      "z_h1": -0.26,
+      "z": -0.79,
+      "z_h1": -0.27,
       "z_h2": -0.85,
       "fw_p": 1.0,
-      "rate_ratio": 0.926,
+      "rate_ratio": 0.925,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -605,8 +605,8 @@
      {
       "n": 30,
       "count": 103,
-      "z": -0.07,
-      "z_h1": -0.55,
+      "z": -0.08,
+      "z_h1": -0.56,
       "z_h2": 0.45,
       "fw_p": 1.0,
       "rate_ratio": 0.993,
@@ -617,11 +617,11 @@
      {
       "n": 31,
       "count": 101,
-      "z": -0.27,
-      "z_h1": -0.84,
+      "z": -0.28,
+      "z_h1": -0.85,
       "z_h2": 0.45,
       "fw_p": 1.0,
-      "rate_ratio": 0.974,
+      "rate_ratio": 0.973,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -629,11 +629,11 @@
      {
       "n": 32,
       "count": 120,
-      "z": 1.66,
-      "z_h1": 2.62,
-      "z_h2": -0.27,
+      "z": 1.65,
+      "z_h1": 2.76,
+      "z_h2": -0.42,
       "fw_p": 1.0,
-      "rate_ratio": 1.157,
+      "rate_ratio": 1.156,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -641,11 +641,11 @@
      {
       "n": 33,
       "count": 118,
-      "z": 1.46,
-      "z_h1": 0.32,
+      "z": 1.45,
+      "z_h1": 0.31,
       "z_h2": 1.75,
       "fw_p": 1.0,
-      "rate_ratio": 1.138,
+      "rate_ratio": 1.137,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -653,11 +653,11 @@
      {
       "n": 34,
       "count": 87,
-      "z": -1.7,
-      "z_h1": -1.85,
+      "z": -1.71,
+      "z_h1": -1.86,
       "z_h2": -0.56,
-      "fw_p": 0.999,
-      "rate_ratio": 0.839,
+      "fw_p": 0.998,
+      "rate_ratio": 0.838,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -665,11 +665,11 @@
      {
       "n": 35,
       "count": 93,
-      "z": -1.09,
-      "z_h1": -1.56,
+      "z": -1.1,
+      "z_h1": -1.57,
       "z_h2": 0.02,
       "fw_p": 1.0,
-      "rate_ratio": 0.897,
+      "rate_ratio": 0.896,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -677,11 +677,11 @@
      {
       "n": 36,
       "count": 119,
-      "z": 1.56,
-      "z_h1": 0.6,
+      "z": 1.55,
+      "z_h1": 0.59,
       "z_h2": 1.6,
       "fw_p": 1.0,
-      "rate_ratio": 1.148,
+      "rate_ratio": 1.147,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -689,8 +689,8 @@
      {
       "n": 37,
       "count": 114,
-      "z": 1.05,
-      "z_h1": 0.32,
+      "z": 1.04,
+      "z_h1": 0.31,
       "z_h2": 1.17,
       "fw_p": 1.0,
       "rate_ratio": 1.099,
@@ -701,8 +701,8 @@
      {
       "n": 38,
       "count": 97,
-      "z": -0.68,
-      "z_h1": -0.12,
+      "z": -0.69,
+      "z_h1": -0.13,
       "z_h2": -0.85,
       "fw_p": 1.0,
       "rate_ratio": 0.935,
@@ -713,11 +713,11 @@
      {
       "n": 39,
       "count": 109,
-      "z": 0.54,
-      "z_h1": 0.89,
+      "z": 0.53,
+      "z_h1": 0.88,
       "z_h2": -0.13,
       "fw_p": 1.0,
-      "rate_ratio": 1.051,
+      "rate_ratio": 1.05,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -726,10 +726,10 @@
       "n": 40,
       "count": 105,
       "z": 0.13,
-      "z_h1": 0.46,
+      "z_h1": 0.45,
       "z_h2": -0.27,
       "fw_p": 1.0,
-      "rate_ratio": 1.013,
+      "rate_ratio": 1.012,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -737,8 +737,8 @@
      {
       "n": 41,
       "count": 94,
-      "z": -0.99,
-      "z_h1": 0.17,
+      "z": -1.0,
+      "z_h1": 0.16,
       "z_h2": -1.57,
       "fw_p": 1.0,
       "rate_ratio": 0.906,
@@ -748,12 +748,12 @@
      },
      {
       "n": 42,
-      "count": 101,
-      "z": -0.27,
-      "z_h1": -0.41,
-      "z_h2": 0.02,
+      "count": 102,
+      "z": -0.18,
+      "z_h1": -0.42,
+      "z_h2": 0.16,
       "fw_p": 1.0,
-      "rate_ratio": 0.974,
+      "rate_ratio": 0.983,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -761,11 +761,11 @@
      {
       "n": 43,
       "count": 99,
-      "z": -0.48,
-      "z_h1": -0.84,
+      "z": -0.49,
+      "z_h1": -0.85,
       "z_h2": 0.16,
       "fw_p": 1.0,
-      "rate_ratio": 0.955,
+      "rate_ratio": 0.954,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -773,23 +773,23 @@
      {
       "n": 44,
       "count": 113,
-      "z": 0.95,
-      "z_h1": -0.12,
+      "z": 0.94,
+      "z_h1": -0.13,
       "z_h2": 1.46,
       "fw_p": 1.0,
-      "rate_ratio": 1.09,
+      "rate_ratio": 1.089,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 45,
-      "count": 103,
-      "z": -0.07,
-      "z_h1": -0.12,
-      "z_h2": 0.02,
+      "count": 104,
+      "z": 0.02,
+      "z_h1": -0.13,
+      "z_h2": 0.16,
       "fw_p": 1.0,
-      "rate_ratio": 0.993,
+      "rate_ratio": 1.002,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -798,10 +798,10 @@
       "n": 46,
       "count": 84,
       "z": -2.01,
-      "z_h1": -1.7,
+      "z_h1": -1.71,
       "z_h2": -1.14,
-      "fw_p": 0.964,
-      "rate_ratio": 0.81,
+      "fw_p": 0.96,
+      "rate_ratio": 0.809,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -809,8 +809,8 @@
      {
       "n": 47,
       "count": 114,
-      "z": 1.05,
-      "z_h1": 0.32,
+      "z": 1.04,
+      "z_h1": 0.31,
       "z_h2": 1.17,
       "fw_p": 1.0,
       "rate_ratio": 1.099,
@@ -821,8 +821,8 @@
      {
       "n": 48,
       "count": 94,
-      "z": -0.99,
-      "z_h1": -0.12,
+      "z": -1.0,
+      "z_h1": -0.13,
       "z_h2": -1.28,
       "fw_p": 1.0,
       "rate_ratio": 0.906,
@@ -836,8 +836,8 @@
       "z": -1.91,
       "z_h1": -1.42,
       "z_h2": -1.28,
-      "fw_p": 0.984,
-      "rate_ratio": 0.82,
+      "fw_p": 0.982,
+      "rate_ratio": 0.819,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -846,22 +846,22 @@
       "n": 50,
       "count": 105,
       "z": 0.13,
-      "z_h1": -0.12,
+      "z_h1": -0.13,
       "z_h2": 0.31,
       "fw_p": 1.0,
-      "rate_ratio": 1.013,
+      "rate_ratio": 1.012,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 51,
-      "count": 92,
-      "z": -1.19,
-      "z_h1": -1.13,
-      "z_h2": -0.56,
+      "count": 93,
+      "z": -1.1,
+      "z_h1": -1.14,
+      "z_h2": -0.42,
       "fw_p": 1.0,
-      "rate_ratio": 0.887,
+      "rate_ratio": 0.896,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -870,10 +870,10 @@
       "n": 52,
       "count": 110,
       "z": 0.64,
-      "z_h1": 0.03,
+      "z_h1": 0.02,
       "z_h2": 0.88,
       "fw_p": 1.0,
-      "rate_ratio": 1.061,
+      "rate_ratio": 1.06,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -881,11 +881,11 @@
      {
       "n": 53,
       "count": 115,
-      "z": 1.15,
-      "z_h1": 1.47,
+      "z": 1.14,
+      "z_h1": 1.46,
       "z_h2": 0.16,
       "fw_p": 1.0,
-      "rate_ratio": 1.109,
+      "rate_ratio": 1.108,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -893,11 +893,11 @@
      {
       "n": 54,
       "count": 101,
-      "z": -0.27,
-      "z_h1": 0.03,
+      "z": -0.28,
+      "z_h1": 0.02,
       "z_h2": -0.42,
       "fw_p": 1.0,
-      "rate_ratio": 0.974,
+      "rate_ratio": 0.973,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -905,11 +905,11 @@
      {
       "n": 55,
       "count": 96,
-      "z": -0.78,
-      "z_h1": -0.84,
+      "z": -0.79,
+      "z_h1": -0.85,
       "z_h2": -0.27,
       "fw_p": 1.0,
-      "rate_ratio": 0.926,
+      "rate_ratio": 0.925,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -917,23 +917,23 @@
      {
       "n": 56,
       "count": 104,
-      "z": 0.03,
-      "z_h1": -0.26,
+      "z": 0.02,
+      "z_h1": -0.27,
       "z_h2": 0.31,
       "fw_p": 1.0,
-      "rate_ratio": 1.003,
+      "rate_ratio": 1.002,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 57,
-      "count": 101,
-      "z": -0.27,
-      "z_h1": -0.26,
-      "z_h2": -0.13,
+      "count": 102,
+      "z": -0.18,
+      "z_h1": -0.27,
+      "z_h2": 0.02,
       "fw_p": 1.0,
-      "rate_ratio": 0.974,
+      "rate_ratio": 0.983,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -942,7 +942,7 @@
       "n": 58,
       "count": 100,
       "z": -0.38,
-      "z_h1": -1.13,
+      "z_h1": -1.14,
       "z_h2": 0.59,
       "fw_p": 1.0,
       "rate_ratio": 0.964,
@@ -953,11 +953,11 @@
      {
       "n": 59,
       "count": 113,
-      "z": 0.95,
-      "z_h1": 1.33,
+      "z": 0.94,
+      "z_h1": 1.31,
       "z_h2": 0.02,
       "fw_p": 1.0,
-      "rate_ratio": 1.09,
+      "rate_ratio": 1.089,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -965,11 +965,11 @@
      {
       "n": 60,
       "count": 96,
-      "z": -0.78,
-      "z_h1": -0.84,
+      "z": -0.79,
+      "z_h1": -0.85,
       "z_h2": -0.27,
       "fw_p": 1.0,
-      "rate_ratio": 0.926,
+      "rate_ratio": 0.925,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -977,11 +977,11 @@
      {
       "n": 61,
       "count": 127,
-      "z": 2.38,
-      "z_h1": 2.62,
+      "z": 2.37,
+      "z_h1": 2.61,
       "z_h2": 0.74,
-      "fw_p": 0.724,
-      "rate_ratio": 1.225,
+      "fw_p": 0.747,
+      "rate_ratio": 1.224,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -989,11 +989,11 @@
      {
       "n": 62,
       "count": 113,
-      "z": 0.95,
-      "z_h1": 1.04,
-      "z_h2": 0.31,
+      "z": 0.94,
+      "z_h1": 1.17,
+      "z_h2": 0.16,
       "fw_p": 1.0,
-      "rate_ratio": 1.09,
+      "rate_ratio": 1.089,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1001,8 +1001,8 @@
      {
       "n": 63,
       "count": 117,
-      "z": 1.36,
-      "z_h1": 1.76,
+      "z": 1.35,
+      "z_h1": 1.75,
       "z_h2": 0.16,
       "fw_p": 1.0,
       "rate_ratio": 1.128,
@@ -1014,10 +1014,10 @@
       "n": 64,
       "count": 126,
       "z": 2.27,
-      "z_h1": 1.04,
+      "z_h1": 1.03,
       "z_h2": 2.18,
-      "fw_p": 0.825,
-      "rate_ratio": 1.215,
+      "fw_p": 0.83,
+      "rate_ratio": 1.214,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1025,9 +1025,9 @@
      {
       "n": 65,
       "count": 94,
-      "z": -0.99,
-      "z_h1": -0.84,
-      "z_h2": -0.56,
+      "z": -1.0,
+      "z_h1": -0.7,
+      "z_h2": -0.7,
       "fw_p": 1.0,
       "rate_ratio": 0.906,
       "stands_out": false,
@@ -1037,8 +1037,8 @@
      {
       "n": 66,
       "count": 103,
-      "z": -0.07,
-      "z_h1": -0.55,
+      "z": -0.08,
+      "z_h1": -0.56,
       "z_h2": 0.45,
       "fw_p": 1.0,
       "rate_ratio": 0.993,
@@ -1049,11 +1049,11 @@
      {
       "n": 67,
       "count": 104,
-      "z": 0.03,
-      "z_h1": 0.17,
+      "z": 0.02,
+      "z_h1": 0.16,
       "z_h2": -0.13,
       "fw_p": 1.0,
-      "rate_ratio": 1.003,
+      "rate_ratio": 1.002,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1061,11 +1061,11 @@
      {
       "n": 68,
       "count": 99,
-      "z": -0.48,
-      "z_h1": -0.26,
+      "z": -0.49,
+      "z_h1": -0.27,
       "z_h2": -0.42,
       "fw_p": 1.0,
-      "rate_ratio": 0.955,
+      "rate_ratio": 0.954,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1073,8 +1073,8 @@
      {
       "n": 69,
       "count": 117,
-      "z": 1.36,
-      "z_h1": 1.33,
+      "z": 1.35,
+      "z_h1": 1.31,
       "z_h2": 0.59,
       "fw_p": 1.0,
       "rate_ratio": 1.128,
@@ -1094,36 +1094,36 @@
     "dead": []
    },
    "special": {
-    "frames": 1431,
-    "expected": 55.04,
-    "sd": 7.27,
-    "z_crit": 3.16,
+    "frames": 1432,
+    "expected": 55.08,
+    "sd": 7.28,
+    "z_crit": 3.15,
     "band2": [
      40.5,
      69.6
     ],
     "bandfw": [
-     32.1,
+     32.2,
      78.0
     ],
     "chi2": {
-     "stat": 25.2,
+     "stat": 24.8,
      "df": 25,
-     "p": 0.4512
+     "p": 0.4716
     },
     "persistence": {
-     "r": -0.286,
-     "p": 0.922,
+     "r": -0.291,
+     "p": 0.928,
      "halves": [
-      715,
+      716,
       716
      ],
-     "r_interleaved": -0.203,
-     "p_interleaved": 0.851,
+     "r_interleaved": -0.202,
+     "p_interleaved": 0.844,
      "fixed_pattern": false
     },
-    "min_detectable_bias": 0.417,
-    "frames_for_10pct": 24907,
+    "min_detectable_bias": 0.416,
+    "frames_for_10pct": 24806,
     "balls": [
      {
       "n": 1,
@@ -1132,7 +1132,7 @@
       "z_h1": -0.49,
       "z_h2": 1.45,
       "fw_p": 1.0,
-      "rate_ratio": 1.09,
+      "rate_ratio": 1.089,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1153,10 +1153,10 @@
       "n": 3,
       "count": 59,
       "z": 0.54,
-      "z_h1": 0.68,
+      "z_h1": 0.67,
       "z_h2": 0.09,
       "fw_p": 1.0,
-      "rate_ratio": 1.072,
+      "rate_ratio": 1.071,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1164,11 +1164,11 @@
      {
       "n": 4,
       "count": 66,
-      "z": 1.51,
-      "z_h1": 0.68,
+      "z": 1.5,
+      "z_h1": 0.67,
       "z_h2": 1.45,
       "fw_p": 0.983,
-      "rate_ratio": 1.199,
+      "rate_ratio": 1.198,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1176,7 +1176,7 @@
      {
       "n": 5,
       "count": 61,
-      "z": 0.82,
+      "z": 0.81,
       "z_h1": -0.49,
       "z_h2": 1.64,
       "fw_p": 1.0,
@@ -1189,10 +1189,10 @@
       "n": 6,
       "count": 52,
       "z": -0.42,
-      "z_h1": 0.68,
+      "z_h1": 0.67,
       "z_h2": -1.27,
       "fw_p": 1.0,
-      "rate_ratio": 0.945,
+      "rate_ratio": 0.944,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1201,7 +1201,7 @@
       "n": 7,
       "count": 48,
       "z": -0.97,
-      "z_h1": -1.26,
+      "z_h1": -1.27,
       "z_h2": -0.1,
       "fw_p": 1.0,
       "rate_ratio": 0.872,
@@ -1212,11 +1212,11 @@
      {
       "n": 8,
       "count": 46,
-      "z": -1.24,
-      "z_h1": 0.29,
+      "z": -1.25,
+      "z_h1": 0.28,
       "z_h2": -2.05,
-      "fw_p": 0.999,
-      "rate_ratio": 0.836,
+      "fw_p": 0.997,
+      "rate_ratio": 0.835,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1228,7 +1228,7 @@
       "z_h1": -0.1,
       "z_h2": 0.87,
       "fw_p": 1.0,
-      "rate_ratio": 1.072,
+      "rate_ratio": 1.071,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1237,10 +1237,10 @@
       "n": 10,
       "count": 51,
       "z": -0.56,
-      "z_h1": 0.49,
+      "z_h1": 0.48,
       "z_h2": -1.27,
       "fw_p": 1.0,
-      "rate_ratio": 0.927,
+      "rate_ratio": 0.926,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1248,7 +1248,7 @@
      {
       "n": 11,
       "count": 49,
-      "z": -0.83,
+      "z": -0.84,
       "z_h1": -0.1,
       "z_h2": -1.08,
       "fw_p": 1.0,
@@ -1272,11 +1272,11 @@
      {
       "n": 13,
       "count": 54,
-      "z": -0.14,
-      "z_h1": 0.49,
+      "z": -0.15,
+      "z_h1": 0.48,
       "z_h2": -0.69,
       "fw_p": 1.0,
-      "rate_ratio": 0.981,
+      "rate_ratio": 0.98,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1285,9 +1285,9 @@
       "n": 14,
       "count": 68,
       "z": 1.78,
-      "z_h1": -0.29,
+      "z_h1": -0.3,
       "z_h2": 2.81,
-      "fw_p": 0.896,
+      "fw_p": 0.893,
       "rate_ratio": 1.235,
       "stands_out": false,
       "persistent": false,
@@ -1296,11 +1296,11 @@
      {
       "n": 15,
       "count": 47,
-      "z": -1.1,
+      "z": -1.11,
       "z_h1": -0.88,
       "z_h2": -0.69,
       "fw_p": 1.0,
-      "rate_ratio": 0.854,
+      "rate_ratio": 0.853,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1309,22 +1309,22 @@
       "n": 16,
       "count": 40,
       "z": -2.07,
-      "z_h1": -1.07,
+      "z_h1": -1.08,
       "z_h2": -1.85,
-      "fw_p": 0.648,
-      "rate_ratio": 0.727,
+      "fw_p": 0.644,
+      "rate_ratio": 0.726,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 17,
-      "count": 45,
-      "z": -1.38,
+      "count": 46,
+      "z": -1.25,
       "z_h1": -0.1,
-      "z_h2": -1.85,
-      "fw_p": 0.992,
-      "rate_ratio": 0.818,
+      "z_h2": -1.66,
+      "fw_p": 0.997,
+      "rate_ratio": 0.835,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1332,8 +1332,8 @@
      {
       "n": 18,
       "count": 62,
-      "z": 0.96,
-      "z_h1": 2.04,
+      "z": 0.95,
+      "z_h1": 2.03,
       "z_h2": -0.69,
       "fw_p": 1.0,
       "rate_ratio": 1.126,
@@ -1345,10 +1345,10 @@
       "n": 19,
       "count": 52,
       "z": -0.42,
-      "z_h1": 0.68,
+      "z_h1": 0.67,
       "z_h2": -1.27,
       "fw_p": 1.0,
-      "rate_ratio": 0.945,
+      "rate_ratio": 0.944,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1360,7 +1360,7 @@
       "z_h1": -0.49,
       "z_h2": 2.03,
       "fw_p": 1.0,
-      "rate_ratio": 1.145,
+      "rate_ratio": 1.144,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1368,11 +1368,11 @@
      {
       "n": 21,
       "count": 65,
-      "z": 1.37,
-      "z_h1": 1.07,
+      "z": 1.36,
+      "z_h1": 1.06,
       "z_h2": 0.87,
-      "fw_p": 0.996,
-      "rate_ratio": 1.181,
+      "fw_p": 0.995,
+      "rate_ratio": 1.18,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1381,7 +1381,7 @@
       "n": 22,
       "count": 48,
       "z": -0.97,
-      "z_h1": -0.68,
+      "z_h1": -0.69,
       "z_h2": -0.69,
       "fw_p": 1.0,
       "rate_ratio": 0.872,
@@ -1392,11 +1392,11 @@
      {
       "n": 23,
       "count": 54,
-      "z": -0.14,
-      "z_h1": -1.65,
+      "z": -0.15,
+      "z_h1": -1.66,
       "z_h2": 1.45,
       "fw_p": 1.0,
-      "rate_ratio": 0.981,
+      "rate_ratio": 0.98,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1405,10 +1405,10 @@
       "n": 24,
       "count": 63,
       "z": 1.09,
-      "z_h1": 2.82,
+      "z_h1": 2.81,
       "z_h2": -1.27,
       "fw_p": 1.0,
-      "rate_ratio": 1.145,
+      "rate_ratio": 1.144,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1416,7 +1416,7 @@
      {
       "n": 25,
       "count": 61,
-      "z": 0.82,
+      "z": 0.81,
       "z_h1": -0.49,
       "z_h2": 1.64,
       "fw_p": 1.0,
@@ -1428,11 +1428,11 @@
      {
       "n": 26,
       "count": 54,
-      "z": -0.14,
-      "z_h1": 0.1,
-      "z_h2": -0.3,
+      "z": -0.15,
+      "z_h1": 0.28,
+      "z_h2": -0.49,
       "fw_p": 1.0,
-      "rate_ratio": 0.981,
+      "rate_ratio": 0.98,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1442,8 +1442,8 @@
      16,
      14,
      4,
-     17,
-     21
+     21,
+     8
     ],
     "hot": [],
     "dead": []
@@ -1451,67 +1451,67 @@
    "recommendation": {
     "status": "clean",
     "headline": "Clean frame \u2014 no hot pixels. Don't favor or avoid any ball.",
-    "detail": "No ball clears the family-wise bar (|z| \u2265 3.4) and repeats in both halves. Every ball is equally likely, so the best play is screened random tickets with a different Powerball on each \u2014 same expected value, ~5\u00d7 the chance of any Powerball prize versus repeating one, and fewer split jackpots."
+    "detail": "No ball clears the family-wise bar (|z| \u2265 3.39) and repeats in both halves. Every ball is equally likely, so the best play is screened random tickets with a different Powerball on each \u2014 same expected value, ~5\u00d7 the chance of any Powerball prize versus repeating one, and fewer split jackpots."
    },
    "tickets": [
     {
      "whites": [
+      7,
+      12,
       26,
-      53,
-      54,
-      67,
-      68
+      60,
+      61
+     ],
+     "special": 26
+    },
+    {
+     "whites": [
+      28,
+      37,
+      49,
+      56,
+      58
+     ],
+     "special": 25
+    },
+    {
+     "whites": [
+      26,
+      46,
+      47,
+      64,
+      67
      ],
      "special": 19
     },
     {
      "whites": [
-      22,
-      26,
-      27,
-      32,
-      43
-     ],
-     "special": 12
-    },
-    {
-     "whites": [
       5,
-      7,
-      35,
-      42,
-      50
+      36,
+      62,
+      63,
+      64
      ],
      "special": 14
     },
     {
      "whites": [
-      1,
-      16,
+      28,
+      57,
       58,
-      63,
-      64
+      62,
+      67
      ],
-     "special": 24
-    },
-    {
-     "whites": [
-      6,
-      29,
-      30,
-      49,
-      61
-     ],
-     "special": 2
+     "special": 18
     }
    ],
    "sims": 2000
   },
   "crowd": {
    "available": true,
-   "draws": 119,
+   "draws": 120,
    "first_date": "2026-02-07",
-   "last_date": "2026-11-09",
+   "last_date": "2026-11-11",
    "alpha": 0.01,
    "min_oos": 50,
    "white": {
@@ -1523,7 +1523,7 @@
      1.107,
      1.128,
      1.13,
-     1.132,
+     1.13,
      1.11,
      1.111,
      1.118,
@@ -1532,7 +1532,7 @@
      1.059,
      1.046,
      1.071,
-     1.068,
+     1.069,
      1.055,
      1.069,
      1.061,
@@ -1540,39 +1540,39 @@
      1.033,
      1.081,
      1.031,
-     1.04,
-     1.044,
-     1.038,
+     1.041,
+     1.045,
+     1.039,
      1.037,
-     1.027,
-     0.993,
-     1.021,
+     1.028,
+     0.994,
+     1.022,
      0.971,
      0.986,
      0.963,
      0.968,
      0.986,
-     0.975,
+     0.976,
      0.943,
      0.973,
      0.953,
      0.95,
-     0.972,
+     0.97,
      0.952,
      0.97,
-     0.96,
+     0.958,
      0.959,
      0.965,
      0.923,
      0.935,
      0.92,
-     0.916,
+     0.914,
      0.935,
      0.933,
      0.942,
-     0.929,
+     0.93,
      0.938,
-     0.927,
+     0.925,
      0.925,
      0.921,
      0.912,
@@ -1588,10 +1588,10 @@
     ],
     "ridge": 10.0,
     "oos": {
-     "draws": 79,
+     "draws": 80,
      "r": 0.849,
      "p": 0.0,
-     "skill": 0.667
+     "skill": 0.669
     },
     "gate_open": true,
     "least": [
@@ -1600,13 +1600,13 @@
      64,
      61,
      60,
-     67,
      51,
+     67,
      50
     ],
     "most": [
-     8,
      7,
+     8,
      6,
      3,
      1,
@@ -1614,36 +1614,36 @@
      2,
      12
     ],
-    "index_sd": 0.0324
+    "index_sd": 0.0323
    },
    "special": {
     "ratio": [
      0.997,
      1.007,
      0.978,
-     0.982,
-     1.029,
-     1.022,
-     1.067,
-     1.024,
+     0.981,
+     1.03,
      1.023,
-     0.975,
-     1.039,
+     1.07,
+     1.026,
+     1.024,
+     0.974,
+     1.041,
      0.989,
-     1.079,
+     1.082,
      0.989,
-     0.991,
+     0.99,
      1.002,
-     1.013,
-     0.994,
-     0.952,
-     1.021,
-     0.965,
-     0.964,
-     1.006,
-     0.988,
+     1.035,
+     0.993,
      0.949,
-     0.965
+     1.021,
+     0.963,
+     0.961,
+     1.007,
+     0.987,
+     0.947,
+     0.963
     ],
     "seen": [
      1,
@@ -1674,9 +1674,9 @@
      1
     ],
     "oos": {
-     "draws": 117,
-     "r": 0.246,
-     "p": 0.01149
+     "draws": 118,
+     "r": 0.243,
+     "p": 0.01299
     },
     "gate_open": false
    },
@@ -1687,21 +1687,21 @@
      "rows": [
       {
        "label": "least crowded third",
-       "draws": 39,
+       "draws": 40,
        "index": 0.96,
-       "prize": 491.9
+       "prize": 491.1
       },
       {
        "label": "middle third",
-       "draws": 41,
-       "index": 0.997,
-       "prize": 427.8
+       "draws": 40,
+       "index": 0.996,
+       "prize": 431.4
       },
       {
        "label": "most crowded third",
-       "draws": 39,
+       "draws": 40,
        "index": 1.031,
-       "prize": 377.3
+       "prize": 374.9
       }
      ]
     },
@@ -1711,14 +1711,14 @@
       {
        "label": "least crowded third",
        "draws": 26,
-       "index": 0.964,
-       "prize": 478.2
+       "index": 0.963,
+       "prize": 475.8
       },
       {
        "label": "middle third",
-       "draws": 27,
-       "index": 0.999,
-       "prize": 427.4
+       "draws": 28,
+       "index": 0.998,
+       "prize": 430.6
       },
       {
        "label": "most crowded third",
@@ -1731,32 +1731,32 @@
    }
   },
   "order_test": {
-   "draws": 1431,
+   "draws": 1432,
    "perms": 5000,
    "results": [
     {
      "name": "lag-1 correlation (ball i vs ball i+1)",
-     "observed": -0.0129,
-     "null_mean": -0.0184,
-     "p": 0.5821
+     "observed": -0.013,
+     "null_mean": -0.0182,
+     "p": 0.6227
     },
     {
      "name": "mean |step| between successive balls",
-     "observed": 23.3683,
-     "null_mean": 23.3978,
-     "p": 0.8476
+     "observed": 23.3696,
+     "null_mean": 23.3938,
+     "p": 0.878
     },
     {
      "name": "position effect (var of position means)",
-     "observed": 0.332,
-     "null_mean": 0.227,
-     "p": 0.2112
+     "observed": 0.3258,
+     "null_mean": 0.2273,
+     "p": 0.2172
     },
     {
      "name": "mean value of first ball drawn",
-     "observed": 34.754,
-     "null_mean": 35.3408,
-     "p": 0.225
+     "observed": 34.7696,
+     "null_mean": 35.3467,
+     "p": 0.2224
     }
    ],
    "dependence_detected": false
@@ -1765,14 +1765,14 @@
    "window": 270,
    "density": 0.77,
    "window_dates": [
-    "2025-02-19",
-    "2026-11-09"
+    "2025-02-22",
+    "2026-11-11"
    ],
    "pools": [
     [
      21,
      29,
-     40
+     50
     ],
     [
      28,
@@ -1781,18 +1781,18 @@
     ],
     [
      44,
-     52,
-     48
+     48,
+     59
     ],
     [
      53,
      50,
-     43
+     52
     ],
     [
-     12,
      44,
-     42
+     42,
+     40
     ]
    ],
    "tickets": [
@@ -1800,16 +1800,16 @@
      "whites": [
       13,
       21,
-      42,
-      52,
+      40,
+      48,
       53
      ],
      "positional": [
       21,
       13,
-      52,
+      48,
       53,
-      42
+      40
      ],
      "score": -33.0,
      "best_past_overlap": 3
@@ -1829,43 +1829,25 @@
       53,
       42
      ],
-     "score": -33.1,
+     "score": -33.0,
      "best_past_overlap": 3
     },
     {
      "whites": [
       13,
       21,
-      44,
-      52,
-      53
-     ],
-     "positional": [
-      21,
-      13,
-      52,
-      53,
-      44
-     ],
-     "score": -33.1,
-     "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      13,
-      21,
-      44,
+      40,
       48,
-      53
+      52
      ],
      "positional": [
       21,
       13,
       48,
-      53,
-      44
+      52,
+      40
      ],
-     "score": -33.1,
+     "score": -33.0,
      "best_past_overlap": 3
     },
     {
@@ -1874,59 +1856,77 @@
       21,
       42,
       48,
-      50
+      52
      ],
      "positional": [
       21,
       13,
       48,
-      50,
+      52,
       42
+     ],
+     "score": -33.0,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      13,
+      21,
+      44,
+      48,
+      53
+     ],
+     "positional": [
+      21,
+      13,
+      48,
+      53,
+      44
      ],
      "score": -33.1,
      "best_past_overlap": 3
     }
    ],
-   "special_pick": 21,
+   "special_pick": 14,
    "special_cluster": [
-    18,
-    26
+    10,
+    17
    ],
    "backtest": {
     "window": 270,
-    "tested": 1161,
-    "tickets": 5805,
+    "tested": 1162,
+    "tickets": 5810,
     "tallies": [
-     3874,
-     1672,
+     3876,
+     1675,
      232,
      27,
      0,
      0
     ],
-    "mean_matches": 0.3819,
+    "mean_matches": 0.3821,
     "random_mean": 0.3623,
-    "mean_ratio": 1.0541,
+    "mean_ratio": 1.0546,
     "obs3": 27,
-    "exp3": 10.58,
-    "z3": 5.05,
+    "exp3": 10.59,
+    "z3": 5.04,
     "special_hits": 48,
-    "special_preds": 1161,
+    "special_preds": 1162,
     "special_rate": 0.0413,
     "special_random": 0.0385,
     "exact": {
-     "draws": 1161,
-     "obs": 2217,
-     "exp": 2103.3,
-     "ratio": 1.054,
-     "z": 1.4,
-     "p": 0.0811
+     "draws": 1162,
+     "obs": 2220,
+     "exp": 2105.1,
+     "ratio": 1.055,
+     "z": 1.41,
+     "p": 0.079
     },
     "exact_special": {
-     "draws": 1161,
+     "draws": 1162,
      "hits": 48,
      "exp": 44.7,
-     "p": 0.3252
+     "p": 0.3273
     }
    },
    "tuning": {
@@ -1945,58 +1945,58 @@
    "tickets": [
     {
      "whites": [
+      34,
       35,
-      36,
-      40,
-      48,
-      64
+      39,
+      41,
+      55
      ],
-     "special": 10,
-     "crowd": 0.708
+     "special": 9,
+     "crowd": 0.808
+    },
+    {
+     "whites": [
+      36,
+      45,
+      49,
+      54,
+      69
+     ],
+     "special": 6,
+     "crowd": 0.774
+    },
+    {
+     "whites": [
+      17,
+      43,
+      48,
+      53,
+      65
+     ],
+     "special": 20,
+     "crowd": 0.788
     },
     {
      "whites": [
       20,
-      32,
-      51,
-      54,
-      61
+      46,
+      50,
+      60,
+      64
      ],
-     "special": 24,
+     "special": 8,
      "crowd": 0.781
     },
     {
      "whites": [
-      31,
-      34,
-      50,
-      60,
-      69
-     ],
-     "special": 23,
-     "crowd": 0.752
-    },
-    {
-     "whites": [
-      24,
-      46,
-      52,
+      56,
+      57,
       62,
-      68
+      63,
+      67
      ],
-     "special": 21,
-     "crowd": 0.713
-    },
-    {
-     "whites": [
-      38,
-      41,
-      43,
-      44,
-      49
-     ],
-     "special": 4,
-     "crowd": 0.732
+     "special": 10,
+     "crowd": 0.597
     }
    ],
    "gate": {
@@ -2004,29 +2004,29 @@
     "min_draws": 100,
     "alpha": 0.01,
     "whites": {
-     "draws": 13,
-     "obs": 20,
-     "exp": 23.6,
-     "ratio": 0.849,
-     "z": -0.41,
-     "p": 0.658
+     "draws": 14,
+     "obs": 23,
+     "exp": 25.4,
+     "ratio": 0.907,
+     "z": -0.26,
+     "p": 0.603
     },
     "special": {
-     "draws": 13,
+     "draws": 14,
      "hits": 2,
      "exp": 0.5,
-     "p": 0.0871
+     "p": 0.0991
     },
     "open_whites": false,
     "open_special": false
    },
    "insample": {
-    "draws": 1161,
-    "obs": 2217,
-    "exp": 2103.3,
-    "ratio": 1.054,
-    "z": 1.4,
-    "p": 0.0811
+    "draws": 1162,
+    "obs": 2220,
+    "exp": 2105.1,
+    "ratio": 1.055,
+    "z": 1.41,
+    "p": 0.079
    },
    "pixels": {
     "hot": [],
@@ -2036,12 +2036,12 @@
    },
    "compare": {
     "recommended": {
-     "any_prize": 0.1999,
+     "any_prize": 0.199,
      "distinct_whites": 25,
      "distinct_specials": 5
     },
     "cluster_raw": {
-     "any_prize": 0.0438,
+     "any_prize": 0.0439,
      "distinct_whites": 8,
      "distinct_specials": 1
     }
@@ -2050,32 +2050,32 @@
     "white_used": true,
     "special_used": false,
     "disjoint": true,
-    "crowd_mean": 0.737
+    "crowd_mean": 0.75
    }
   },
   "last_result": {
-   "draw_date": "2026-11-09",
+   "draw_date": "2026-11-11",
    "whites": [
-    13,
-    34,
-    41,
+    8,
+    42,
     45,
-    48
+    51,
+    57
    ],
-   "special": 25,
-   "scored_against_picks_from": "2026-11-09T23:31:25+00:00",
+   "special": 17,
+   "scored_against_picks_from": "2026-11-11T20:04:03+00:00",
    "tickets": [
     {
      "source": "recommended",
      "index": 0,
      "whites": [
-      32,
-      44,
-      49,
-      53,
-      69
+      35,
+      36,
+      40,
+      48,
+      64
      ],
-     "special": 14,
+     "special": 10,
      "white_hits": 0,
      "special_hit": false,
      "tier": null,
@@ -2085,14 +2085,14 @@
      "source": "recommended",
      "index": 1,
      "whites": [
-      8,
-      60,
-      63,
-      65,
-      68
+      20,
+      32,
+      51,
+      54,
+      61
      ],
-     "special": 2,
-     "white_hits": 0,
+     "special": 24,
+     "white_hits": 1,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -2101,14 +2101,14 @@
      "source": "recommended",
      "index": 2,
      "whites": [
-      26,
-      48,
-      54,
-      55,
-      66
+      31,
+      34,
+      50,
+      60,
+      69
      ],
-     "special": 1,
-     "white_hits": 1,
+     "special": 23,
+     "white_hits": 0,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -2117,13 +2117,13 @@
      "source": "recommended",
      "index": 3,
      "whites": [
-      21,
-      30,
-      59,
-      61,
-      67
+      24,
+      46,
+      52,
+      62,
+      68
      ],
-     "special": 16,
+     "special": 21,
      "white_hits": 0,
      "special_hit": false,
      "tier": null,
@@ -2133,13 +2133,13 @@
      "source": "recommended",
      "index": 4,
      "whites": [
-      27,
-      46,
-      50,
-      51,
-      57
+      38,
+      41,
+      43,
+      44,
+      49
      ],
-     "special": 13,
+     "special": 4,
      "white_hits": 0,
      "special_hit": false,
      "tier": null,
@@ -2152,7 +2152,7 @@
       13,
       21,
       42,
-      49,
+      52,
       53
      ],
      "special": 21,
@@ -2168,7 +2168,7 @@
       13,
       21,
       42,
-      52,
+      48,
       53
      ],
      "special": 21,
@@ -2183,12 +2183,12 @@
      "whites": [
       13,
       21,
-      42,
-      49,
-      52
+      44,
+      52,
+      53
      ],
      "special": 21,
-     "white_hits": 1,
+     "white_hits": 0,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -2200,11 +2200,11 @@
       13,
       21,
       44,
-      49,
+      48,
       53
      ],
      "special": 21,
-     "white_hits": 1,
+     "white_hits": 0,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -2215,9 +2215,9 @@
      "whites": [
       13,
       21,
-      44,
-      52,
-      53
+      42,
+      48,
+      50
      ],
      "special": 21,
      "white_hits": 1,
@@ -2229,13 +2229,195 @@
    "best": {
     "tier": null,
     "source": "recommended",
-    "ticket": 2,
+    "ticket": 1,
     "white_hits": 1,
     "special_hit": false
    },
    "significant": false
   },
   "ledger": [
+   {
+    "draw_date": "2026-11-11",
+    "whites": [
+     8,
+     42,
+     45,
+     51,
+     57
+    ],
+    "special": 17,
+    "scored_against_picks_from": "2026-11-11T20:04:03+00:00",
+    "tickets": [
+     {
+      "source": "recommended",
+      "index": 0,
+      "whites": [
+       35,
+       36,
+       40,
+       48,
+       64
+      ],
+      "special": 10,
+      "white_hits": 0,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 1,
+      "whites": [
+       20,
+       32,
+       51,
+       54,
+       61
+      ],
+      "special": 24,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 2,
+      "whites": [
+       31,
+       34,
+       50,
+       60,
+       69
+      ],
+      "special": 23,
+      "white_hits": 0,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 3,
+      "whites": [
+       24,
+       46,
+       52,
+       62,
+       68
+      ],
+      "special": 21,
+      "white_hits": 0,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 4,
+      "whites": [
+       38,
+       41,
+       43,
+       44,
+       49
+      ],
+      "special": 4,
+      "white_hits": 0,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "cluster",
+      "index": 0,
+      "whites": [
+       13,
+       21,
+       42,
+       52,
+       53
+      ],
+      "special": 21,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "cluster",
+      "index": 1,
+      "whites": [
+       13,
+       21,
+       42,
+       48,
+       53
+      ],
+      "special": 21,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "cluster",
+      "index": 2,
+      "whites": [
+       13,
+       21,
+       44,
+       52,
+       53
+      ],
+      "special": 21,
+      "white_hits": 0,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "cluster",
+      "index": 3,
+      "whites": [
+       13,
+       21,
+       44,
+       48,
+       53
+      ],
+      "special": 21,
+      "white_hits": 0,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "cluster",
+      "index": 4,
+      "whites": [
+       13,
+       21,
+       42,
+       48,
+       50
+      ],
+      "special": 21,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     }
+    ],
+    "best": {
+     "tier": null,
+     "source": "recommended",
+     "ticket": 1,
+     "white_hits": 1,
+     "special_hit": false
+    },
+    "significant": false
+   },
    {
     "draw_date": "2026-11-09",
     "whites": [
@@ -8712,20 +8894,20 @@
   "special_max": 27,
   "odds": 41416353,
   "latest": {
-   "date": "2026-11-07",
+   "date": "2026-11-11",
    "whites": [
-    5,
-    9,
-    24,
-    40,
+    6,
+    13,
+    27,
+    42,
     44
    ],
-   "special": 7
+   "special": 22
   },
   "stats": {
-   "draws": 1585,
+   "draws": 1586,
    "first_date": "2011-08-31",
-   "last_date": "2026-11-07",
+   "last_date": "2026-11-11",
    "white_hot": [
     [
      8,
@@ -8761,7 +8943,7 @@
     ],
     [
      13,
-     179
+     180
     ],
     [
      39,
@@ -8855,111 +9037,111 @@
     ]
    ],
    "chi2_white": {
-    "stat": 48.5,
+    "stat": 48.8,
     "df": 46,
-    "p": 0.3708,
+    "p": 0.3594,
     "uniform": true
    },
    "chi2_special": {
     "stat": 25.0,
     "df": 26,
-    "p": 0.517,
+    "p": 0.5183,
     "uniform": true
    }
   },
   "picks": [
    {
     "whites": [
-     4,
-     6,
-     25,
-     32,
-     44
+     1,
+     3,
+     8,
+     16,
+     42
     ],
-    "special": 20
+    "special": 18
    },
    {
     "whites": [
-     10,
-     17,
-     27,
-     31,
+     1,
+     26,
+     35,
+     37,
      45
     ],
-    "special": 6
+    "special": 21
    },
    {
     "whites": [
-     10,
-     13,
-     18,
-     29,
-     33
+     30,
+     31,
+     41,
+     43,
+     44
     ],
-    "special": 11
+    "special": 17
    },
    {
     "whites": [
-     14,
-     16,
-     20,
-     25,
-     36
+     3,
+     8,
+     9,
+     36,
+     38
     ],
     "special": 7
    },
    {
     "whites": [
-     7,
-     16,
-     27,
-     30,
-     34
+     17,
+     25,
+     29,
+     41,
+     42
     ],
-    "special": 6
+    "special": 2
    }
   ],
   "frame": {
    "white": {
-    "frames": 1585,
-    "expected": 168.62,
+    "frames": 1586,
+    "expected": 168.72,
     "sd": 12.28,
-    "z_crit": 3.29,
+    "z_crit": 3.28,
     "band2": [
-     144.1,
-     193.2
+     144.2,
+     193.3
     ],
     "bandfw": [
-     128.2,
+     128.4,
      209.0
     ],
     "chi2": {
-     "stat": 48.5,
+     "stat": 48.8,
      "df": 46,
-     "p": 0.3708
+     "p": 0.3594
     },
     "persistence": {
-     "r": -0.092,
-     "p": 0.719,
+     "r": -0.091,
+     "p": 0.738,
      "halves": [
-      792,
+      793,
       793
      ],
-     "r_interleaved": -0.014,
-     "p_interleaved": 0.54,
+     "r_interleaved": -0.008,
+     "p_interleaved": 0.53,
      "fixed_pattern": false
     },
     "min_detectable_bias": 0.239,
-    "frames_for_10pct": 9092,
+    "frames_for_10pct": 9038,
     "balls": [
      {
       "n": 1,
       "count": 193,
-      "z": 1.99,
-      "z_h1": -0.03,
-      "z_h2": 2.84,
-      "fw_p": 0.892,
-      "rate_ratio": 1.145,
+      "z": 1.98,
+      "z_h1": 0.07,
+      "z_h2": 2.72,
+      "fw_p": 0.904,
+      "rate_ratio": 1.144,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -8967,8 +9149,8 @@
      {
       "n": 2,
       "count": 183,
-      "z": 1.17,
-      "z_h1": 0.09,
+      "z": 1.16,
+      "z_h1": 0.07,
       "z_h2": 1.57,
       "fw_p": 1.0,
       "rate_ratio": 1.085,
@@ -8979,11 +9161,11 @@
      {
       "n": 3,
       "count": 176,
-      "z": 0.6,
-      "z_h1": -0.03,
+      "z": 0.59,
+      "z_h1": -0.04,
       "z_h2": 0.88,
       "fw_p": 1.0,
-      "rate_ratio": 1.044,
+      "rate_ratio": 1.043,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -8991,11 +9173,11 @@
      {
       "n": 4,
       "count": 194,
-      "z": 2.07,
-      "z_h1": 0.66,
+      "z": 2.06,
+      "z_h1": 0.65,
       "z_h2": 2.26,
-      "fw_p": 0.843,
-      "rate_ratio": 1.151,
+      "fw_p": 0.853,
+      "rate_ratio": 1.15,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9003,8 +9185,8 @@
      {
       "n": 5,
       "count": 155,
-      "z": -1.11,
-      "z_h1": -1.41,
+      "z": -1.12,
+      "z_h1": -1.42,
       "z_h2": -0.16,
       "fw_p": 1.0,
       "rate_ratio": 0.919,
@@ -9014,12 +9196,12 @@
      },
      {
       "n": 6,
-      "count": 175,
-      "z": 0.52,
-      "z_h1": -0.14,
-      "z_h2": 0.88,
+      "count": 176,
+      "z": 0.59,
+      "z_h1": -0.16,
+      "z_h2": 0.99,
       "fw_p": 1.0,
-      "rate_ratio": 1.038,
+      "rate_ratio": 1.043,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9027,11 +9209,11 @@
      {
       "n": 7,
       "count": 187,
-      "z": 1.5,
-      "z_h1": 0.2,
+      "z": 1.49,
+      "z_h1": 0.19,
       "z_h2": 1.92,
       "fw_p": 0.999,
-      "rate_ratio": 1.109,
+      "rate_ratio": 1.108,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9039,10 +9221,10 @@
      {
       "n": 8,
       "count": 196,
-      "z": 2.23,
-      "z_h1": 0.43,
+      "z": 2.22,
+      "z_h1": 0.42,
       "z_h2": 2.72,
-      "fw_p": 0.702,
+      "fw_p": 0.73,
       "rate_ratio": 1.162,
       "stands_out": false,
       "persistent": false,
@@ -9051,11 +9233,11 @@
      {
       "n": 9,
       "count": 161,
-      "z": -0.62,
-      "z_h1": -0.61,
+      "z": -0.63,
+      "z_h1": -0.62,
       "z_h2": -0.27,
       "fw_p": 1.0,
-      "rate_ratio": 0.955,
+      "rate_ratio": 0.954,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9063,8 +9245,8 @@
      {
       "n": 10,
       "count": 170,
-      "z": 0.11,
-      "z_h1": -0.84,
+      "z": 0.1,
+      "z_h1": -0.85,
       "z_h2": 0.99,
       "fw_p": 1.0,
       "rate_ratio": 1.008,
@@ -9076,10 +9258,10 @@
       "n": 11,
       "count": 164,
       "z": -0.38,
-      "z_h1": -0.26,
+      "z_h1": -0.27,
       "z_h2": -0.27,
       "fw_p": 1.0,
-      "rate_ratio": 0.973,
+      "rate_ratio": 0.972,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9087,8 +9269,8 @@
      {
       "n": 12,
       "count": 182,
-      "z": 1.09,
-      "z_h1": 0.2,
+      "z": 1.08,
+      "z_h1": 0.19,
       "z_h2": 1.34,
       "fw_p": 1.0,
       "rate_ratio": 1.079,
@@ -9098,12 +9280,12 @@
      },
      {
       "n": 13,
-      "count": 179,
-      "z": 0.85,
-      "z_h1": -0.61,
-      "z_h2": 1.8,
+      "count": 180,
+      "z": 0.92,
+      "z_h1": -0.62,
+      "z_h2": 1.92,
       "fw_p": 1.0,
-      "rate_ratio": 1.062,
+      "rate_ratio": 1.067,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9111,11 +9293,11 @@
      {
       "n": 14,
       "count": 163,
-      "z": -0.46,
-      "z_h1": -0.72,
+      "z": -0.47,
+      "z_h1": -0.73,
       "z_h2": 0.07,
       "fw_p": 1.0,
-      "rate_ratio": 0.967,
+      "rate_ratio": 0.966,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9123,11 +9305,11 @@
      {
       "n": 15,
       "count": 175,
-      "z": 0.52,
-      "z_h1": 2.62,
+      "z": 0.51,
+      "z_h1": 2.61,
       "z_h2": -1.88,
       "fw_p": 1.0,
-      "rate_ratio": 1.038,
+      "rate_ratio": 1.037,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9135,11 +9317,11 @@
      {
       "n": 16,
       "count": 175,
-      "z": 0.52,
-      "z_h1": 0.2,
+      "z": 0.51,
+      "z_h1": 0.19,
       "z_h2": 0.53,
       "fw_p": 1.0,
-      "rate_ratio": 1.038,
+      "rate_ratio": 1.037,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9147,8 +9329,8 @@
      {
       "n": 17,
       "count": 155,
-      "z": -1.11,
-      "z_h1": -1.53,
+      "z": -1.12,
+      "z_h1": -1.54,
       "z_h2": -0.04,
       "fw_p": 1.0,
       "rate_ratio": 0.919,
@@ -9159,11 +9341,11 @@
      {
       "n": 18,
       "count": 158,
-      "z": -0.86,
-      "z_h1": -0.26,
+      "z": -0.87,
+      "z_h1": -0.27,
       "z_h2": -0.96,
       "fw_p": 1.0,
-      "rate_ratio": 0.937,
+      "rate_ratio": 0.936,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9171,8 +9353,8 @@
      {
       "n": 19,
       "count": 155,
-      "z": -1.11,
-      "z_h1": -0.84,
+      "z": -1.12,
+      "z_h1": -0.85,
       "z_h2": -0.73,
       "fw_p": 1.0,
       "rate_ratio": 0.919,
@@ -9183,11 +9365,11 @@
      {
       "n": 20,
       "count": 165,
-      "z": -0.29,
-      "z_h1": -0.72,
+      "z": -0.3,
+      "z_h1": -0.73,
       "z_h2": 0.3,
       "fw_p": 1.0,
-      "rate_ratio": 0.979,
+      "rate_ratio": 0.978,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9195,11 +9377,11 @@
      {
       "n": 21,
       "count": 174,
-      "z": 0.44,
-      "z_h1": -0.14,
+      "z": 0.43,
+      "z_h1": -0.16,
       "z_h2": 0.76,
       "fw_p": 1.0,
-      "rate_ratio": 1.032,
+      "rate_ratio": 1.031,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9207,11 +9389,11 @@
      {
       "n": 22,
       "count": 187,
-      "z": 1.5,
-      "z_h1": 1.7,
+      "z": 1.49,
+      "z_h1": 1.69,
       "z_h2": 0.42,
       "fw_p": 0.999,
-      "rate_ratio": 1.109,
+      "rate_ratio": 1.108,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9219,11 +9401,11 @@
      {
       "n": 23,
       "count": 149,
-      "z": -1.6,
-      "z_h1": -1.18,
-      "z_h2": -1.08,
-      "fw_p": 0.995,
-      "rate_ratio": 0.884,
+      "z": -1.61,
+      "z_h1": -1.08,
+      "z_h2": -1.19,
+      "fw_p": 0.997,
+      "rate_ratio": 0.883,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9231,8 +9413,8 @@
      {
       "n": 24,
       "count": 155,
-      "z": -1.11,
-      "z_h1": 0.32,
+      "z": -1.12,
+      "z_h1": 0.3,
       "z_h2": -1.88,
       "fw_p": 1.0,
       "rate_ratio": 0.919,
@@ -9243,11 +9425,11 @@
      {
       "n": 25,
       "count": 174,
-      "z": 0.44,
-      "z_h1": 1.81,
+      "z": 0.43,
+      "z_h1": 1.8,
       "z_h2": -1.19,
       "fw_p": 1.0,
-      "rate_ratio": 1.032,
+      "rate_ratio": 1.031,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9255,10 +9437,10 @@
      {
       "n": 26,
       "count": 141,
-      "z": -2.25,
-      "z_h1": -1.41,
+      "z": -2.26,
+      "z_h1": -1.42,
       "z_h2": -1.77,
-      "fw_p": 0.667,
+      "fw_p": 0.691,
       "rate_ratio": 0.836,
       "stands_out": false,
       "persistent": false,
@@ -9266,12 +9448,12 @@
      },
      {
       "n": 27,
-      "count": 167,
-      "z": -0.13,
-      "z_h1": -0.72,
-      "z_h2": 0.53,
+      "count": 168,
+      "z": -0.06,
+      "z_h1": -0.73,
+      "z_h2": 0.65,
       "fw_p": 1.0,
-      "rate_ratio": 0.99,
+      "rate_ratio": 0.996,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9279,11 +9461,11 @@
      {
       "n": 28,
       "count": 159,
-      "z": -0.78,
-      "z_h1": -0.26,
+      "z": -0.79,
+      "z_h1": -0.27,
       "z_h2": -0.85,
       "fw_p": 1.0,
-      "rate_ratio": 0.943,
+      "rate_ratio": 0.942,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9291,11 +9473,11 @@
      {
       "n": 29,
       "count": 148,
-      "z": -1.68,
-      "z_h1": -0.26,
-      "z_h2": -2.11,
-      "fw_p": 0.988,
-      "rate_ratio": 0.878,
+      "z": -1.69,
+      "z_h1": -0.16,
+      "z_h2": -2.23,
+      "fw_p": 0.991,
+      "rate_ratio": 0.877,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9303,8 +9485,8 @@
      {
       "n": 30,
       "count": 169,
-      "z": 0.03,
-      "z_h1": -0.61,
+      "z": 0.02,
+      "z_h1": -0.62,
       "z_h2": 0.65,
       "fw_p": 1.0,
       "rate_ratio": 1.002,
@@ -9316,10 +9498,10 @@
       "n": 31,
       "count": 144,
       "z": -2.01,
-      "z_h1": -0.14,
+      "z_h1": -0.16,
       "z_h2": -2.69,
-      "fw_p": 0.871,
-      "rate_ratio": 0.854,
+      "fw_p": 0.878,
+      "rate_ratio": 0.853,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9327,11 +9509,11 @@
      {
       "n": 32,
       "count": 177,
-      "z": 0.68,
-      "z_h1": 1.93,
+      "z": 0.67,
+      "z_h1": 1.92,
       "z_h2": -0.96,
       "fw_p": 1.0,
-      "rate_ratio": 1.05,
+      "rate_ratio": 1.049,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9339,9 +9521,9 @@
      {
       "n": 33,
       "count": 181,
-      "z": 1.01,
-      "z_h1": 1.24,
-      "z_h2": 0.19,
+      "z": 1.0,
+      "z_h1": 1.34,
+      "z_h2": 0.07,
       "fw_p": 1.0,
       "rate_ratio": 1.073,
       "stands_out": false,
@@ -9351,11 +9533,11 @@
      {
       "n": 34,
       "count": 175,
-      "z": 0.52,
-      "z_h1": 1.12,
+      "z": 0.51,
+      "z_h1": 1.11,
       "z_h2": -0.39,
       "fw_p": 1.0,
-      "rate_ratio": 1.038,
+      "rate_ratio": 1.037,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9363,8 +9545,8 @@
      {
       "n": 35,
       "count": 156,
-      "z": -1.03,
-      "z_h1": -1.3,
+      "z": -1.04,
+      "z_h1": -1.31,
       "z_h2": -0.16,
       "fw_p": 1.0,
       "rate_ratio": 0.925,
@@ -9375,8 +9557,8 @@
      {
       "n": 36,
       "count": 170,
-      "z": 0.11,
-      "z_h1": 0.89,
+      "z": 0.1,
+      "z_h1": 0.88,
       "z_h2": -0.73,
       "fw_p": 1.0,
       "rate_ratio": 1.008,
@@ -9387,11 +9569,11 @@
      {
       "n": 37,
       "count": 177,
-      "z": 0.68,
-      "z_h1": 1.01,
+      "z": 0.67,
+      "z_h1": 0.99,
       "z_h2": -0.04,
       "fw_p": 1.0,
-      "rate_ratio": 1.05,
+      "rate_ratio": 1.049,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9400,10 +9582,10 @@
       "n": 38,
       "count": 171,
       "z": 0.19,
-      "z_h1": -0.14,
+      "z_h1": -0.16,
       "z_h2": 0.42,
       "fw_p": 1.0,
-      "rate_ratio": 1.014,
+      "rate_ratio": 1.013,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9411,11 +9593,11 @@
      {
       "n": 39,
       "count": 179,
-      "z": 0.85,
-      "z_h1": 0.2,
+      "z": 0.84,
+      "z_h1": 0.19,
       "z_h2": 0.99,
       "fw_p": 1.0,
-      "rate_ratio": 1.062,
+      "rate_ratio": 1.061,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9424,10 +9606,10 @@
       "n": 40,
       "count": 150,
       "z": -1.52,
-      "z_h1": -1.18,
+      "z_h1": -1.19,
       "z_h2": -0.96,
-      "fw_p": 0.998,
-      "rate_ratio": 0.89,
+      "fw_p": 0.999,
+      "rate_ratio": 0.889,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9435,23 +9617,23 @@
      {
       "n": 41,
       "count": 148,
-      "z": -1.68,
-      "z_h1": -1.18,
+      "z": -1.69,
+      "z_h1": -1.19,
       "z_h2": -1.19,
-      "fw_p": 0.988,
-      "rate_ratio": 0.878,
+      "fw_p": 0.991,
+      "rate_ratio": 0.877,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 42,
-      "count": 175,
-      "z": 0.52,
-      "z_h1": -0.49,
+      "count": 176,
+      "z": 0.59,
+      "z_h1": -0.39,
       "z_h2": 1.23,
       "fw_p": 1.0,
-      "rate_ratio": 1.038,
+      "rate_ratio": 1.043,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9459,8 +9641,8 @@
      {
       "n": 43,
       "count": 170,
-      "z": 0.11,
-      "z_h1": -0.03,
+      "z": 0.1,
+      "z_h1": -0.04,
       "z_h2": 0.19,
       "fw_p": 1.0,
       "rate_ratio": 1.008,
@@ -9470,12 +9652,12 @@
      },
      {
       "n": 44,
-      "count": 173,
-      "z": 0.36,
-      "z_h1": 0.55,
-      "z_h2": -0.04,
+      "count": 174,
+      "z": 0.43,
+      "z_h1": 0.53,
+      "z_h2": 0.07,
       "fw_p": 1.0,
-      "rate_ratio": 1.026,
+      "rate_ratio": 1.031,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9483,11 +9665,11 @@
      {
       "n": 45,
       "count": 159,
-      "z": -0.78,
-      "z_h1": -0.26,
+      "z": -0.79,
+      "z_h1": -0.27,
       "z_h2": -0.85,
       "fw_p": 1.0,
-      "rate_ratio": 0.943,
+      "rate_ratio": 0.942,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9495,8 +9677,8 @@
      {
       "n": 46,
       "count": 169,
-      "z": 0.03,
-      "z_h1": 0.09,
+      "z": 0.02,
+      "z_h1": 0.07,
       "z_h2": -0.04,
       "fw_p": 1.0,
       "rate_ratio": 1.002,
@@ -9507,8 +9689,8 @@
      {
       "n": 47,
       "count": 167,
-      "z": -0.13,
-      "z_h1": 2.05,
+      "z": -0.14,
+      "z_h1": 2.03,
       "z_h2": -2.23,
       "fw_p": 1.0,
       "rate_ratio": 0.99,
@@ -9528,45 +9710,45 @@
     "dead": []
    },
    "special": {
-    "frames": 1585,
-    "expected": 58.7,
+    "frames": 1586,
+    "expected": 58.74,
     "sd": 7.52,
-    "z_crit": 3.1,
+    "z_crit": 3.23,
     "band2": [
      43.7,
-     73.7
+     73.8
     ],
     "bandfw": [
-     35.4,
-     82.0
+     34.5,
+     83.0
     ],
     "chi2": {
      "stat": 25.0,
      "df": 26,
-     "p": 0.517
+     "p": 0.5183
     },
     "persistence": {
-     "r": -0.129,
-     "p": 0.732,
+     "r": -0.124,
+     "p": 0.739,
      "halves": [
-      792,
+      793,
       793
      ],
-     "r_interleaved": -0.108,
-     "p_interleaved": 0.706,
+     "r_interleaved": -0.109,
+     "p_interleaved": 0.696,
      "fixed_pattern": false
     },
-    "min_detectable_bias": 0.397,
-    "frames_for_10pct": 24962,
+    "min_detectable_bias": 0.413,
+    "frames_for_10pct": 27051,
     "balls": [
      {
       "n": 1,
       "count": 58,
-      "z": -0.09,
-      "z_h1": 0.69,
+      "z": -0.1,
+      "z_h1": 0.68,
       "z_h2": -0.82,
       "fw_p": 1.0,
-      "rate_ratio": 0.988,
+      "rate_ratio": 0.987,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9575,10 +9757,10 @@
       "n": 2,
       "count": 60,
       "z": 0.17,
-      "z_h1": -0.06,
+      "z_h1": -0.07,
       "z_h2": 0.31,
       "fw_p": 1.0,
-      "rate_ratio": 1.022,
+      "rate_ratio": 1.021,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9586,11 +9768,11 @@
      {
       "n": 3,
       "count": 78,
-      "z": 2.57,
-      "z_h1": 1.07,
-      "z_h2": 2.56,
-      "fw_p": 0.283,
-      "rate_ratio": 1.329,
+      "z": 2.56,
+      "z_h1": 1.25,
+      "z_h2": 2.37,
+      "fw_p": 0.303,
+      "rate_ratio": 1.328,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9599,7 +9781,7 @@
       "n": 4,
       "count": 63,
       "z": 0.57,
-      "z_h1": -0.06,
+      "z_h1": -0.07,
       "z_h2": 0.87,
       "fw_p": 1.0,
       "rate_ratio": 1.073,
@@ -9614,7 +9796,7 @@
       "z_h1": -0.82,
       "z_h2": 0.49,
       "fw_p": 1.0,
-      "rate_ratio": 0.971,
+      "rate_ratio": 0.97,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9623,7 +9805,7 @@
       "n": 6,
       "count": 64,
       "z": 0.7,
-      "z_h1": 1.44,
+      "z_h1": 1.43,
       "z_h2": -0.45,
       "fw_p": 1.0,
       "rate_ratio": 1.09,
@@ -9635,10 +9817,10 @@
       "n": 7,
       "count": 60,
       "z": 0.17,
-      "z_h1": 0.5,
+      "z_h1": 0.49,
       "z_h2": -0.26,
       "fw_p": 1.0,
-      "rate_ratio": 1.022,
+      "rate_ratio": 1.021,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9650,7 +9832,7 @@
       "z_h1": -0.63,
       "z_h2": -0.26,
       "fw_p": 1.0,
-      "rate_ratio": 0.92,
+      "rate_ratio": 0.919,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9658,11 +9840,11 @@
      {
       "n": 9,
       "count": 59,
-      "z": 0.04,
-      "z_h1": -1.19,
+      "z": 0.03,
+      "z_h1": -1.2,
       "z_h2": 1.25,
       "fw_p": 1.0,
-      "rate_ratio": 1.005,
+      "rate_ratio": 1.004,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9671,7 +9853,7 @@
       "n": 10,
       "count": 63,
       "z": 0.57,
-      "z_h1": 1.82,
+      "z_h1": 1.81,
       "z_h2": -1.01,
       "fw_p": 1.0,
       "rate_ratio": 1.073,
@@ -9683,10 +9865,10 @@
       "n": 11,
       "count": 54,
       "z": -0.63,
-      "z_h1": 0.13,
+      "z_h1": 0.12,
       "z_h2": -1.01,
       "fw_p": 1.0,
-      "rate_ratio": 0.92,
+      "rate_ratio": 0.919,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9695,7 +9877,7 @@
       "n": 12,
       "count": 63,
       "z": 0.57,
-      "z_h1": -0.06,
+      "z_h1": -0.07,
       "z_h2": 0.87,
       "fw_p": 1.0,
       "rate_ratio": 1.073,
@@ -9710,7 +9892,7 @@
       "z_h1": -0.63,
       "z_h2": 0.12,
       "fw_p": 1.0,
-      "rate_ratio": 0.954,
+      "rate_ratio": 0.953,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9721,7 +9903,7 @@
       "z": -2.49,
       "z_h1": -2.7,
       "z_h2": -0.82,
-      "fw_p": 0.308,
+      "fw_p": 0.336,
       "rate_ratio": 0.681,
       "stands_out": false,
       "persistent": false,
@@ -9730,11 +9912,11 @@
      {
       "n": 15,
       "count": 61,
-      "z": 0.31,
-      "z_h1": 0.5,
+      "z": 0.3,
+      "z_h1": 0.49,
       "z_h2": -0.07,
       "fw_p": 1.0,
-      "rate_ratio": 1.039,
+      "rate_ratio": 1.038,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9742,11 +9924,11 @@
      {
       "n": 16,
       "count": 59,
-      "z": 0.04,
-      "z_h1": 0.13,
+      "z": 0.03,
+      "z_h1": 0.12,
       "z_h2": -0.07,
       "fw_p": 1.0,
-      "rate_ratio": 1.005,
+      "rate_ratio": 1.004,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9755,10 +9937,10 @@
       "n": 17,
       "count": 56,
       "z": -0.36,
-      "z_h1": -1.38,
+      "z_h1": -1.39,
       "z_h2": 0.87,
       "fw_p": 1.0,
-      "rate_ratio": 0.954,
+      "rate_ratio": 0.953,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9770,7 +9952,7 @@
       "z_h1": 1.25,
       "z_h2": -1.01,
       "fw_p": 1.0,
-      "rate_ratio": 1.022,
+      "rate_ratio": 1.021,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9778,11 +9960,11 @@
      {
       "n": 19,
       "count": 52,
-      "z": -0.89,
+      "z": -0.9,
       "z_h1": -0.63,
       "z_h2": -0.63,
       "fw_p": 1.0,
-      "rate_ratio": 0.886,
+      "rate_ratio": 0.885,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9790,11 +9972,11 @@
      {
       "n": 20,
       "count": 55,
-      "z": -0.49,
+      "z": -0.5,
       "z_h1": -1.57,
       "z_h2": 0.87,
       "fw_p": 1.0,
-      "rate_ratio": 0.937,
+      "rate_ratio": 0.936,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9805,20 +9987,20 @@
       "z": -1.56,
       "z_h1": -1.57,
       "z_h2": -0.63,
-      "fw_p": 0.973,
-      "rate_ratio": 0.801,
+      "fw_p": 0.976,
+      "rate_ratio": 0.8,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 22,
-      "count": 58,
-      "z": -0.09,
-      "z_h1": -0.25,
-      "z_h2": 0.12,
+      "count": 59,
+      "z": 0.03,
+      "z_h1": -0.26,
+      "z_h2": 0.31,
       "fw_p": 1.0,
-      "rate_ratio": 0.988,
+      "rate_ratio": 1.004,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9826,8 +10008,8 @@
      {
       "n": 23,
       "count": 65,
-      "z": 0.84,
-      "z_h1": 2.2,
+      "z": 0.83,
+      "z_h1": 2.19,
       "z_h2": -1.01,
       "fw_p": 1.0,
       "rate_ratio": 1.107,
@@ -9838,11 +10020,11 @@
      {
       "n": 24,
       "count": 76,
-      "z": 2.3,
-      "z_h1": 2.76,
+      "z": 2.29,
+      "z_h1": 2.75,
       "z_h2": 0.49,
-      "fw_p": 0.473,
-      "rate_ratio": 1.295,
+      "fw_p": 0.504,
+      "rate_ratio": 1.294,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9851,10 +10033,10 @@
       "n": 25,
       "count": 53,
       "z": -0.76,
-      "z_h1": -0.44,
+      "z_h1": -0.45,
       "z_h2": -0.63,
       "fw_p": 1.0,
-      "rate_ratio": 0.903,
+      "rate_ratio": 0.902,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9863,10 +10045,10 @@
       "n": 26,
       "count": 60,
       "z": 0.17,
-      "z_h1": -0.44,
+      "z_h1": -0.45,
       "z_h2": 0.68,
       "fw_p": 1.0,
-      "rate_ratio": 1.022,
+      "rate_ratio": 1.021,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9875,10 +10057,10 @@
       "n": 27,
       "count": 54,
       "z": -0.63,
-      "z_h1": -0.06,
+      "z_h1": -0.07,
       "z_h2": -0.82,
       "fw_p": 1.0,
-      "rate_ratio": 0.92,
+      "rate_ratio": 0.919,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -9897,67 +10079,67 @@
    "recommendation": {
     "status": "clean",
     "headline": "Clean frame \u2014 no hot pixels. Don't favor or avoid any ball.",
-    "detail": "No ball clears the family-wise bar (|z| \u2265 3.29) and repeats in both halves. Every ball is equally likely, so the best play is screened random tickets with a different Mega on each \u2014 same expected value, ~5\u00d7 the chance of any Mega prize versus repeating one, and fewer split jackpots."
+    "detail": "No ball clears the family-wise bar (|z| \u2265 3.28) and repeats in both halves. Every ball is equally likely, so the best play is screened random tickets with a different Mega on each \u2014 same expected value, ~5\u00d7 the chance of any Mega prize versus repeating one, and fewer split jackpots."
    },
    "tickets": [
     {
      "whites": [
+      7,
       13,
-      21,
-      25,
-      27,
-      42
+      14,
+      22,
+      38
      ],
-     "special": 18
+     "special": 1
     },
     {
      "whites": [
-      6,
-      16,
-      21,
-      43,
-      44
+      5,
+      14,
+      31,
+      33,
+      39
      ],
-     "special": 9
+     "special": 20
     },
     {
      "whites": [
       10,
       19,
-      22,
-      35,
-      37
-     ],
-     "special": 4
-    },
-    {
-     "whites": [
-      21,
-      25,
       26,
       30,
-      45
+      42
      ],
-     "special": 6
+     "special": 15
     },
     {
      "whites": [
-      2,
-      7,
-      16,
-      31,
+      17,
+      24,
+      26,
+      27,
+      32
+     ],
+     "special": 16
+    },
+    {
+     "whites": [
+      6,
+      18,
+      33,
+      36,
       37
      ],
-     "special": 10
+     "special": 3
     }
    ],
    "sims": 2000
   },
   "crowd": {
    "available": true,
-   "draws": 106,
+   "draws": 107,
    "first_date": "2025-11-05",
-   "last_date": "2026-11-07",
+   "last_date": "2026-11-11",
    "alpha": 0.01,
    "min_oos": 50,
    "white": {
@@ -9967,15 +10149,15 @@
      1.095,
      1.057,
      1.092,
-     1.062,
+     1.063,
      1.106,
      1.087,
-     1.074,
+     1.073,
      1.054,
      1.081,
      1.06,
-     1.003,
-     1.007,
+     1.004,
+     1.006,
      1.039,
      1.014,
      1.021,
@@ -10012,10 +10194,10 @@
     ],
     "ridge": 3.0,
     "oos": {
-     "draws": 66,
-     "r": 0.823,
+     "draws": 67,
+     "r": 0.824,
      "p": 0.0,
-     "skill": 0.676
+     "skill": 0.677
     },
     "gate_open": true,
     "least": [
@@ -10024,8 +10206,8 @@
      43,
      46,
      40,
-     44,
      45,
+     44,
      34
     ],
     "most": [
@@ -10038,15 +10220,15 @@
      6,
      12
     ],
-    "index_sd": 0.0228
+    "index_sd": 0.0227
    },
    "special": {
     "ratio": [
-     0.971,
+     0.97,
      0.978,
      0.988,
      0.988,
-     1.084,
+     1.085,
      1.002,
      1.108,
      1.036,
@@ -10063,7 +10245,7 @@
      0.971,
      0.987,
      0.942,
-     1.006,
+     0.994,
      0.975,
      0.934,
      0.976,
@@ -10100,8 +10282,8 @@
      1
     ],
     "oos": {
-     "draws": 106,
-     "r": 0.53,
+     "draws": 107,
+     "r": 0.531,
      "p": 0.0005
     },
     "gate_open": true
@@ -10119,9 +10301,9 @@
       },
       {
        "label": "middle third",
-       "draws": 36,
+       "draws": 37,
        "index": 1.001,
-       "prize": 95.8
+       "prize": 95.7
       },
       {
        "label": "most crowded third",
@@ -10138,13 +10320,13 @@
        "label": "least crowded third",
        "draws": 22,
        "index": 0.982,
-       "prize": 101.2
+       "prize": 100.5
       },
       {
        "label": "middle third",
-       "draws": 22,
+       "draws": 23,
        "index": 1.003,
-       "prize": 96.2
+       "prize": 96.7
       },
       {
        "label": "most crowded third",
@@ -10161,58 +10343,58 @@
    "tickets": [
     {
      "whites": [
-      22,
-      26,
-      31,
-      36,
+      24,
+      28,
+      30,
+      34,
+      46
+     ],
+     "special": 27,
+     "crowd": 0.816
+    },
+    {
+     "whites": [
+      18,
+      23,
+      32,
+      38,
       44
      ],
-     "special": 21,
+     "special": 25,
+     "crowd": 0.791
+    },
+    {
+     "whites": [
+      21,
+      29,
+      31,
+      35,
+      42
+     ],
+     "special": 16,
      "crowd": 0.786
     },
     {
      "whites": [
-      23,
-      24,
-      32,
-      41,
-      46
+      14,
+      33,
+      39,
+      43,
+      45
      ],
-     "special": 1,
+     "special": 19,
      "crowd": 0.802
     },
     {
      "whites": [
-      2,
-      13,
-      38,
-      45,
+      16,
+      37,
+      40,
+      41,
       47
      ],
-     "special": 16,
-     "crowd": 0.794
-    },
-    {
-     "whites": [
-      19,
-      25,
-      34,
-      37,
-      43
-     ],
      "special": 24,
-     "crowd": 0.727
-    },
-    {
-     "whites": [
-      17,
-      18,
-      30,
-      40,
-      42
-     ],
-     "special": 25,
-     "crowd": 0.813
+     "crowd": 0.714
     }
    ],
    "pixels": {
@@ -10223,7 +10405,7 @@
    },
    "compare": {
     "recommended": {
-     "any_prize": 0.2078,
+     "any_prize": 0.2091,
      "distinct_whites": 25,
      "distinct_specials": 5
     }
@@ -10232,7 +10414,7 @@
     "white_used": true,
     "special_used": true,
     "disjoint": true,
-    "crowd_mean": 0.784
+    "crowd_mean": 0.782
    }
   },
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
@@ -10241,29 +10423,29 @@
    "reason": "Cluster method requires drawn order. CA conducts mechanical draws but publishes sorted numbers only \u2014 no stream archive or drawing videos exist. A CPRA records request for the official draw sequence is the remaining path."
   },
   "last_result": {
-   "draw_date": "2026-11-07",
+   "draw_date": "2026-11-11",
    "whites": [
-    5,
-    9,
-    24,
-    40,
+    6,
+    13,
+    27,
+    42,
     44
    ],
-   "special": 7,
-   "scored_against_picks_from": "2026-11-07T17:58:05+00:00",
+   "special": 22,
+   "scored_against_picks_from": "2026-11-11T20:04:03+00:00",
    "tickets": [
     {
      "source": "recommended",
      "index": 0,
      "whites": [
-      8,
-      24,
-      34,
-      44,
-      46
+      22,
+      26,
+      31,
+      36,
+      44
      ],
-     "special": 4,
-     "white_hits": 2,
+     "special": 21,
+     "white_hits": 1,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -10272,14 +10454,14 @@
      "source": "recommended",
      "index": 1,
      "whites": [
-      18,
       23,
-      29,
-      40,
-      42
+      24,
+      32,
+      41,
+      46
      ],
-     "special": 23,
-     "white_hits": 1,
+     "special": 1,
+     "white_hits": 0,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -10288,14 +10470,14 @@
      "source": "recommended",
      "index": 2,
      "whites": [
-      26,
-      33,
-      35,
+      2,
+      13,
+      38,
       45,
-      46
+      47
      ],
-     "special": 14,
-     "white_hits": 0,
+     "special": 16,
+     "white_hits": 1,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -10304,14 +10486,14 @@
      "source": "recommended",
      "index": 3,
      "whites": [
-      8,
-      27,
-      33,
-      40,
-      44
+      19,
+      25,
+      34,
+      37,
+      43
      ],
-     "special": 5,
-     "white_hits": 2,
+     "special": 24,
+     "white_hits": 0,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -10320,14 +10502,14 @@
      "source": "recommended",
      "index": 4,
      "whites": [
-      6,
-      8,
-      19,
-      43,
-      45
+      17,
+      18,
+      30,
+      40,
+      42
      ],
-     "special": 24,
-     "white_hits": 0,
+     "special": 25,
+     "white_hits": 1,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -10337,12 +10519,114 @@
     "tier": null,
     "source": "recommended",
     "ticket": 0,
-    "white_hits": 2,
+    "white_hits": 1,
     "special_hit": false
    },
    "significant": false
   },
   "ledger": [
+   {
+    "draw_date": "2026-11-11",
+    "whites": [
+     6,
+     13,
+     27,
+     42,
+     44
+    ],
+    "special": 22,
+    "scored_against_picks_from": "2026-11-11T20:04:03+00:00",
+    "tickets": [
+     {
+      "source": "recommended",
+      "index": 0,
+      "whites": [
+       22,
+       26,
+       31,
+       36,
+       44
+      ],
+      "special": 21,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 1,
+      "whites": [
+       23,
+       24,
+       32,
+       41,
+       46
+      ],
+      "special": 1,
+      "white_hits": 0,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 2,
+      "whites": [
+       2,
+       13,
+       38,
+       45,
+       47
+      ],
+      "special": 16,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 3,
+      "whites": [
+       19,
+       25,
+       34,
+       37,
+       43
+      ],
+      "special": 24,
+      "white_hits": 0,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 4,
+      "whites": [
+       17,
+       18,
+       30,
+       40,
+       42
+      ],
+      "special": 25,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     }
+    ],
+    "best": {
+     "tier": null,
+     "source": "recommended",
+     "ticket": 0,
+     "white_hits": 1,
+     "special_hit": false
+    },
+    "significant": false
+   },
    {
     "draw_date": "2026-11-07",
     "whites": [
