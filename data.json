@@ -1,33 +1,33 @@
 {
- "updated": "2026-11-16T22:47:23+00:00",
+ "updated": "2026-11-17T13:56:30+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
   "special_max": 26,
   "odds": 292201338,
   "latest": {
-   "date": "2026-11-14",
+   "date": "2026-11-16",
    "whites": [
-    9,
-    44,
-    49,
-    51,
-    68
+    17,
+    35,
+    48,
+    60,
+    69
    ],
    "drawn_order": [
-    49,
-    9,
-    68,
-    51,
-    44
+    69,
+    17,
+    60,
+    35,
+    48
    ],
-   "special": 4,
+   "special": 17,
    "power_play": "2"
   },
   "stats": {
-   "draws": 1433,
+   "draws": 1434,
    "first_date": "2015-10-07",
-   "last_date": "2026-11-14",
+   "last_date": "2026-11-16",
    "white_hot": [
     [
      21,
@@ -62,12 +62,12 @@
      118
     ],
     [
-     33,
+     69,
      118
     ],
     [
-     69,
-     117
+     33,
+     118
     ]
    ],
    "white_cold": [
@@ -101,7 +101,7 @@
     ],
     [
      35,
-     93
+     94
     ],
     [
      51,
@@ -144,11 +144,11 @@
      46
     ],
     [
-     17,
-     46
+     15,
+     47
     ],
     [
-     15,
+     17,
      47
     ],
     [
@@ -157,111 +157,111 @@
     ]
    ],
    "chi2_white": {
-    "stat": 75.7,
+    "stat": 75.4,
     "df": 68,
-    "p": 0.2434,
+    "p": 0.2519,
     "uniform": true
    },
    "chi2_special": {
-    "stat": 25.2,
+    "stat": 24.9,
     "df": 25,
-    "p": 0.4495,
+    "p": 0.4679,
     "uniform": true
    }
   },
   "picks": [
    {
     "whites": [
-     17,
-     23,
-     29,
-     31,
-     50
+     9,
+     11,
+     19,
+     26,
+     32
     ],
     "special": 9
    },
    {
     "whites": [
-     2,
-     26,
-     31,
-     33,
-     51
+     1,
+     12,
+     16,
+     23,
+     64
     ],
-    "special": 12
+    "special": 25
    },
    {
     "whites": [
-     8,
-     20,
-     31,
-     37,
-     46
-    ],
-    "special": 12
-   },
-   {
-    "whites": [
-     11,
-     14,
-     22,
-     31,
-     62
-    ],
-    "special": 8
-   },
-   {
-    "whites": [
-     3,
-     22,
-     31,
-     35,
+     23,
+     28,
+     34,
+     51,
      61
     ],
-    "special": 6
+    "special": 4
+   },
+   {
+    "whites": [
+     26,
+     29,
+     31,
+     32,
+     66
+    ],
+    "special": 7
+   },
+   {
+    "whites": [
+     4,
+     12,
+     30,
+     40,
+     67
+    ],
+    "special": 20
    }
   ],
   "frame": {
    "white": {
-    "frames": 1433,
-    "expected": 103.84,
-    "sd": 9.81,
-    "z_crit": 3.38,
+    "frames": 1434,
+    "expected": 103.91,
+    "sd": 9.82,
+    "z_crit": 3.37,
     "band2": [
-     84.2,
+     84.3,
      123.5
     ],
     "bandfw": [
-     70.7,
+     70.8,
      137.0
     ],
     "chi2": {
-     "stat": 75.7,
+     "stat": 75.4,
      "df": 68,
-     "p": 0.2434
+     "p": 0.2519
     },
     "persistence": {
-     "r": 0.233,
-     "p": 0.019,
+     "r": 0.227,
+     "p": 0.026,
      "halves": [
-      716,
+      717,
       717
      ],
-     "r_interleaved": 0.002,
-     "p_interleaved": 0.476,
+     "r_interleaved": 0.001,
+     "p_interleaved": 0.497,
      "fixed_pattern": false
     },
-    "min_detectable_bias": 0.319,
-    "frames_for_10pct": 14613,
+    "min_detectable_bias": 0.318,
+    "frames_for_10pct": 14539,
     "balls": [
      {
       "n": 1,
       "count": 95,
-      "z": -0.9,
-      "z_h1": 0.02,
+      "z": -0.91,
+      "z_h1": 0.01,
       "z_h2": -1.29,
       "fw_p": 1.0,
-      "rate_ratio": 0.915,
+      "rate_ratio": 0.914,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -269,11 +269,11 @@
      {
       "n": 2,
       "count": 104,
-      "z": 0.02,
-      "z_h1": -0.13,
+      "z": 0.01,
+      "z_h1": -0.14,
       "z_h2": 0.15,
       "fw_p": 1.0,
-      "rate_ratio": 1.002,
+      "rate_ratio": 1.001,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -281,8 +281,8 @@
      {
       "n": 3,
       "count": 115,
-      "z": 1.14,
-      "z_h1": 1.17,
+      "z": 1.13,
+      "z_h1": 1.16,
       "z_h2": 0.44,
       "fw_p": 1.0,
       "rate_ratio": 1.107,
@@ -294,7 +294,7 @@
       "n": 4,
       "count": 102,
       "z": -0.19,
-      "z_h1": -1.42,
+      "z_h1": -1.43,
       "z_h2": 1.16,
       "fw_p": 1.0,
       "rate_ratio": 0.982,
@@ -305,11 +305,11 @@
      {
       "n": 5,
       "count": 95,
-      "z": -0.9,
-      "z_h1": -0.27,
+      "z": -0.91,
+      "z_h1": -0.28,
       "z_h2": -1.0,
       "fw_p": 1.0,
-      "rate_ratio": 0.915,
+      "rate_ratio": 0.914,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -317,11 +317,11 @@
      {
       "n": 6,
       "count": 109,
-      "z": 0.53,
-      "z_h1": 0.16,
+      "z": 0.52,
+      "z_h1": 0.15,
       "z_h2": 0.58,
       "fw_p": 1.0,
-      "rate_ratio": 1.05,
+      "rate_ratio": 1.049,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -330,10 +330,10 @@
       "n": 7,
       "count": 97,
       "z": -0.7,
-      "z_h1": -0.42,
+      "z_h1": -0.43,
       "z_h2": -0.57,
       "fw_p": 1.0,
-      "rate_ratio": 0.934,
+      "rate_ratio": 0.933,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -342,10 +342,10 @@
       "n": 8,
       "count": 98,
       "z": -0.6,
-      "z_h1": 0.16,
-      "z_h2": -1.0,
+      "z_h1": 0.29,
+      "z_h2": -1.15,
       "fw_p": 1.0,
-      "rate_ratio": 0.944,
+      "rate_ratio": 0.943,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -354,10 +354,10 @@
       "n": 9,
       "count": 97,
       "z": -0.7,
-      "z_h1": -1.14,
+      "z_h1": -1.15,
       "z_h2": 0.15,
       "fw_p": 1.0,
-      "rate_ratio": 0.934,
+      "rate_ratio": 0.933,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -365,11 +365,11 @@
      {
       "n": 10,
       "count": 95,
-      "z": -0.9,
-      "z_h1": 0.59,
+      "z": -0.91,
+      "z_h1": 0.58,
       "z_h2": -1.87,
       "fw_p": 1.0,
-      "rate_ratio": 0.915,
+      "rate_ratio": 0.914,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -377,11 +377,11 @@
      {
       "n": 11,
       "count": 101,
-      "z": -0.29,
-      "z_h1": -0.56,
+      "z": -0.3,
+      "z_h1": -0.57,
       "z_h2": 0.15,
       "fw_p": 1.0,
-      "rate_ratio": 0.973,
+      "rate_ratio": 0.972,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -389,11 +389,11 @@
      {
       "n": 12,
       "count": 106,
-      "z": 0.22,
-      "z_h1": 0.31,
+      "z": 0.21,
+      "z_h1": 0.29,
       "z_h2": 0.01,
       "fw_p": 1.0,
-      "rate_ratio": 1.021,
+      "rate_ratio": 1.02,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -401,10 +401,10 @@
      {
       "n": 13,
       "count": 80,
-      "z": -2.43,
-      "z_h1": -1.71,
+      "z": -2.44,
+      "z_h1": -1.72,
       "z_h2": -1.72,
-      "fw_p": 0.697,
+      "fw_p": 0.696,
       "rate_ratio": 0.77,
       "stands_out": false,
       "persistent": true,
@@ -414,10 +414,10 @@
       "n": 14,
       "count": 97,
       "z": -0.7,
-      "z_h1": 0.02,
+      "z_h1": 0.01,
       "z_h2": -1.0,
       "fw_p": 1.0,
-      "rate_ratio": 0.934,
+      "rate_ratio": 0.933,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -425,8 +425,8 @@
      {
       "n": 15,
       "count": 99,
-      "z": -0.49,
-      "z_h1": 0.02,
+      "z": -0.5,
+      "z_h1": 0.01,
       "z_h2": -0.71,
       "fw_p": 1.0,
       "rate_ratio": 0.953,
@@ -438,22 +438,22 @@
       "n": 16,
       "count": 113,
       "z": 0.93,
-      "z_h1": 0.45,
+      "z_h1": 0.44,
       "z_h2": 0.87,
       "fw_p": 1.0,
-      "rate_ratio": 1.088,
+      "rate_ratio": 1.087,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 17,
-      "count": 102,
-      "z": -0.19,
-      "z_h1": 0.74,
-      "z_h2": -1.0,
+      "count": 103,
+      "z": -0.09,
+      "z_h1": 0.73,
+      "z_h2": -0.86,
       "fw_p": 1.0,
-      "rate_ratio": 0.982,
+      "rate_ratio": 0.991,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -461,8 +461,8 @@
      {
       "n": 18,
       "count": 107,
-      "z": 0.32,
-      "z_h1": -0.27,
+      "z": 0.31,
+      "z_h1": -0.28,
       "z_h2": 0.73,
       "fw_p": 1.0,
       "rate_ratio": 1.03,
@@ -473,11 +473,11 @@
      {
       "n": 19,
       "count": 106,
-      "z": 0.22,
-      "z_h1": -0.7,
+      "z": 0.21,
+      "z_h1": -0.71,
       "z_h2": 1.01,
       "fw_p": 1.0,
-      "rate_ratio": 1.021,
+      "rate_ratio": 1.02,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -486,7 +486,7 @@
       "n": 20,
       "count": 102,
       "z": -0.19,
-      "z_h1": 0.88,
+      "z_h1": 0.87,
       "z_h2": -1.15,
       "fw_p": 1.0,
       "rate_ratio": 0.982,
@@ -497,11 +497,11 @@
      {
       "n": 21,
       "count": 128,
-      "z": 2.46,
-      "z_h1": 2.32,
+      "z": 2.45,
+      "z_h1": 2.31,
       "z_h2": 1.16,
-      "fw_p": 0.653,
-      "rate_ratio": 1.233,
+      "fw_p": 0.651,
+      "rate_ratio": 1.232,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -510,10 +510,10 @@
       "n": 22,
       "count": 92,
       "z": -1.21,
-      "z_h1": -0.13,
+      "z_h1": -0.14,
       "z_h2": -1.58,
       "fw_p": 1.0,
-      "rate_ratio": 0.886,
+      "rate_ratio": 0.885,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -521,11 +521,11 @@
      {
       "n": 23,
       "count": 120,
-      "z": 1.65,
-      "z_h1": 1.89,
+      "z": 1.64,
+      "z_h1": 1.88,
       "z_h2": 0.44,
-      "fw_p": 1.0,
-      "rate_ratio": 1.156,
+      "fw_p": 0.999,
+      "rate_ratio": 1.155,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -533,11 +533,11 @@
      {
       "n": 24,
       "count": 101,
-      "z": -0.29,
-      "z_h1": -1.86,
+      "z": -0.3,
+      "z_h1": -1.87,
       "z_h2": 1.45,
       "fw_p": 1.0,
-      "rate_ratio": 0.973,
+      "rate_ratio": 0.972,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -545,8 +545,8 @@
      {
       "n": 25,
       "count": 91,
-      "z": -1.31,
-      "z_h1": -0.7,
+      "z": -1.32,
+      "z_h1": -0.71,
       "z_h2": -1.15,
       "fw_p": 1.0,
       "rate_ratio": 0.876,
@@ -557,11 +557,11 @@
      {
       "n": 26,
       "count": 84,
-      "z": -2.02,
-      "z_h1": -1.57,
+      "z": -2.03,
+      "z_h1": -1.58,
       "z_h2": -1.29,
-      "fw_p": 0.971,
-      "rate_ratio": 0.809,
+      "fw_p": 0.964,
+      "rate_ratio": 0.808,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -569,8 +569,8 @@
      {
       "n": 27,
       "count": 118,
-      "z": 1.44,
-      "z_h1": 0.88,
+      "z": 1.43,
+      "z_h1": 0.87,
       "z_h2": 1.16,
       "fw_p": 1.0,
       "rate_ratio": 1.136,
@@ -581,11 +581,11 @@
      {
       "n": 28,
       "count": 121,
-      "z": 1.75,
-      "z_h1": 0.88,
+      "z": 1.74,
+      "z_h1": 0.87,
       "z_h2": 1.59,
-      "fw_p": 1.0,
-      "rate_ratio": 1.165,
+      "fw_p": 0.997,
+      "rate_ratio": 1.164,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -593,8 +593,8 @@
      {
       "n": 29,
       "count": 96,
-      "z": -0.8,
-      "z_h1": -0.27,
+      "z": -0.81,
+      "z_h1": -0.28,
       "z_h2": -0.86,
       "fw_p": 1.0,
       "rate_ratio": 0.924,
@@ -606,10 +606,10 @@
       "n": 30,
       "count": 103,
       "z": -0.09,
-      "z_h1": -0.56,
+      "z_h1": -0.57,
       "z_h2": 0.44,
       "fw_p": 1.0,
-      "rate_ratio": 0.992,
+      "rate_ratio": 0.991,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -617,11 +617,11 @@
      {
       "n": 31,
       "count": 101,
-      "z": -0.29,
-      "z_h1": -0.85,
+      "z": -0.3,
+      "z_h1": -0.86,
       "z_h2": 0.44,
       "fw_p": 1.0,
-      "rate_ratio": 0.973,
+      "rate_ratio": 0.972,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -629,11 +629,11 @@
      {
       "n": 32,
       "count": 120,
-      "z": 1.65,
-      "z_h1": 2.76,
+      "z": 1.64,
+      "z_h1": 2.74,
       "z_h2": -0.43,
-      "fw_p": 1.0,
-      "rate_ratio": 1.156,
+      "fw_p": 0.999,
+      "rate_ratio": 1.155,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -641,9 +641,9 @@
      {
       "n": 33,
       "count": 118,
-      "z": 1.44,
-      "z_h1": 0.31,
-      "z_h2": 1.73,
+      "z": 1.43,
+      "z_h1": 0.44,
+      "z_h2": 1.59,
       "fw_p": 1.0,
       "rate_ratio": 1.136,
       "stands_out": false,
@@ -654,22 +654,22 @@
       "n": 34,
       "count": 87,
       "z": -1.72,
-      "z_h1": -1.86,
+      "z_h1": -1.87,
       "z_h2": -0.57,
-      "fw_p": 1.0,
-      "rate_ratio": 0.838,
+      "fw_p": 0.998,
+      "rate_ratio": 0.837,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 35,
-      "count": 93,
-      "z": -1.1,
-      "z_h1": -1.57,
-      "z_h2": 0.01,
+      "count": 94,
+      "z": -1.01,
+      "z_h1": -1.58,
+      "z_h2": 0.15,
       "fw_p": 1.0,
-      "rate_ratio": 0.896,
+      "rate_ratio": 0.905,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -678,10 +678,10 @@
       "n": 36,
       "count": 119,
       "z": 1.54,
-      "z_h1": 0.59,
+      "z_h1": 0.58,
       "z_h2": 1.59,
       "fw_p": 1.0,
-      "rate_ratio": 1.146,
+      "rate_ratio": 1.145,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -689,11 +689,11 @@
      {
       "n": 37,
       "count": 114,
-      "z": 1.04,
-      "z_h1": 0.31,
+      "z": 1.03,
+      "z_h1": 0.29,
       "z_h2": 1.16,
       "fw_p": 1.0,
-      "rate_ratio": 1.098,
+      "rate_ratio": 1.097,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -702,10 +702,10 @@
       "n": 38,
       "count": 97,
       "z": -0.7,
-      "z_h1": -0.13,
+      "z_h1": -0.14,
       "z_h2": -0.86,
       "fw_p": 1.0,
-      "rate_ratio": 0.934,
+      "rate_ratio": 0.933,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -713,11 +713,11 @@
      {
       "n": 39,
       "count": 109,
-      "z": 0.53,
-      "z_h1": 0.88,
+      "z": 0.52,
+      "z_h1": 0.87,
       "z_h2": -0.14,
       "fw_p": 1.0,
-      "rate_ratio": 1.05,
+      "rate_ratio": 1.049,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -725,11 +725,11 @@
      {
       "n": 40,
       "count": 105,
-      "z": 0.12,
-      "z_h1": 0.45,
+      "z": 0.11,
+      "z_h1": 0.44,
       "z_h2": -0.28,
       "fw_p": 1.0,
-      "rate_ratio": 1.011,
+      "rate_ratio": 1.01,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -737,8 +737,8 @@
      {
       "n": 41,
       "count": 94,
-      "z": -1.0,
-      "z_h1": 0.16,
+      "z": -1.01,
+      "z_h1": 0.15,
       "z_h2": -1.58,
       "fw_p": 1.0,
       "rate_ratio": 0.905,
@@ -750,7 +750,7 @@
       "n": 42,
       "count": 102,
       "z": -0.19,
-      "z_h1": -0.42,
+      "z_h1": -0.43,
       "z_h2": 0.15,
       "fw_p": 1.0,
       "rate_ratio": 0.982,
@@ -761,8 +761,8 @@
      {
       "n": 43,
       "count": 99,
-      "z": -0.49,
-      "z_h1": -0.85,
+      "z": -0.5,
+      "z_h1": -0.86,
       "z_h2": 0.15,
       "fw_p": 1.0,
       "rate_ratio": 0.953,
@@ -773,11 +773,11 @@
      {
       "n": 44,
       "count": 114,
-      "z": 1.04,
-      "z_h1": -0.13,
+      "z": 1.03,
+      "z_h1": -0.14,
       "z_h2": 1.59,
       "fw_p": 1.0,
-      "rate_ratio": 1.098,
+      "rate_ratio": 1.097,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -785,11 +785,11 @@
      {
       "n": 45,
       "count": 104,
-      "z": 0.02,
-      "z_h1": -0.13,
+      "z": 0.01,
+      "z_h1": -0.14,
       "z_h2": 0.15,
       "fw_p": 1.0,
-      "rate_ratio": 1.002,
+      "rate_ratio": 1.001,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -797,11 +797,11 @@
      {
       "n": 46,
       "count": 84,
-      "z": -2.02,
-      "z_h1": -1.71,
+      "z": -2.03,
+      "z_h1": -1.72,
       "z_h2": -1.15,
-      "fw_p": 0.971,
-      "rate_ratio": 0.809,
+      "fw_p": 0.964,
+      "rate_ratio": 0.808,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -809,23 +809,23 @@
      {
       "n": 47,
       "count": 114,
-      "z": 1.04,
-      "z_h1": 0.31,
+      "z": 1.03,
+      "z_h1": 0.29,
       "z_h2": 1.16,
       "fw_p": 1.0,
-      "rate_ratio": 1.098,
+      "rate_ratio": 1.097,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 48,
-      "count": 94,
-      "z": -1.0,
-      "z_h1": -0.13,
-      "z_h2": -1.29,
+      "count": 95,
+      "z": -0.91,
+      "z_h1": -0.14,
+      "z_h2": -1.15,
       "fw_p": 1.0,
-      "rate_ratio": 0.905,
+      "rate_ratio": 0.914,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -834,9 +834,9 @@
       "n": 49,
       "count": 86,
       "z": -1.82,
-      "z_h1": -1.42,
+      "z_h1": -1.43,
       "z_h2": -1.15,
-      "fw_p": 0.995,
+      "fw_p": 0.996,
       "rate_ratio": 0.828,
       "stands_out": false,
       "persistent": false,
@@ -845,11 +845,11 @@
      {
       "n": 50,
       "count": 105,
-      "z": 0.12,
-      "z_h1": -0.13,
+      "z": 0.11,
+      "z_h1": -0.14,
       "z_h2": 0.29,
       "fw_p": 1.0,
-      "rate_ratio": 1.011,
+      "rate_ratio": 1.01,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -857,8 +857,8 @@
      {
       "n": 51,
       "count": 94,
-      "z": -1.0,
-      "z_h1": -1.14,
+      "z": -1.01,
+      "z_h1": -1.15,
       "z_h2": -0.28,
       "fw_p": 1.0,
       "rate_ratio": 0.905,
@@ -869,8 +869,8 @@
      {
       "n": 52,
       "count": 110,
-      "z": 0.63,
-      "z_h1": 0.02,
+      "z": 0.62,
+      "z_h1": 0.01,
       "z_h2": 0.87,
       "fw_p": 1.0,
       "rate_ratio": 1.059,
@@ -881,8 +881,8 @@
      {
       "n": 53,
       "count": 115,
-      "z": 1.14,
-      "z_h1": 1.46,
+      "z": 1.13,
+      "z_h1": 1.45,
       "z_h2": 0.15,
       "fw_p": 1.0,
       "rate_ratio": 1.107,
@@ -893,11 +893,11 @@
      {
       "n": 54,
       "count": 101,
-      "z": -0.29,
-      "z_h1": 0.02,
+      "z": -0.3,
+      "z_h1": 0.01,
       "z_h2": -0.43,
       "fw_p": 1.0,
-      "rate_ratio": 0.973,
+      "rate_ratio": 0.972,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -905,9 +905,9 @@
      {
       "n": 55,
       "count": 96,
-      "z": -0.8,
-      "z_h1": -0.85,
-      "z_h2": -0.28,
+      "z": -0.81,
+      "z_h1": -0.71,
+      "z_h2": -0.43,
       "fw_p": 1.0,
       "rate_ratio": 0.924,
       "stands_out": false,
@@ -917,11 +917,11 @@
      {
       "n": 56,
       "count": 104,
-      "z": 0.02,
-      "z_h1": -0.27,
+      "z": 0.01,
+      "z_h1": -0.28,
       "z_h2": 0.29,
       "fw_p": 1.0,
-      "rate_ratio": 1.002,
+      "rate_ratio": 1.001,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -930,7 +930,7 @@
       "n": 57,
       "count": 102,
       "z": -0.19,
-      "z_h1": -0.27,
+      "z_h1": -0.28,
       "z_h2": 0.01,
       "fw_p": 1.0,
       "rate_ratio": 0.982,
@@ -941,11 +941,11 @@
      {
       "n": 58,
       "count": 100,
-      "z": -0.39,
-      "z_h1": -1.14,
+      "z": -0.4,
+      "z_h1": -1.15,
       "z_h2": 0.58,
       "fw_p": 1.0,
-      "rate_ratio": 0.963,
+      "rate_ratio": 0.962,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -954,22 +954,22 @@
       "n": 59,
       "count": 113,
       "z": 0.93,
-      "z_h1": 1.31,
-      "z_h2": 0.01,
+      "z_h1": 1.45,
+      "z_h2": -0.14,
       "fw_p": 1.0,
-      "rate_ratio": 1.088,
+      "rate_ratio": 1.087,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 60,
-      "count": 96,
-      "z": -0.8,
-      "z_h1": -0.85,
-      "z_h2": -0.28,
+      "count": 97,
+      "z": -0.7,
+      "z_h1": -0.86,
+      "z_h2": -0.14,
       "fw_p": 1.0,
-      "rate_ratio": 0.924,
+      "rate_ratio": 0.933,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -977,11 +977,11 @@
      {
       "n": 61,
       "count": 127,
-      "z": 2.36,
-      "z_h1": 2.61,
+      "z": 2.35,
+      "z_h1": 2.6,
       "z_h2": 0.73,
-      "fw_p": 0.746,
-      "rate_ratio": 1.223,
+      "fw_p": 0.747,
+      "rate_ratio": 1.222,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -990,10 +990,10 @@
       "n": 62,
       "count": 113,
       "z": 0.93,
-      "z_h1": 1.17,
-      "z_h2": 0.15,
+      "z_h1": 1.3,
+      "z_h2": 0.01,
       "fw_p": 1.0,
-      "rate_ratio": 1.088,
+      "rate_ratio": 1.087,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1001,11 +1001,11 @@
      {
       "n": 63,
       "count": 117,
-      "z": 1.34,
-      "z_h1": 1.75,
+      "z": 1.33,
+      "z_h1": 1.73,
       "z_h2": 0.15,
       "fw_p": 1.0,
-      "rate_ratio": 1.127,
+      "rate_ratio": 1.126,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1013,10 +1013,10 @@
      {
       "n": 64,
       "count": 126,
-      "z": 2.26,
-      "z_h1": 1.03,
+      "z": 2.25,
+      "z_h1": 1.01,
       "z_h2": 2.17,
-      "fw_p": 0.83,
+      "fw_p": 0.832,
       "rate_ratio": 1.213,
       "stands_out": false,
       "persistent": false,
@@ -1025,8 +1025,8 @@
      {
       "n": 65,
       "count": 94,
-      "z": -1.0,
-      "z_h1": -0.7,
+      "z": -1.01,
+      "z_h1": -0.71,
       "z_h2": -0.71,
       "fw_p": 1.0,
       "rate_ratio": 0.905,
@@ -1038,10 +1038,10 @@
       "n": 66,
       "count": 103,
       "z": -0.09,
-      "z_h1": -0.56,
+      "z_h1": -0.57,
       "z_h2": 0.44,
       "fw_p": 1.0,
-      "rate_ratio": 0.992,
+      "rate_ratio": 0.991,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1049,11 +1049,11 @@
      {
       "n": 67,
       "count": 104,
-      "z": 0.02,
-      "z_h1": 0.16,
+      "z": 0.01,
+      "z_h1": 0.15,
       "z_h2": -0.14,
       "fw_p": 1.0,
-      "rate_ratio": 1.002,
+      "rate_ratio": 1.001,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1061,23 +1061,23 @@
      {
       "n": 68,
       "count": 100,
-      "z": -0.39,
-      "z_h1": -0.27,
+      "z": -0.4,
+      "z_h1": -0.28,
       "z_h2": -0.28,
       "fw_p": 1.0,
-      "rate_ratio": 0.963,
+      "rate_ratio": 0.962,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 69,
-      "count": 117,
-      "z": 1.34,
-      "z_h1": 1.31,
-      "z_h2": 0.58,
+      "count": 118,
+      "z": 1.43,
+      "z_h1": 1.3,
+      "z_h2": 0.73,
       "fw_p": 1.0,
-      "rate_ratio": 1.127,
+      "rate_ratio": 1.136,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1094,45 +1094,45 @@
     "dead": []
    },
    "special": {
-    "frames": 1433,
-    "expected": 55.12,
+    "frames": 1434,
+    "expected": 55.15,
     "sd": 7.28,
-    "z_crit": 3.04,
+    "z_crit": 3.14,
     "band2": [
      40.6,
      69.7
     ],
     "bandfw": [
-     33.0,
-     77.2
+     32.3,
+     78.0
     ],
     "chi2": {
-     "stat": 25.2,
+     "stat": 24.9,
      "df": 25,
-     "p": 0.4495
+     "p": 0.4679
     },
     "persistence": {
-     "r": -0.286,
-     "p": 0.928,
+     "r": -0.299,
+     "p": 0.939,
      "halves": [
-      716,
+      717,
       717
      ],
-     "r_interleaved": -0.192,
-     "p_interleaved": 0.842,
+     "r_interleaved": -0.191,
+     "p_interleaved": 0.829,
      "fixed_pattern": false
     },
-    "min_detectable_bias": 0.401,
-    "frames_for_10pct": 23073,
+    "min_detectable_bias": 0.414,
+    "frames_for_10pct": 24606,
     "balls": [
      {
       "n": 1,
       "count": 60,
       "z": 0.67,
-      "z_h1": -0.49,
+      "z_h1": -0.5,
       "z_h2": 1.44,
       "fw_p": 1.0,
-      "rate_ratio": 1.089,
+      "rate_ratio": 1.088,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1141,10 +1141,10 @@
       "n": 2,
       "count": 56,
       "z": 0.12,
-      "z_h1": -0.49,
+      "z_h1": -0.5,
       "z_h2": 0.66,
       "fw_p": 1.0,
-      "rate_ratio": 1.016,
+      "rate_ratio": 1.015,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1153,7 +1153,7 @@
       "n": 3,
       "count": 59,
       "z": 0.53,
-      "z_h1": 0.67,
+      "z_h1": 0.66,
       "z_h2": 0.08,
       "fw_p": 1.0,
       "rate_ratio": 1.07,
@@ -1165,10 +1165,10 @@
       "n": 4,
       "count": 67,
       "z": 1.63,
-      "z_h1": 0.67,
+      "z_h1": 0.66,
       "z_h2": 1.64,
-      "fw_p": 0.958,
-      "rate_ratio": 1.216,
+      "fw_p": 0.959,
+      "rate_ratio": 1.215,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1176,11 +1176,11 @@
      {
       "n": 5,
       "count": 61,
-      "z": 0.81,
-      "z_h1": -0.49,
+      "z": 0.8,
+      "z_h1": -0.5,
       "z_h2": 1.64,
       "fw_p": 1.0,
-      "rate_ratio": 1.107,
+      "rate_ratio": 1.106,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1189,7 +1189,7 @@
       "n": 6,
       "count": 52,
       "z": -0.43,
-      "z_h1": 0.67,
+      "z_h1": 0.66,
       "z_h2": -1.28,
       "fw_p": 1.0,
       "rate_ratio": 0.943,
@@ -1201,10 +1201,10 @@
       "n": 7,
       "count": 48,
       "z": -0.98,
-      "z_h1": -1.27,
+      "z_h1": -1.28,
       "z_h2": -0.11,
       "fw_p": 1.0,
-      "rate_ratio": 0.871,
+      "rate_ratio": 0.87,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1212,11 +1212,11 @@
      {
       "n": 8,
       "count": 46,
-      "z": -1.25,
+      "z": -1.26,
       "z_h1": 0.28,
       "z_h2": -2.05,
       "fw_p": 0.999,
-      "rate_ratio": 0.835,
+      "rate_ratio": 0.834,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1225,7 +1225,7 @@
       "n": 9,
       "count": 59,
       "z": 0.53,
-      "z_h1": -0.1,
+      "z_h1": -0.11,
       "z_h2": 0.86,
       "fw_p": 1.0,
       "rate_ratio": 1.07,
@@ -1237,7 +1237,7 @@
       "n": 10,
       "count": 51,
       "z": -0.57,
-      "z_h1": 0.48,
+      "z_h1": 0.47,
       "z_h2": -1.28,
       "fw_p": 1.0,
       "rate_ratio": 0.925,
@@ -1248,11 +1248,11 @@
      {
       "n": 11,
       "count": 49,
-      "z": -0.84,
-      "z_h1": -0.1,
+      "z": -0.85,
+      "z_h1": -0.11,
       "z_h2": -1.08,
       "fw_p": 1.0,
-      "rate_ratio": 0.889,
+      "rate_ratio": 0.888,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1261,10 +1261,10 @@
       "n": 12,
       "count": 48,
       "z": -0.98,
-      "z_h1": -1.46,
+      "z_h1": -1.47,
       "z_h2": 0.08,
       "fw_p": 1.0,
-      "rate_ratio": 0.871,
+      "rate_ratio": 0.87,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1272,11 +1272,11 @@
      {
       "n": 13,
       "count": 54,
-      "z": -0.15,
-      "z_h1": 0.48,
+      "z": -0.16,
+      "z_h1": 0.47,
       "z_h2": -0.69,
       "fw_p": 1.0,
-      "rate_ratio": 0.98,
+      "rate_ratio": 0.979,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1284,11 +1284,11 @@
      {
       "n": 14,
       "count": 68,
-      "z": 1.77,
-      "z_h1": -0.3,
+      "z": 1.76,
+      "z_h1": -0.31,
       "z_h2": 2.8,
-      "fw_p": 0.903,
-      "rate_ratio": 1.234,
+      "fw_p": 0.901,
+      "rate_ratio": 1.233,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1296,11 +1296,11 @@
      {
       "n": 15,
       "count": 47,
-      "z": -1.11,
-      "z_h1": -0.88,
+      "z": -1.12,
+      "z_h1": -0.89,
       "z_h2": -0.69,
       "fw_p": 1.0,
-      "rate_ratio": 0.853,
+      "rate_ratio": 0.852,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1311,20 +1311,20 @@
       "z": -2.08,
       "z_h1": -1.08,
       "z_h2": -1.86,
-      "fw_p": 0.649,
-      "rate_ratio": 0.726,
+      "fw_p": 0.622,
+      "rate_ratio": 0.725,
       "stands_out": false,
       "persistent": false,
       "pixel": null
      },
      {
       "n": 17,
-      "count": 46,
-      "z": -1.25,
-      "z_h1": -0.1,
-      "z_h2": -1.67,
-      "fw_p": 0.999,
-      "rate_ratio": 0.835,
+      "count": 47,
+      "z": -1.12,
+      "z_h1": -0.11,
+      "z_h2": -1.47,
+      "fw_p": 1.0,
+      "rate_ratio": 0.852,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1332,11 +1332,11 @@
      {
       "n": 18,
       "count": 62,
-      "z": 0.95,
-      "z_h1": 2.03,
-      "z_h2": -0.69,
+      "z": 0.94,
+      "z_h1": 2.22,
+      "z_h2": -0.89,
       "fw_p": 1.0,
-      "rate_ratio": 1.125,
+      "rate_ratio": 1.124,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1345,7 +1345,7 @@
       "n": 19,
       "count": 52,
       "z": -0.43,
-      "z_h1": 0.67,
+      "z_h1": 0.66,
       "z_h2": -1.28,
       "fw_p": 1.0,
       "rate_ratio": 0.943,
@@ -1357,10 +1357,10 @@
       "n": 20,
       "count": 63,
       "z": 1.08,
-      "z_h1": -0.49,
+      "z_h1": -0.5,
       "z_h2": 2.02,
       "fw_p": 1.0,
-      "rate_ratio": 1.143,
+      "rate_ratio": 1.142,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1368,10 +1368,10 @@
      {
       "n": 21,
       "count": 65,
-      "z": 1.36,
-      "z_h1": 1.06,
+      "z": 1.35,
+      "z_h1": 1.05,
       "z_h2": 0.86,
-      "fw_p": 0.995,
+      "fw_p": 0.997,
       "rate_ratio": 1.179,
       "stands_out": false,
       "persistent": false,
@@ -1384,7 +1384,7 @@
       "z_h1": -0.69,
       "z_h2": -0.69,
       "fw_p": 1.0,
-      "rate_ratio": 0.871,
+      "rate_ratio": 0.87,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1392,11 +1392,11 @@
      {
       "n": 23,
       "count": 54,
-      "z": -0.15,
-      "z_h1": -1.66,
+      "z": -0.16,
+      "z_h1": -1.67,
       "z_h2": 1.44,
       "fw_p": 1.0,
-      "rate_ratio": 0.98,
+      "rate_ratio": 0.979,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1405,10 +1405,10 @@
       "n": 24,
       "count": 63,
       "z": 1.08,
-      "z_h1": 2.81,
+      "z_h1": 2.8,
       "z_h2": -1.28,
       "fw_p": 1.0,
-      "rate_ratio": 1.143,
+      "rate_ratio": 1.142,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1416,11 +1416,11 @@
      {
       "n": 25,
       "count": 61,
-      "z": 0.81,
-      "z_h1": -0.49,
+      "z": 0.8,
+      "z_h1": -0.5,
       "z_h2": 1.64,
       "fw_p": 1.0,
-      "rate_ratio": 1.107,
+      "rate_ratio": 1.106,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1428,11 +1428,11 @@
      {
       "n": 26,
       "count": 54,
-      "z": -0.15,
+      "z": -0.16,
       "z_h1": 0.28,
       "z_h2": -0.5,
       "fw_p": 1.0,
-      "rate_ratio": 0.98,
+      "rate_ratio": 0.979,
       "stands_out": false,
       "persistent": false,
       "pixel": null
@@ -1451,98 +1451,98 @@
    "recommendation": {
     "status": "clean",
     "headline": "Clean frame \u2014 no hot pixels. Don't favor or avoid any ball.",
-    "detail": "No ball clears the family-wise bar (|z| \u2265 3.38) and repeats in both halves. Every ball is equally likely, so the best play is screened random tickets with a different Powerball on each \u2014 same expected value, ~5\u00d7 the chance of any Powerball prize versus repeating one, and fewer split jackpots."
+    "detail": "No ball clears the family-wise bar (|z| \u2265 3.37) and repeats in both halves. Every ball is equally likely, so the best play is screened random tickets with a different Powerball on each \u2014 same expected value, ~5\u00d7 the chance of any Powerball prize versus repeating one, and fewer split jackpots."
    },
    "tickets": [
     {
      "whites": [
-      24,
-      27,
-      28,
+      19,
+      21,
+      32,
+      33,
+      38
+     ],
+     "special": 22
+    },
+    {
+     "whites": [
+      18,
+      22,
       35,
-      49
+      46,
+      61
      ],
-     "special": 25
+     "special": 23
     },
     {
      "whites": [
-      3,
-      7,
-      23,
-      51,
-      55
+      18,
+      28,
+      29,
+      65,
+      67
      ],
-     "special": 14
-    },
-    {
-     "whites": [
-      4,
-      24,
-      31,
-      56,
-      69
-     ],
-     "special": 13
+     "special": 2
     },
     {
      "whites": [
       15,
-      26,
-      51,
-      63,
-      69
+      31,
+      32,
+      56,
+      61
      ],
-     "special": 17
+     "special": 18
     },
     {
      "whites": [
-      7,
-      18,
-      25,
-      51,
-      58
+      6,
+      16,
+      19,
+      26,
+      33
      ],
-     "special": 21
+     "special": 8
     }
    ],
    "sims": 2000
   },
   "crowd": {
    "available": true,
-   "draws": 121,
+   "draws": 122,
    "first_date": "2026-02-07",
-   "last_date": "2026-11-14",
+   "last_date": "2026-11-16",
    "alpha": 0.01,
    "min_oos": 50,
    "white": {
     "ratio": [
-     1.12,
-     1.112,
-     1.124,
+     1.119,
+     1.111,
+     1.123,
      1.098,
      1.107,
-     1.128,
+     1.127,
      1.13,
-     1.13,
-     1.109,
+     1.129,
+     1.108,
      1.111,
-     1.118,
-     1.111,
-     1.06,
+     1.117,
+     1.11,
+     1.059,
      1.059,
      1.046,
+     1.07,
      1.071,
-     1.069,
      1.055,
-     1.069,
-     1.061,
+     1.068,
+     1.06,
      1.058,
-     1.033,
-     1.081,
+     1.032,
+     1.08,
      1.031,
-     1.041,
-     1.045,
-     1.039,
+     1.04,
+     1.044,
+     1.038,
      1.037,
      1.028,
      0.994,
@@ -1550,20 +1550,20 @@
      0.971,
      0.986,
      0.963,
-     0.969,
+     0.973,
      0.986,
      0.976,
      0.943,
      0.973,
      0.953,
      0.95,
-     0.971,
+     0.97,
      0.952,
      0.969,
      0.958,
      0.958,
      0.965,
-     0.923,
+     0.926,
      0.934,
      0.92,
      0.913,
@@ -1572,26 +1572,26 @@
      0.942,
      0.93,
      0.938,
-     0.925,
+     0.926,
      0.925,
      0.921,
-     0.912,
+     0.916,
      0.903,
      0.925,
      0.921,
      0.903,
-     0.89,
-     0.923,
+     0.891,
+     0.922,
      0.914,
      0.897,
-     0.93
+     0.935
     ],
     "ridge": 10.0,
     "oos": {
-     "draws": 81,
+     "draws": 82,
      "r": 0.851,
      "p": 0.0,
-     "skill": 0.675
+     "skill": 0.674
     },
     "gate_open": true,
     "least": [
@@ -1599,9 +1599,9 @@
      68,
      64,
      61,
-     60,
      51,
      67,
+     60,
      50
     ],
     "most": [
@@ -1612,38 +1612,38 @@
      1,
      11,
      2,
-     12
+     10
     ],
-    "index_sd": 0.0323
+    "index_sd": 0.0322
    },
    "special": {
     "ratio": [
      0.997,
      1.008,
      0.977,
-     0.968,
+     0.967,
      1.031,
-     1.023,
-     1.071,
-     1.027,
      1.024,
-     0.974,
-     1.042,
-     0.989,
-     1.084,
+     1.073,
+     1.028,
+     1.024,
+     0.973,
+     1.043,
+     0.988,
+     1.085,
      0.989,
      0.99,
      1.002,
-     1.036,
+     1.047,
      0.993,
-     0.948,
+     0.947,
      1.022,
-     0.962,
-     0.96,
+     0.961,
+     0.959,
      1.007,
      0.987,
-     0.946,
-     0.962
+     0.945,
+     0.961
     ],
     "seen": [
      1,
@@ -1674,11 +1674,11 @@
      1
     ],
     "oos": {
-     "draws": 119,
-     "r": 0.249,
-     "p": 0.01249
+     "draws": 120,
+     "r": 0.264,
+     "p": 0.0075
     },
-    "gate_open": false
+    "gate_open": true
    },
    "payoff": {
     "tier": "4 of 5",
@@ -1689,13 +1689,13 @@
        "label": "least crowded third",
        "draws": 40,
        "index": 0.96,
-       "prize": 487.6
+       "prize": 486.9
       },
       {
        "label": "middle third",
-       "draws": 41,
-       "index": 0.996,
-       "prize": 435.4
+       "draws": 42,
+       "index": 0.995,
+       "prize": 433.7
       },
       {
        "label": "most crowded third",
@@ -1711,14 +1711,14 @@
       {
        "label": "least crowded third",
        "draws": 27,
-       "index": 0.964,
-       "prize": 475.1
+       "index": 0.963,
+       "prize": 470.6
       },
       {
        "label": "middle third",
-       "draws": 27,
-       "index": 0.998,
-       "prize": 435.7
+       "draws": 28,
+       "index": 0.997,
+       "prize": 436.5
       },
       {
        "label": "most crowded third",
@@ -1731,32 +1731,32 @@
    }
   },
   "order_test": {
-   "draws": 1433,
+   "draws": 1434,
    "perms": 5000,
    "results": [
     {
      "name": "lag-1 correlation (ball i vs ball i+1)",
-     "observed": -0.0133,
-     "null_mean": -0.0183,
-     "p": 0.6277
+     "observed": -0.0137,
+     "null_mean": -0.0186,
+     "p": 0.6425
     },
     {
      "name": "mean |step| between successive balls",
-     "observed": 23.3747,
-     "null_mean": 23.3954,
-     "p": 0.8928
+     "observed": 23.3816,
+     "null_mean": 23.4012,
+     "p": 0.9028
     },
     {
      "name": "position effect (var of position means)",
-     "observed": 0.3367,
-     "null_mean": 0.2265,
-     "p": 0.2112
+     "observed": 0.3393,
+     "null_mean": 0.2285,
+     "p": 0.2086
     },
     {
      "name": "mean value of first ball drawn",
-     "observed": 34.7795,
-     "null_mean": 35.3366,
-     "p": 0.2414
+     "observed": 34.8033,
+     "null_mean": 35.361,
+     "p": 0.2464
     }
    ],
    "dependence_detected": false
@@ -1765,8 +1765,8 @@
    "window": 270,
    "density": 0.77,
    "window_dates": [
-    "2025-02-24",
-    "2026-11-14"
+    "2025-02-26",
+    "2026-11-16"
    ],
    "pools": [
     [
@@ -1791,8 +1791,8 @@
     ],
     [
      44,
-     40,
-     37
+     42,
+     40
     ]
    ],
    "tickets": [
@@ -1818,6 +1818,24 @@
      "whites": [
       13,
       21,
+      42,
+      48,
+      53
+     ],
+     "positional": [
+      21,
+      13,
+      48,
+      53,
+      42
+     ],
+     "score": -33.0,
+     "best_past_overlap": 3
+    },
+    {
+     "whites": [
+      13,
+      21,
       40,
       48,
       52
@@ -1836,16 +1854,16 @@
      "whites": [
       13,
       21,
-      37,
+      42,
       48,
-      53
+      52
      ],
      "positional": [
       21,
       13,
       48,
-      53,
-      37
+      52,
+      42
      ],
      "score": -33.0,
      "best_past_overlap": 3
@@ -1867,66 +1885,48 @@
      ],
      "score": -33.0,
      "best_past_overlap": 3
-    },
-    {
-     "whites": [
-      13,
-      21,
-      37,
-      48,
-      52
-     ],
-     "positional": [
-      21,
-      13,
-      48,
-      52,
-      37
-     ],
-     "score": -33.0,
-     "best_past_overlap": 3
     }
    ],
-   "special_pick": 4,
+   "special_pick": 14,
    "special_cluster": [
-    1,
-    9
+    10,
+    17
    ],
    "backtest": {
     "window": 270,
-    "tested": 1163,
-    "tickets": 5815,
+    "tested": 1164,
+    "tickets": 5820,
     "tallies": [
      3880,
-     1676,
+     1681,
      232,
      27,
      0,
      0
     ],
-    "mean_matches": 0.3819,
+    "mean_matches": 0.3825,
     "random_mean": 0.3623,
-    "mean_ratio": 1.0542,
+    "mean_ratio": 1.0556,
     "obs3": 27,
-    "exp3": 10.6,
-    "z3": 5.04,
+    "exp3": 10.61,
+    "z3": 5.03,
     "special_hits": 48,
-    "special_preds": 1163,
-    "special_rate": 0.0413,
+    "special_preds": 1164,
+    "special_rate": 0.0412,
     "special_random": 0.0385,
     "exact": {
-     "draws": 1163,
-     "obs": 2221,
-     "exp": 2106.9,
-     "ratio": 1.054,
-     "z": 1.4,
-     "p": 0.0806
+     "draws": 1164,
+     "obs": 2226,
+     "exp": 2108.7,
+     "ratio": 1.056,
+     "z": 1.44,
+     "p": 0.075
     },
     "exact_special": {
-     "draws": 1163,
+     "draws": 1164,
      "hits": 48,
-     "exp": 44.7,
-     "p": 0.3294
+     "exp": 44.8,
+     "p": 0.3316
     }
    },
    "tuning": {
@@ -1945,58 +1945,58 @@
    "tickets": [
     {
      "whites": [
-      27,
-      37,
-      51,
-      53,
-      58
-     ],
-     "special": 19,
-     "crowd": 0.734
-    },
-    {
-     "whites": [
-      41,
-      55,
-      61,
-      62,
-      66
-     ],
-     "special": 22,
-     "crowd": 0.591
-    },
-    {
-     "whites": [
-      52,
-      57,
+      15,
+      59,
       60,
       63,
-      65
+      67
      ],
-     "special": 15,
-     "crowd": 0.573
+     "special": 10,
+     "crowd": 0.691
     },
     {
      "whites": [
-      42,
-      48,
-      50,
-      54,
+      32,
+      34,
+      38,
+      46,
+      50
+     ],
+     "special": 19,
+     "crowd": 0.702
+    },
+    {
+     "whites": [
+      24,
+      43,
+      49,
+      57,
+      62
+     ],
+     "special": 3,
+     "crowd": 0.745
+    },
+    {
+     "whites": [
+      29,
+      40,
+      44,
+      56,
+      64
+     ],
+     "special": 21,
+     "crowd": 0.752
+    },
+    {
+     "whites": [
+      31,
+      35,
+      45,
+      52,
       68
      ],
-     "special": 6,
-     "crowd": 0.676
-    },
-    {
-     "whites": [
-      38,
-      45,
-      46,
-      67,
-      69
-     ],
-     "special": 26,
-     "crowd": 0.665
+     "special": 4,
+     "crowd": 0.752
     }
    ],
    "gate": {
@@ -2004,29 +2004,29 @@
     "min_draws": 100,
     "alpha": 0.01,
     "whites": {
-     "draws": 15,
-     "obs": 24,
-     "exp": 27.2,
-     "ratio": 0.883,
-     "z": -0.34,
-     "p": 0.6326
+     "draws": 16,
+     "obs": 29,
+     "exp": 29.0,
+     "ratio": 1.0,
+     "z": 0.0,
+     "p": 0.4994
     },
     "special": {
-     "draws": 15,
+     "draws": 16,
      "hits": 2,
      "exp": 0.6,
-     "p": 0.1116
+     "p": 0.1244
     },
     "open_whites": false,
     "open_special": false
    },
    "insample": {
-    "draws": 1163,
-    "obs": 2221,
-    "exp": 2106.9,
-    "ratio": 1.054,
-    "z": 1.4,
-    "p": 0.0806
+    "draws": 1164,
+    "obs": 2226,
+    "exp": 2108.7,
+    "ratio": 1.056,
+    "z": 1.44,
+    "p": 0.075
    },
    "pixels": {
     "hot": [],
@@ -2036,46 +2036,46 @@
    },
    "compare": {
     "recommended": {
-     "any_prize": 0.1984,
+     "any_prize": 0.1998,
      "distinct_whites": 25,
      "distinct_specials": 5
     },
     "cluster_raw": {
-     "any_prize": 0.0438,
+     "any_prize": 0.0439,
      "distinct_whites": 8,
      "distinct_specials": 1
     }
    },
    "crowd": {
     "white_used": true,
-    "special_used": false,
+    "special_used": true,
     "disjoint": true,
-    "crowd_mean": 0.648
+    "crowd_mean": 0.728
    }
   },
   "last_result": {
-   "draw_date": "2026-11-14",
+   "draw_date": "2026-11-16",
    "whites": [
-    9,
-    44,
-    49,
-    51,
-    68
+    17,
+    35,
+    48,
+    60,
+    69
    ],
-   "special": 4,
-   "scored_against_picks_from": "2026-11-14T18:41:33+00:00",
+   "special": 17,
+   "scored_against_picks_from": "2026-11-16T22:47:23+00:00",
    "tickets": [
     {
      "source": "recommended",
      "index": 0,
      "whites": [
-      32,
-      58,
-      64,
-      65,
-      69
+      27,
+      37,
+      51,
+      53,
+      58
      ],
-     "special": 14,
+     "special": 19,
      "white_hits": 0,
      "special_hit": false,
      "tier": null,
@@ -2085,14 +2085,14 @@
      "source": "recommended",
      "index": 1,
      "whites": [
-      21,
-      45,
-      46,
+      41,
+      55,
       61,
-      68
+      62,
+      66
      ],
-     "special": 25,
-     "white_hits": 1,
+     "special": 22,
+     "white_hits": 0,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -2101,13 +2101,13 @@
      "source": "recommended",
      "index": 2,
      "whites": [
-      24,
-      40,
-      48,
-      49,
-      67
+      52,
+      57,
+      60,
+      63,
+      65
      ],
-     "special": 3,
+     "special": 15,
      "white_hits": 1,
      "special_hit": false,
      "tier": null,
@@ -2117,13 +2117,13 @@
      "source": "recommended",
      "index": 3,
      "whites": [
-      37,
       42,
-      51,
-      55,
-      66
+      48,
+      50,
+      54,
+      68
      ],
-     "special": 7,
+     "special": 6,
      "white_hits": 1,
      "special_hit": false,
      "tier": null,
@@ -2133,14 +2133,14 @@
      "source": "recommended",
      "index": 4,
      "whites": [
-      29,
-      34,
-      50,
-      52,
-      63
+      38,
+      45,
+      46,
+      67,
+      69
      ],
-     "special": 8,
-     "white_hits": 0,
+     "special": 26,
+     "white_hits": 1,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -2155,8 +2155,8 @@
       48,
       53
      ],
-     "special": 14,
-     "white_hits": 0,
+     "special": 4,
+     "white_hits": 1,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -2167,12 +2167,12 @@
      "whites": [
       13,
       21,
-      42,
+      40,
       48,
-      53
+      52
      ],
-     "special": 14,
-     "white_hits": 0,
+     "special": 4,
+     "white_hits": 1,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -2183,12 +2183,12 @@
      "whites": [
       13,
       21,
-      40,
+      37,
       48,
-      52
+      53
      ],
-     "special": 14,
-     "white_hits": 0,
+     "special": 4,
+     "white_hits": 1,
      "special_hit": false,
      "tier": null,
      "significant": false
@@ -2196,22 +2196,6 @@
     {
      "source": "cluster",
      "index": 3,
-     "whites": [
-      13,
-      21,
-      42,
-      48,
-      52
-     ],
-     "special": 14,
-     "white_hits": 0,
-     "special_hit": false,
-     "tier": null,
-     "significant": false
-    },
-    {
-     "source": "cluster",
-     "index": 4,
      "whites": [
       13,
       21,
@@ -2219,7 +2203,23 @@
       48,
       53
      ],
-     "special": 14,
+     "special": 4,
+     "white_hits": 1,
+     "special_hit": false,
+     "tier": null,
+     "significant": false
+    },
+    {
+     "source": "cluster",
+     "index": 4,
+     "whites": [
+      13,
+      21,
+      37,
+      48,
+      52
+     ],
+     "special": 4,
      "white_hits": 1,
      "special_hit": false,
      "tier": null,
@@ -2229,13 +2229,195 @@
    "best": {
     "tier": null,
     "source": "recommended",
-    "ticket": 1,
+    "ticket": 2,
     "white_hits": 1,
     "special_hit": false
    },
    "significant": false
   },
   "ledger": [
+   {
+    "draw_date": "2026-11-16",
+    "whites": [
+     17,
+     35,
+     48,
+     60,
+     69
+    ],
+    "special": 17,
+    "scored_against_picks_from": "2026-11-16T22:47:23+00:00",
+    "tickets": [
+     {
+      "source": "recommended",
+      "index": 0,
+      "whites": [
+       27,
+       37,
+       51,
+       53,
+       58
+      ],
+      "special": 19,
+      "white_hits": 0,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 1,
+      "whites": [
+       41,
+       55,
+       61,
+       62,
+       66
+      ],
+      "special": 22,
+      "white_hits": 0,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 2,
+      "whites": [
+       52,
+       57,
+       60,
+       63,
+       65
+      ],
+      "special": 15,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 3,
+      "whites": [
+       42,
+       48,
+       50,
+       54,
+       68
+      ],
+      "special": 6,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "recommended",
+      "index": 4,
+      "whites": [
+       38,
+       45,
+       46,
+       67,
+       69
+      ],
+      "special": 26,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "cluster",
+      "index": 0,
+      "whites": [
+       13,
+       21,
+       40,
+       48,
+       53
+      ],
+      "special": 4,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "cluster",
+      "index": 1,
+      "whites": [
+       13,
+       21,
+       40,
+       48,
+       52
+      ],
+      "special": 4,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "cluster",
+      "index": 2,
+      "whites": [
+       13,
+       21,
+       37,
+       48,
+       53
+      ],
+      "special": 4,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "cluster",
+      "index": 3,
+      "whites": [
+       13,
+       21,
+       44,
+       48,
+       53
+      ],
+      "special": 4,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     },
+     {
+      "source": "cluster",
+      "index": 4,
+      "whites": [
+       13,
+       21,
+       37,
+       48,
+       52
+      ],
+      "special": 4,
+      "white_hits": 1,
+      "special_hit": false,
+      "tier": null,
+      "significant": false
+     }
+    ],
+    "best": {
+     "tier": null,
+     "source": "recommended",
+     "ticket": 2,
+     "white_hits": 1,
+     "special_hit": false
+    },
+    "significant": false
+   },
    {
     "draw_date": "2026-11-14",
     "whites": [
@@ -9234,53 +9416,53 @@
   "picks": [
    {
     "whites": [
-     4,
-     7,
-     14,
-     15,
-     43
+     9,
+     20,
+     22,
+     39,
+     45
     ],
-    "special": 26
+    "special": 9
    },
    {
     "whites": [
-     10,
-     16,
-     22,
-     24,
-     39
+     3,
+     38,
+     40,
+     45,
+     46
     ],
-    "special": 14
+    "special": 22
    },
    {
     "whites": [
      11,
-     20,
-     21,
+     16,
+     17,
      27,
-     35
+     47
     ],
-    "special": 24
+    "special": 22
    },
    {
     "whites": [
+     7,
+     8,
      10,
-     14,
-     29,
-     40,
-     43
+     20,
+     47
     ],
-    "special": 26
+    "special": 20
    },
    {
     "whites": [
-     2,
-     13,
-     26,
-     33,
-     43
+     1,
+     3,
+     17,
+     28,
+     45
     ],
-    "special": 7
+    "special": 3
    }
   ],
   "frame": {
@@ -10266,53 +10448,53 @@
    "tickets": [
     {
      "whites": [
-      6,
       23,
-      34,
-      42,
-      43
+      33,
+      36,
+      43,
+      46
      ],
-     "special": 1
+     "special": 7
     },
     {
      "whites": [
-      21,
+      3,
+      4,
+      9,
       23,
-      29,
-      38,
-      42
+      38
+     ],
+     "special": 19
+    },
+    {
+     "whites": [
+      12,
+      17,
+      20,
+      31,
+      41
      ],
      "special": 3
     },
     {
      "whites": [
-      5,
-      14,
-      18,
-      19,
-      45
+      3,
+      16,
+      33,
+      43,
+      46
      ],
-     "special": 2
+     "special": 8
     },
     {
      "whites": [
-      4,
-      6,
       7,
-      24,
-      37
+      32,
+      41,
+      42,
+      44
      ],
-     "special": 23
-    },
-    {
-     "whites": [
-      5,
-      24,
-      27,
-      31,
-      33
-     ],
-     "special": 17
+     "special": 16
     }
    ],
    "sims": 2000
@@ -10525,58 +10707,58 @@
    "tickets": [
     {
      "whites": [
+      13,
       19,
-      33,
-      38,
-      41,
-      46
-     ],
-     "special": 23,
-     "crowd": 0.772
-    },
-    {
-     "whites": [
-      28,
-      32,
-      35,
       36,
-      37
+      40,
+      41
      ],
      "special": 1,
-     "crowd": 0.799
+     "crowd": 0.802
     },
     {
      "whites": [
-      16,
-      20,
+      18,
+      25,
       31,
-      42,
-      44
+      35,
+      39
      ],
-     "special": 26,
-     "crowd": 0.759
+     "special": 19,
+     "crowd": 0.811
     },
     {
      "whites": [
-      13,
-      26,
-      30,
-      40,
-      43
+      17,
+      28,
+      37,
+      43,
+      46
      ],
-     "special": 25,
-     "crowd": 0.813
+     "special": 24,
+     "crowd": 0.763
     },
     {
      "whites": [
       2,
-      25,
-      34,
-      39,
+      16,
+      42,
+      44,
       45
      ],
-     "special": 21,
-     "crowd": 0.777
+     "special": 25,
+     "crowd": 0.794
+    },
+    {
+     "whites": [
+      24,
+      29,
+      33,
+      34,
+      38
+     ],
+     "special": 23,
+     "crowd": 0.811
     }
    ],
    "pixels": {
@@ -10587,7 +10769,7 @@
    },
    "compare": {
     "recommended": {
-     "any_prize": 0.2079,
+     "any_prize": 0.2093,
      "distinct_whites": 25,
      "distinct_specials": 5
     }
@@ -10596,7 +10778,7 @@
     "white_used": true,
     "special_used": true,
     "disjoint": true,
-    "crowd_mean": 0.784
+    "crowd_mean": 0.796
    }
   },
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
