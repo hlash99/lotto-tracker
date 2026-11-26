@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-26T14:34:01+00:00",
+ "updated": "2026-11-26T22:11:02+00:00",
  "powerball": {
   "special_label": "Powerball",
   "white_max": 69,
@@ -172,53 +172,53 @@
   "picks": [
    {
     "whites": [
-     3,
-     4,
-     12,
-     45,
-     69
+     2,
+     23,
+     34,
+     52,
+     55
     ],
-    "special": 2
+    "special": 1
    },
    {
     "whites": [
      1,
-     6,
-     11,
-     37,
-     50
+     10,
+     48,
+     51,
+     57
     ],
     "special": 4
    },
    {
     "whites": [
-     8,
-     22,
-     55,
-     58,
-     65
+     2,
+     7,
+     12,
+     28,
+     55
+    ],
+    "special": 19
+   },
+   {
+    "whites": [
+     21,
+     27,
+     39,
+     40,
+     48
+    ],
+    "special": 8
+   },
+   {
+    "whites": [
+     3,
+     9,
+     17,
+     36,
+     51
     ],
     "special": 24
-   },
-   {
-    "whites": [
-     24,
-     39,
-     43,
-     56,
-     64
-    ],
-    "special": 26
-   },
-   {
-    "whites": [
-     27,
-     30,
-     34,
-     44,
-     57
-    ],
-    "special": 2
    }
   ],
   "frame": {
@@ -1456,53 +1456,53 @@
    "tickets": [
     {
      "whites": [
-      10,
-      21,
-      53,
-      58,
-      62
-     ],
-     "special": 8
-    },
-    {
-     "whites": [
-      8,
-      24,
-      37,
-      58,
-      65
-     ],
-     "special": 11
-    },
-    {
-     "whites": [
-      11,
-      22,
-      23,
-      31,
-      64
-     ],
-     "special": 5
-    },
-    {
-     "whites": [
-      3,
-      7,
-      19,
-      45,
-      58
-     ],
-     "special": 26
-    },
-    {
-     "whites": [
-      43,
-      49,
-      51,
+      15,
+      30,
+      34,
       62,
+      66
+     ],
+     "special": 10
+    },
+    {
+     "whites": [
+      4,
+      31,
+      60,
+      64,
+      66
+     ],
+     "special": 17
+    },
+    {
+     "whites": [
+      2,
+      14,
+      37,
+      54,
       65
      ],
-     "special": 16
+     "special": 9
+    },
+    {
+     "whites": [
+      26,
+      30,
+      37,
+      55,
+      67
+     ],
+     "special": 25
+    },
+    {
+     "whites": [
+      4,
+      27,
+      36,
+      40,
+      67
+     ],
+     "special": 3
     }
    ],
    "sims": 2000
@@ -1947,56 +1947,56 @@
      "whites": [
       32,
       39,
-      42,
-      50,
-      52
+      45,
+      48,
+      62
      ],
      "special": 19,
-     "crowd": 0.699
+     "crowd": 0.682
     },
     {
      "whites": [
-      31,
-      43,
-      59,
-      61,
-      69
-     ],
-     "special": 3,
-     "crowd": 0.692
-    },
-    {
-     "whites": [
-      2,
-      41,
-      58,
-      65,
-      67
-     ],
-     "special": 4,
-     "crowd": 0.759
-    },
-    {
-     "whites": [
-      22,
-      47,
-      49,
+      17,
+      50,
       53,
-      66
+      54,
+      61
+     ],
+     "special": 26,
+     "crowd": 0.723
+    },
+    {
+     "whites": [
+      10,
+      38,
+      57,
+      64,
+      65
      ],
      "special": 21,
-     "crowd": 0.741
+     "crowd": 0.727
+    },
+    {
+     "whites": [
+      33,
+      49,
+      51,
+      63,
+      67
+     ],
+     "special": 10,
+     "crowd": 0.637
     },
     {
      "whites": [
       13,
-      34,
-      54,
-      60,
-      68
+      56,
+      58,
+      59,
+      69
      ],
-     "special": 26,
-     "crowd": 0.729
+     "special": 22,
+     "crowd": 0.718
     }
    ],
    "gate": {
@@ -2050,7 +2050,7 @@
     "white_used": true,
     "special_used": true,
     "disjoint": true,
-    "crowd_mean": 0.724
+    "crowd_mean": 0.697
    }
   },
   "last_result": {
@@ -10144,53 +10144,53 @@
   "picks": [
    {
     "whites": [
-     3,
-     13,
-     27,
-     32,
-     33
+     15,
+     18,
+     19,
+     21,
+     40
     ],
-    "special": 20
+    "special": 14
    },
    {
     "whites": [
      2,
-     6,
-     11,
-     26,
-     40
-    ],
-    "special": 11
-   },
-   {
-    "whites": [
-     7,
+     8,
      16,
-     25,
-     33,
-     43
+     21,
+     39
     ],
-    "special": 2
+    "special": 9
    },
    {
     "whites": [
-     13,
-     19,
-     20,
+     15,
+     16,
+     17,
      24,
-     43
+     33
     ],
-    "special": 24
+    "special": 18
    },
    {
     "whites": [
-     3,
-     6,
-     11,
-     20,
-     46
+     8,
+     10,
+     19,
+     22,
+     39
     ],
-    "special": 11
+    "special": 7
+   },
+   {
+    "whites": [
+     19,
+     21,
+     26,
+     32,
+     44
+    ],
+    "special": 9
    }
   ],
   "frame": {
@@ -11176,53 +11176,53 @@
    "tickets": [
     {
      "whites": [
-      3,
+      8,
       25,
-      27,
-      37,
-      45
+      36,
+      41,
+      43
      ],
-     "special": 22
+     "special": 4
     },
     {
      "whites": [
       5,
-      8,
-      28,
-      36,
-      42
-     ],
-     "special": 7
-    },
-    {
-     "whites": [
-      8,
-      16,
+      13,
       27,
-      33,
-      46
+      35,
+      43
      ],
      "special": 11
     },
     {
      "whites": [
-      9,
-      23,
-      32,
-      35,
-      39
+      8,
+      39,
+      40,
+      42,
+      45
      ],
-     "special": 5
+     "special": 23
     },
     {
      "whites": [
-      7,
+      17,
       22,
-      27,
-      32,
-      44
+      25,
+      45,
+      46
      ],
-     "special": 4
+     "special": 22
+    },
+    {
+     "whites": [
+      14,
+      20,
+      21,
+      41,
+      43
+     ],
+     "special": 3
     }
    ],
    "sims": 2000
@@ -11435,58 +11435,58 @@
    "tickets": [
     {
      "whites": [
-      18,
-      26,
-      36,
-      42,
-      47
+      19,
+      21,
+      32,
+      34,
+      42
      ],
-     "special": 27,
-     "crowd": 0.793
+     "special": 24,
+     "crowd": 0.767
     },
     {
      "whites": [
-      21,
-      30,
-      37,
-      41,
-      44
+      25,
+      31,
+      33,
+      38,
+      40
      ],
-     "special": 21,
-     "crowd": 0.73
+     "special": 16,
+     "crowd": 0.736
     },
     {
      "whites": [
       13,
-      29,
-      39,
-      45,
-      46
+      23,
+      36,
+      37,
+      41
      ],
-     "special": 24,
-     "crowd": 0.749
+     "special": 1,
+     "crowd": 0.812
     },
     {
      "whites": [
-      19,
-      20,
-      38,
-      40,
-      43
+      24,
+      26,
+      30,
+      43,
+      44
      ],
      "special": 23,
-     "crowd": 0.765
+     "crowd": 0.797
     },
     {
      "whites": [
-      1,
-      31,
-      32,
-      34,
-      35
+      28,
+      35,
+      39,
+      45,
+      47
      ],
-     "special": 16,
-     "crowd": 0.782
+     "special": 27,
+     "crowd": 0.813
     }
    ],
    "pixels": {
@@ -11497,7 +11497,7 @@
    },
    "compare": {
     "recommended": {
-     "any_prize": 0.209,
+     "any_prize": 0.2084,
      "distinct_whites": 25,
      "distinct_specials": 5
     }
@@ -11506,7 +11506,7 @@
     "white_used": true,
     "special_used": true,
     "disjoint": true,
-    "crowd_mean": 0.764
+    "crowd_mean": 0.785
    }
   },
   "order_note": "CA Lottery publishes SuperLotto numbers sorted; drawn order is not available from any official feed.",
